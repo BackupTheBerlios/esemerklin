@@ -4,5 +4,5 @@ void main(void){
 	
 	printf("\n Hallo Welt");
 	
-	printf("\n Ein kleiner Test von TAM, geschrieben von Arrass");
+	printf("\n Test von TAM, geschrieben von Arrass");
 	}
