@@ -6,5 +6,5 @@ void main(void){
 	
 	printf("\n Test von TAM, geschrieben von Arrass");
 	
-	printf("\n dieser text stammt von Fadi und Daniel")
+	printf("\n dieser text stammt von Fadi und Daniel");
 	}
