@@ -10,4 +10,6 @@ void main(void){
 	printf("\n Ich bin eure grosser Meister");
 	
 	printf("\n Bist du nicht!!!!!!");
+	
+	printf("Ein test für Tam");
 	}
