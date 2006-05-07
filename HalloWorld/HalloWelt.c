@@ -8,4 +8,6 @@ void main(void){
 	
 	printf("\n dieser text stammt von Fadi und Daniel");
 	printf("\n Ich bin eure grosser Meister");
+	
+	printf("\n Bist du nicht!!!!!!");
 	}
