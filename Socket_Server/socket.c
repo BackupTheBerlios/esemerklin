@@ -17,7 +17,7 @@
 *
 *******************************************************************************
 *
-* $Header: /home/xubuntu/berlios_backup/github/tmp-cvs/esemerklin/Repository/Socket_Server/socket.c,v 1.2 2006/06/05 19:10:23 nadorwo Exp $
+* $Header: /home/xubuntu/berlios_backup/github/tmp-cvs/esemerklin/Repository/Socket_Server/socket.c,v 1.3 2006/06/06 22:57:45 nadorwo Exp $
 *
 ******************************************************************************/
 
@@ -40,7 +40,7 @@
   because the print routines take much time
 */
 //#define TCP_ECHO_SERVER_DEBUG
-//#define  PRINT_DATA
+#define  PRINT_DATA
 
 
 
@@ -217,7 +217,7 @@ int main(void)
           	else{
           		
                	if( retval > 0){//data received
-                    #ifdef  PRINT_DATA
+                  #ifdef  PRINT_DATA
              		printf("\r\nTCPserver: Received data\r\n");
                  	for(i=0;i<retval; i++){
                    		printf("%02X ",(char)recvbuf[i]);
@@ -301,4 +301,5 @@ TCP_SERVER_DONE:
 
 
 // End of file
+
 
