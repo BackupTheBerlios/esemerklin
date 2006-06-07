@@ -1,33 +1,39 @@
 #include <iostream.h>
-#include <stdio.h>
-#include "clib.h"
+//#include <stdio.h>
 
-#include "sio_init.h"
-#include "sio_lok.h"
-#include "sio_wei.h"
+#include "Lok.h"
+#include "Weiche.h"
 
-/*
-Die Anwendung nimmt einen Parameter an, und schreibt diesen als lok_func (Geschwindigkeit)
-l.set_lok(3,args[0],1);
-*/
-void main(int argc, char *argv[])
+
+int main(int argc, char *argv[])
 {
-    	char status;
+	bool func[4] = {1,0,1,0};
+    	Lok lok(9, "pete", 1, func);
+    	//Lok lok;
+    	Weiche weiche(false, "ruma");
+    	//Weiche weiche;
     	
-    	printf("l.set_lok(3,%s,1);" , argv[1]);
-
-    //Object declaraction
-
-    SIO_INIT io;
-    SIO_LOK l;
-    SIO_WEICHE w;
-
-    // SIO configuration
-    io.set_parameter();
-    io.initialize();
-	
-    // velocity control
-    //l.set_lok(3,0x1a,1);
-    l.set_lok(3,(char)argv[1],1);	//hier wird der Parameter eingesetzt
-    status = l.velocity();
+    /*
+    weiche.SetStatus();
+	weiche.SetAddress("kaka");
+    	*/
+    	/*
+    	lok.SetSpeed(-11);
+    	lok.SetAddress("0234");
+    	lok.SetDirection();
+    	lok.SetXtrafunc(2);
+    	*/
+  	
+  	cout << "Weichendaten:" << endl;
+  	cout << "Status: " << weiche.GetStatus() << endl;
+  	cout << "Address: " << weiche.GetAddress() << endl << endl;
+  	
+    	cout << "Lokdaten:" << endl;
+    	cout << "Speed: " << lok.GetSpeed() << endl;
+    	cout << "Address: " << lok.GetAddress() << endl;
+    	cout << "Richtung: " << lok.GetDirection() << endl;
+    	for (int i=0; i<4 ; i++)
+    	    	cout << "Xtrafkt." << (i+1) << ": " << lok.GetXtrafunc(i) << endl;
+    	
+    	return 1;
 }
