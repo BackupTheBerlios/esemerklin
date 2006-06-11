@@ -79,7 +79,7 @@
 *
 *******************************************************************************
 *
-* $Header: /home/xubuntu/berlios_backup/github/tmp-cvs/esemerklin/Repository/Socket_Server/SOCKET.CPP,v 1.1 2006/06/11 10:55:11 nadorwo Exp $
+* $Header: /home/xubuntu/berlios_backup/github/tmp-cvs/esemerklin/Repository/Socket_Server/SOCKET.CPP,v 1.2 2006/06/11 11:41:44 nadorwo Exp $
 *
 ******************************************************************************/
 
@@ -369,13 +369,22 @@ void huge servertask(void)
             {
               break;
             }
+            
+            
 
             //echo received data back
             if(result>0)
             {
 
+  			  for(int i=0;i<result; i++){
+              	printf("%c",(char *)EchoServer[index].rcvbuf[i]);
+               	}//for(i=0;i<outregs.x.ax;i++)
+              printf("\r\n");
+			
               RTX_Sleep_Time(20);
               result = send(sd,bufptr,result,MSG_BLOCKING,&error);
+              
+              
               if(result == API_ERROR)
               {
                  break;
