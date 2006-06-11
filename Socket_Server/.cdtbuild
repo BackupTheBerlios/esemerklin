@@ -3,7 +3,7 @@
 
 <ManagedProjectBuildInfo>
 <project id="Socket_Server.cdt.managedbuild.target.gnu.cygwin.exe.381695173" name="Executable (Gnu on Windows)" projectType="cdt.managedbuild.target.gnu.cygwin.exe">
-<configuration id="cdt.managedbuild.config.gnu.cygwin.exe.debug.1260963716" name="Debug" description="" parent="cdt.managedbuild.config.gnu.cygwin.exe.debug" artifactName="Socket_Server" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser" artifactExtension="exe" cleanCommand="rm -rf">
+<configuration id="cdt.managedbuild.config.gnu.cygwin.exe.debug.1260963716" name="Debug" description="" parent="cdt.managedbuild.config.gnu.cygwin.exe.debug" artifactName="socketcpp" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser" artifactExtension="exe" cleanCommand="rm -rf">
 <toolChain superClass="cdt.managedbuild.toolchain.gnu.cygwin.exe.debug" id="cdt.managedbuild.toolchain.gnu.cygwin.exe.debug.2023841132" name="GCC Tool Chain">
 <builder superClass="cdt.managedbuild.target.gnu.builder.cygwin.exe.debug" id="cdt.managedbuild.target.gnu.builder.cygwin.exe.debug.410556914" name="Gnu Make.Debug" command="mingw32-make"/>
 <tool superClass="cdt.managedbuild.tool.gnu.c.compiler.cygwin.exe.debug" id="cdt.managedbuild.tool.gnu.c.compiler.cygwin.exe.debug.1298155616" name="GCC C Compiler"/>
