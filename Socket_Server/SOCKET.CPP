@@ -1,23 +1,23 @@
 /*******************************************************************************
 *
-* $Header: /home/xubuntu/berlios_backup/github/tmp-cvs/esemerklin/Repository/Socket_Server/SOCKET.CPP,v 1.3 2006/06/11 19:03:08 nadorwo Exp $
+* $Header: /home/xubuntu/berlios_backup/github/tmp-cvs/esemerklin/Repository/Socket_Server/SOCKET.CPP,v 1.4 2006/06/12 09:53:56 nadorwo Exp $
 *
 ******************************************************************************/
 
 #include "socket.h"
 
 /**
- * Fährt den Spcket Server bei einem Fehler runter. Dabei werden zuerst alle Subserver heruntergefahren 
- * die jweiligen Socketverbindungen getrennt. 
- * \param Der jeweilige eindeutige Socket
- * \param Gehlercode
+ * Fährt den Spcket Server bei einem Fehler runter. Dabei werden zuerst alle Subserver heruntergefahren die jeweiligen Socketverbindungen getrennt. 
+ * @param lsd Der jeweilige eindeutige Socketdeskriptor
+ * @param error Fehlercode
+ * @return Gibt eine 0 für erfolgreiches runterfahren aller Sockets zurück
  */ 
 int shutDownServer(int lsd, int error){
 	server_shutdown = 1;   //set shutdown flag
    printf("\r\nTCP Echoserver shutdown\r\n");
 
-   //wakeup sleeping tasks
-   for(int i=0;i<MAX_SERVER;i++)
+
+   for(int i=0;i<MAX_SERVER;i++)// wakeup sleeping tasks 
    {
       if((EchoServer[i].sd==-1) && (EchoServer[i].taskID!=-1))
       {
@@ -85,7 +85,7 @@ void initServer(){
 
 /**
  * Erstellt und startet den dk40_task
- * \return Ein Integer Wert, zurück, 0 beduetet dqbei das der TASK läuft. Ungleich 0 für Fehler 
+ * @return Ein Integer Wert, 0 bedeutet dabei das der TASK läuft. Ungleich 0 für Fehler 
  */
 int startDK40Task(){
    	int result = RTX_Create_Task(&dk40ID , &dk40taskdefblock);
@@ -101,6 +101,8 @@ int startDK40Task(){
 
 /**
  * Startet die erfoderlichen Sub Socketserver um weiter Clients zu verbinden
+ * @param Horchende Socketdeskripto, erforderlich für shitDownServer()
+ * @param Fehlercode 
  */
 void initSubServerTask(int lsd, int error){
 	 for(int i=0;i<MAX_SERVER;i++){
@@ -115,18 +117,11 @@ void initSubServerTask(int lsd, int error){
 	
 /**
  * Erstellet einen Socket der horcht
- * \param Der jeweilige Socketdiskriptor 
- * \param Fehlercode
- * \return Der Rückgabewert ist ein Integer und gibt den Socket Deskriptor an
+ * @param Der jeweilige Socketdiskriptor 
+ * @param Fehlercode
+ * @return Der Rückgabewert ist ein Integer und gibt den Socket Deskriptor an
  */ 
 int openListenSocket(int lsd,int error){
-	/**
-	 * Hiermit wird ein Socket geöffnet. D.h. nicht das eine Socketverbindung aufgebaut wird
-	 * es steht jetzt nur ein Socket zur Verfügung
-	 * \param SOCK_STREAM = 1 für TCP socket(Verbindungorientiert)
-	 * \param Fehlercode, 0 für erfolgreich
-	 * \return  -1==API_ERROR ansonsten ein erfolgreicher Socket deskriptor
-	 */
 	 int result = opensocket(SOCK_STREAM, &error);
    	 if(result == API_ERROR){
     	printf("\r\nTCP Echoserver, Open socket failed %d",error);
@@ -168,9 +163,12 @@ int main()
    printf("\r\nTCP Echoserver: Öffnen einen Socket %d",lsd);
    #endif
 
-   /**
-    * Set the listening socket option reuse
-    */
+  /**
+   * Setzt den horchenden Socket auf Wiederverwendbar ein
+   * @param lsd Den Socketdeskriptor des horchenden Sockets
+   * @param error Fehlercode
+   * @return (0) für erfolgreich, ungleich (0) für fehler
+   */
    result = setreuse(lsd,&error);
    	
    	#ifdef TCPSERV_DEBUG
@@ -180,7 +178,7 @@ int main()
    	#endif
    	
 	addr.sin_family =  PF_INET;
-	addr.sin_port   =  htons(port);
+	addr.sin_port   =  htons(port); //Konvertierung von Little Endian zu Big Endian
 	addr.sin_addr.s_addr =  0L;
 
    	result = bind(lsd,(struct sockaddr *)&addr,&error);

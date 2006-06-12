@@ -96,8 +96,8 @@ static unsigned int srv9_stack[TASK_STACKSIZE];
 static unsigned int srv10_stack[TASK_STACKSIZE];
 
 /**
- * Erweiterung der Subserver auf 10
-******************************************************************************/
+ * Einrichtung der 10 Sub-Socket-Server
+ */
 static TaskDefBlock  srv1defblock =
 {
   servertask,
@@ -218,49 +218,45 @@ static TaskDefBlock  srv10defblock =
   0,                             // time slice (if any), not supported now
   0,0,0,0                        // mailbox depth, not supported now
 };
-/******************************************************************************
- * Ende der Erweiterung der Subserver
-******************************************************************************/
 
-/******************************************************************************
-* dk40_task()
-******************************************************************************/
-void huge dk40_task(void)
-{
+
+
+/**
+ * dk40_task()
+ */
+void huge dk40_task(void){
    static unsigned char cnt=0;
 
-   while(1)
-   {
-       if(cnt>=127)
-       {
+   while(1){
+       if(cnt>=127){
          cnt = 0;
        }
-       else
-       {
+       else{
          cnt++;
        }
-       #ifdef DKXX_USE
-       outportb(IO_ADDR,cnt);
-       #endif
+       
+       	#ifdef DKXX_USE
+       	outportb(IO_ADDR,cnt);
+       	#endif
+       
        RTX_Sleep_Time(100);    /*sleep*/
    }//while(1)
-}
+}//dk40_task(void)
 
 
 
-/******************************************************************************
-* servertask()
-******************************************************************************/
-void huge servertask(void)
-{
+/**
+ * servertask()
+ */
+void huge servertask(void){
+   
    int index;
    int result;
    int error;
    int sd;
    char *bufptr;
 
-   do
-   {
+   do{
         //goto sleep
         RTX_Sleep_Request();
         //the listening server has waked us up
@@ -268,36 +264,29 @@ void huge servertask(void)
         //detect the given EchoServer socketdescriptor
         index = Get_Server_Index(RTX_Get_TaskID());
         
-
-        if(server_shutdown == 1)
-        {
+        if(server_shutdown == 1){
           break;
         }
 
         sd      = EchoServer[index].sd;
         bufptr  = (char *)EchoServer[index].rcvbuf;
-        if(sd==-1) //should not happen
-        {
+        if(sd==-1){ //should not happen
            continue;
         }
 
-        /****************************************************************/
-        //Serve the client
-        /****************************************************************/
-        do
-        {
+        /**
+         * Serve the client
+         */
+        do{
             result = recv(sd,bufptr, MAX_BUFSIZE, MSG_TIMEOUT,MAX_TIMEOUT,&error);
-            if(result==API_ERROR)
-            {
+            if(result==API_ERROR){
               break;
             }
             
-            
-
             //echo received data back
-            if(result>0)
-            {
-
+            //Sendet die empfangenen Daten zurück
+            if(result>0){
+  			  
   			  for(int i=0;i<result; i++){
               	printf("%c",(char *)EchoServer[index].rcvbuf[i]);
                	}//for(i=0;i<outregs.x.ax;i++)
@@ -305,18 +294,15 @@ void huge servertask(void)
 			
               RTX_Sleep_Time(20);
               result = send(sd,bufptr,result,MSG_BLOCKING,&error);
-              
-              
-              if(result == API_ERROR)
-              {
+              if(result == API_ERROR){
                  break;
-              }
-            }//if(result>0)
-        }
-        while(server_shutdown==0);
+              }//if(result == API_ERROR)
+             }//if(result>0)
+        }while(server_shutdown==0);
 
-        if(EchoServer[index].sd!=-1)
+        if(EchoServer[index].sd!=-1){
            closesocket(EchoServer[index].sd,&error);
+   			} 
 
         #ifdef TCPSERV_DEBUG
         printf("\r\nTCP Echosubserver: Closing connection %d socket %d\r\n",index,sd);
@@ -326,65 +312,55 @@ void huge servertask(void)
 
    }while(server_shutdown==0);
 
-
    //Removing ourself from the system, this should not happen
 
    #ifdef TCPSERV_DEBUG
    printf("\r\nTCP Echosubserver: Removing task %d  ID:%d",index,RTX_Get_TaskID());
    #endif
 
-   if(EchoServer[index].sd!=-1)
-   {
+   if(EchoServer[index].sd!=-1){
        result = closesocket(EchoServer[index].sd,&error);
-       if(result == API_ERROR)
-       {
+       if(result == API_ERROR){
           printf("\r\nTCP Echosubserver: Socket close failed %d",error);
-       }
-   }
+       }//if(result == API_ERROR)
+   	}//if(EchoServer[index].sd!=-1)
+   	
    EchoServer[index].finish = 1;    // set finish flag
-
    RTX_Delete_Task(RTX_Get_TaskID());
-}
+}//servertask(void)
 
 
 
-/******************************************************************************
-* Get_Free_Server_Task()
-*
-* return the index of the first found sleeping task at Field EchoServer
-******************************************************************************/
-int Get_Free_Server_Task(void)
-{
+/**
+ * Get_Free_Server_Task()
+ * @return Gibt den Index des ersten schlafenden und freien Servertask aus dem Feld EchoServer 
+ */
+int Get_Free_Server_Task(void){
+
   int i;
-  for(i=0;i<MAX_SERVER;i++)
-  {
-    if(EchoServer[i].sd==-1)
-    {
+  for(i=0;i<MAX_SERVER;i++){
+    if(EchoServer[i].sd==-1){
       return i;
-    }
-  }
+    }//if(EchoServer[i].sd==-1)
+  }//for(i=0;i<MAX_SERVER;i++)
   return -1;
-}
+}//Get_Free_Server_Task(void)
 
 
-/******************************************************************************
-* Get_Server_Index()
-*
-* subserver function: Detect the right entry at field echoserver of the current
-* task
-******************************************************************************/
-int Get_Server_Index(int taskID)
-{
+/*
+ * Get_Server_Index()
+ * Eine Subserver funkzion. Ermitttelt den richtigen Eintrag aus dem Feld EchoServer des übergebenen Task
+ * @param Die Task ID
+ */
+int Get_Server_Index(int taskID){
   int i;
-  for(i=0;i<MAX_SERVER;i++)
-  {
-     if(EchoServer[i].taskID==taskID)
-     {
+  for(i=0;i<MAX_SERVER;i++){
+     if(EchoServer[i].taskID==taskID){
         return i;
-     }
-  }
+     }//if(EchoServer[i].taskID==taskID)
+  }//for(i=0;i<MAX_SERVER;i++)
   return -1;
-}
+}//Get_Server_Index(int taskID)
 
 
 
