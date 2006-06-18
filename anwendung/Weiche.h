@@ -9,7 +9,7 @@ class Weiche {
 	//die gesch&uuml;tzen Attribute
 	protected:
 	bool status;	//der status der Weiche. false(0) = geradeaus, true(1) = kurve
-	char address[1024];	//die Adresse der Weiche
+	char address;	//die Adresse der Weiche
 	
 	//die &ouml;ffentlichen Methoden
 	public:
@@ -24,7 +24,7 @@ class Weiche {
 	 * \param status erwartet einen Boolean-Wert. false(0) steht f&uuml;r geradeaus und true(1) f&uuml;r Kurve
 	 * \param address erwartet einen String, welche die Adresse der Weiche repr&auml;sentiert
 	 */
-	Weiche(bool status, char* address);
+	Weiche(bool status, char address);
 	
 	/**
 	 * Switched den Status der Weiche. War sie geradeaus gestellt, steht sie nach Aufruf der Funktion auf Kurve und umgekehrt.
@@ -41,13 +41,13 @@ class Weiche {
 	 * Setzt die Adresse der Weiche auf den &uuml;bergebenen Wert.
 	 * \param address ist ein String
 	 */
-	void SetAddress(char* address);
+	void SetAddress(char address);
 	
 	/**
 	 * Liefert die aktuelle Adresse der Weiche zur&uuml;ck.
 	 * \return Es wird ein String zur&uuml;ckgegeben
 	 */
-	char* GetAddress();
+	char GetAddress();
 };
 
 #endif /*__WEICHE_H*/

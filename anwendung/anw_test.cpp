@@ -1,39 +1,43 @@
 #include <iostream.h>
-//#include <stdio.h>
+#include <fstream.h>
 
 #include "Lok.h"
 #include "Weiche.h"
+#include "Benutzer.h"
+#include "LokListe.h"
 
 
 int main(int argc, char *argv[])
 {
-	bool func[4] = {1,0,1,0};
-    	Lok lok(9, "pete", 1, func);
-    	//Lok lok;
-    	Weiche weiche(false, "ruma");
-    	//Weiche weiche;
-    	
-    /*
-    weiche.SetStatus();
-	weiche.SetAddress("kaka");
-    	*/
-    	/*
-    	lok.SetSpeed(-11);
-    	lok.SetAddress("0234");
-    	lok.SetDirection();
-    	lok.SetXtrafunc(2);
-    	*/
-  	
-  	cout << "Weichendaten:" << endl;
-  	cout << "Status: " << weiche.GetStatus() << endl;
-  	cout << "Address: " << weiche.GetAddress() << endl << endl;
-  	
-    	cout << "Lokdaten:" << endl;
-    	cout << "Speed: " << lok.GetSpeed() << endl;
-    	cout << "Address: " << lok.GetAddress() << endl;
-    	cout << "Richtung: " << lok.GetDirection() << endl;
-    	for (int i=0; i<4 ; i++)
-    	    	cout << "Xtrafkt." << (i+1) << ": " << lok.GetXtrafunc(i) << endl;
-    	
+	LokListe loks;
+	
+	Lok templok[3];
+	templok[0].SetAddress('9');
+	templok[1].SetAddress('b');
+	templok[2].SetAddress('7');
+	
+	
+	//loks.FillFromFile("./loks.txt");
+	loks.InsertLok(&templok[0]);
+	loks.InsertLok(&templok[1]);
+	loks.InsertLok(&templok[2]);
+	
+	//cout << "Ausgabe:\n";
+	/*
+	Lok* loktest = loks.GetNextLok();
+	
+	while (loktest != 0) {
+		cout << "Lok-Adresse: " << loktest->GetAddress() << endl;
+		loktest = loks.GetNextLok();
+	}
+	*/
+	loks.WriteToFile("./loksout.txt");
+	/*
+	ofstream fout("./test.txt");
+	
+	//fout.put('e');// << "Bla blub\n";
+	fout << templok[0].GetAddress() << " Test";
+	fout.close();
+	*/
     	return 1;
 }

@@ -1,14 +1,16 @@
 #include "Weiche.h"
-#include <String.h>
+//#include <String.h>
 
 Weiche::Weiche() {
 	status = false;	//geradeaus
-	strcpy(this->address, "0001");
+	this->address = 0;
+	//strcpy(this->address, "0001");
 }
 
-Weiche::Weiche(bool status, char* address) {
+Weiche::Weiche(bool status, char address) {
 	this->status = status;
-	strcpy(this->address, address);
+	this->address = address;
+	//strcpy(this->address, address);
 }
 
 void Weiche::SetStatus() {
@@ -22,10 +24,11 @@ bool Weiche::GetStatus() {
 	return status;
 }
 
-void Weiche::SetAddress(char* address) {
-	strcpy(this->address, address);
+void Weiche::SetAddress(char address) {
+	this->address = address;
+	//strcpy(this->address, address);
 }
 
-char* Weiche::GetAddress() {
+char Weiche::GetAddress() {
 	return address;
 }
