@@ -24,7 +24,7 @@ public class Stream {
     
     private PrintStream outStream;
     private BufferedReader inputStream;
-    private String stream; 
+    private String daten;
     
     
     /** Creates a new instance of Stream */
@@ -44,13 +44,22 @@ public class Stream {
     
     public String getOutStreams(){
         try {
-            stream = inputStream.readLine();
+            daten = inputStream.readLine();
             
         } catch (IOException ex) {
             ex.printStackTrace();
         }
         
-        return stream;
+        return daten;
+    }
+    
+    public PrintStream getPrinStream(){
+        return outStream;
+    }
+    
+  
+    public void sendStream(String s){
+        outStream.println(s);
     }
     
     

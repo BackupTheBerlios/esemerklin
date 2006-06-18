@@ -16,11 +16,15 @@ import java.io.IOException;
 public class NewJApplet extends javax.swing.JApplet {
     
 
+    SocketConnect socketCon;
+    Stream stream;
     
     /** Initializes the applet NewJApplet */
     public void init() {
        
-
+    socketCon = new SocketConnect();
+    stream = new Stream(socketCon.getSocket());
+    
         try {
             java.awt.EventQueue.invokeAndWait(new Runnable(){
                     public void run(){
@@ -34,19 +38,21 @@ public class NewJApplet extends javax.swing.JApplet {
         }
     }
     
-    public void start(){}
-    
-    public void stop(){
+    public void start(){
         
-       /* try{
-           socket.close();
-            }
-        catch(IOException e){
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            }    */
     }
     
+ public void destroy(){
+     
+     stream.getPrinStream().close();
+     
+     try {
+            socketCon.getSocket().close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }   
+ }   
+ 
     /** This method is called from within the init() method to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -54,21 +60,103 @@ public class NewJApplet extends javax.swing.JApplet {
      */
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents() {
+        benutzer = new javax.swing.JFormattedTextField();
+        ausgabe = new javax.swing.JFormattedTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+
+        benutzer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                benutzerActionPerformed(evt);
+            }
+        });
+        benutzer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                benutzerKeyPressed(evt);
+            }
+        });
+
+        ausgabe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ausgabeActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("eingabe");
+
+        jLabel2.setText("ausgabe");
+
+        jButton1.setText("send");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 272, Short.MAX_VALUE)
+            .add(layout.createSequentialGroup()
+                .add(52, 52, 52)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(jLabel2)
+                    .add(ausgabe, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                    .add(jLabel1)
+                    .add(benutzer))
+                .addContainerGap(88, Short.MAX_VALUE))
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(187, Short.MAX_VALUE)
+                .add(jButton1)
+                .add(72, 72, 72))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 189, Short.MAX_VALUE)
+            .add(layout.createSequentialGroup()
+                .add(53, 53, 53)
+                .add(jLabel1)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(benutzer, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jButton1)
+                .add(21, 21, 21)
+                .add(jLabel2)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(ausgabe, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+// TODO add your handling code here:
+    stream.sendStream(benutzer.getText());
+    ausgabe.setText(stream.getOutStreams());  
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void benutzerKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_benutzerKeyPressed
+// TODO add your handling code here:
+     
+    }//GEN-LAST:event_benutzerKeyPressed
+
+    private void ausgabeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ausgabeActionPerformed
+// TODO add your handling code here:
+    
+    }//GEN-LAST:event_ausgabeActionPerformed
+
+    private void benutzerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_benutzerActionPerformed
+    // TODO add your handling code here:
+    stream.sendStream(benutzer.getText());
+    ausgabe.setText(stream.getOutStreams());
+    }//GEN-LAST:event_benutzerActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFormattedTextField ausgabe;
+    private javax.swing.JFormattedTextField benutzer;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
     
 }

@@ -8,6 +8,7 @@
  */
 
 package protoyp.gui;
+
 import java.awt.TextField;
 import java.net.*;
 import java.io.*;
@@ -18,7 +19,7 @@ import java.io.*;
  */
 public class SocketConnect {
     
-    private static String inet = "169.254.9.81";
+    private static String inet = "127.0.0.1";
     private static int port = 7;
     private Socket socket = null;
     
@@ -26,37 +27,29 @@ public class SocketConnect {
     
         
     /** Creates a new instance of socketConnect */
-    public SocketConnect(){        
+    public SocketConnect(){
+        try {
+            socket = new Socket(inet,port);
+        } catch (UnknownHostException ex) {
+            ex.printStackTrace();
+            System.out.println("Keine Host gefunden");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
     
-    /*
-     * Liest Information aus dem Einkommenden Stream
-     * @return Den
-     */ 
-    public PrintStream getStream(TextField field){
-        
-        return outStream;
-        
+    public Socket getSocket(){
+        return socket;
     }
-    
-    public void setStream(){}
+    public void sendStream(){}
     
     
     public String getInet(){
         return inet;
     }
     
-        
-    public void initSocket(){
-             try {
-                socket = new Socket( inet , port);
-            } catch (UnknownHostException ex) {
-                ex.printStackTrace();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        
-  
+    public int getPort(){
+        return port;
     }
     
     
