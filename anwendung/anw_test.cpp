@@ -10,27 +10,28 @@
 int main(int argc, char *argv[])
 {
 	LokListe loks;
-	
+	/*
 	Lok templok[3];
 	templok[0].SetAddress('9');
 	templok[1].SetAddress('b');
 	templok[2].SetAddress('7');
+	*/
 	
-	
-	//loks.FillFromFile("./loks.txt");
+	loks.FillFromFile();
+	/*
 	loks.InsertLok(&templok[0]);
 	loks.InsertLok(&templok[1]);
 	loks.InsertLok(&templok[2]);
-	
+	*/
 	//cout << "Ausgabe:\n";
-	/*
+	
 	Lok* loktest = loks.GetNextLok();
 	
 	while (loktest != 0) {
 		cout << "Lok-Adresse: " << loktest->GetAddress() << endl;
 		loktest = loks.GetNextLok();
 	}
-	*/
+	
 	loks.WriteToFile("./loksout.txt");
 	/*
 	ofstream fout("./test.txt");

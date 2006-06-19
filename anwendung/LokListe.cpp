@@ -27,8 +27,12 @@ void LokListe::InsertLok(Lok* lok) {
 }
 
 Lok* LokListe::GetNextLok() {
-	Lok* templok = getcursor->GetLok();
-	
+	Lok* templok;
+	if (getcursor != 0)
+		templok = getcursor->GetLok();
+	else
+		return 0;
+		
 	getcursor = getcursor->GetNext();	//den cursor einen Knoten weiter setzen
 	return templok;
 }
@@ -54,20 +58,10 @@ void LokListe::WriteToFile(char* filename) {
 	getcursor = start;
 	
 	Lok* templok = GetNextLok();
-	int i = 0;
 	
-	while (templok != 0 && i <= 8) {
-		//file << "die ist ein test\n";
-		cout << i << "\n";
+	while (templok) {
 		file << templok->GetAddress() << "\n";
-		file << "Testtext\n";
-		cout << templok->GetAddress() << "\n";
-		
-		i++;
-		//file << GetNextLok() << "\n";
-		//templok = GetNextLok();
 		templok = GetNextLok();
 	}	//of while
-	
 	file.close();	
 }
