@@ -9,7 +9,7 @@
 
 int main(int argc, char *argv[])
 {
-	LokListe loks;
+	LokListe loks;	//erzeugt eine neue Liste
 	/*
 	Lok templok[3];
 	templok[0].SetAddress('9');
@@ -17,28 +17,32 @@ int main(int argc, char *argv[])
 	templok[2].SetAddress('7');
 	*/
 	
-	loks.FillFromFile();
+	loks.FillFromFile();	//füllt die Liste mit Kram aus der Datei loks.txt
 	/*
 	loks.InsertLok(&templok[0]);
 	loks.InsertLok(&templok[1]);
 	loks.InsertLok(&templok[2]);
 	*/
-	//cout << "Ausgabe:\n";
 	
+	//Testausgabe
 	Lok* loktest = loks.GetNextLok();
-	
 	while (loktest != 0) {
 		cout << "Lok-Adresse: " << loktest->GetAddress() << endl;
 		loktest = loks.GetNextLok();
 	}
 	
-	loks.WriteToFile("./loksout.txt");
-	/*
-	ofstream fout("./test.txt");
+	//Eine Lok löschen
+	loks.DeleteLok('3');
 	
-	//fout.put('e');// << "Bla blub\n";
-	fout << templok[0].GetAddress() << " Test";
-	fout.close();
-	*/
+	//Testausgabe
+	loktest = loks.GetNextLok();	
+	while (loktest != 0) {
+		cout << "Lok-Adresse: " << loktest->GetAddress() << endl;
+		loktest = loks.GetNextLok();
+	}
+	
+	//daten in die Datei schreiben
+	loks.WriteToFile("./loksout.txt");
+
     	return 1;
 }

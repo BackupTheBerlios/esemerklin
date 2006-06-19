@@ -4,17 +4,15 @@
 
 /**
  * Die Klasse f&uuml;r eine Lok. Sie speichert alle relevanten Informationen zu einer Lok.
- * Da für eine Lok kein Prozessabbild benötigt wird, wird hier nur die Adresse und der zugreifende Benutzer (sofern vorhanden) gespeichert.
+ * Da f&uuml;r eine Lok kein Prozessabbild ben&ouml;tigt wird, wird hier nur die Adresse und der zugreifende Benutzer (sofern vorhanden) gespeichert.
  * \author Daniel Pietzsch
  */
 class Lok {
-	//die gesch&uuml;tzen Attribute
 	protected:
 	
-	char address;
+	char address;	//Speichert die Adresse der Lok
 	Benutzer* pLokBenutzer;	//ein Zeiger auf den Benutzer, der diese Lok steuert
 	
-	//die &ouml;ffentlichen Methoden
 	public:
 	
 	/**
@@ -40,8 +38,16 @@ class Lok {
 	 */
 	char GetAddress();
 	
+	/**
+	 * Legt den Benutzer fest, der diese Lok steuert. Wichtig, um den exklusiven Zugriff zu realisieren.
+	 * \param pLokBenutzer ist ein Zeiger auf eine Instanz vom Typ Benutzer
+	 */
 	void SetBenutzer(Benutzer* pLokBenutzer);
 	
+	/**
+	 * Gibt die Adresse des Benutzers zur&uuml;ck, der diese Lok steuert
+	 * \return Zeiger auf einen Benutzer
+	 */
 	Benutzer* GetBenutzer();
 };
 

@@ -7,7 +7,6 @@ LokKnoten::LokKnoten(Lok* lok) {
 
 LokKnoten::~LokKnoten() {
 	delete lok;
-	delete next;
 }
 
 void LokKnoten::SetNext(LokKnoten* next) {

@@ -18,32 +18,28 @@
   </ul></div>
 <h1>Lok Class Reference</h1><!-- doxytag: class="Lok" --><code>#include &lt;Lok.h&gt;</code>
 <p>
-<a href="class_lok-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
+Collaboration diagram for Lok:<p><center><img src="class_lok__coll__graph.png" border="0" usemap="#_lok__coll__map" alt="Collaboration graph"></center>
+<map name="_lok__coll__map">
+<area href="class_benutzer.html" shape="rect" coords="8,7,82,34" alt="">
+</map>
+<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center><a href="class_lok-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#e010dcc9b390247ef64f680131547245">Lok</a> ()</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#a265760b1ea1b90dfa70e90ee8f4fc62">Lok</a> (int speed, char *address, bool direction, bool *xtrafunc)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#8b2b2067ea49534bd0d39d1e762794d9">Lok</a> (char address)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#466eae8a87d9e16c8b29a2a93667a643">SetSpeed</a> (int speed)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#b0f22036e2c3a1988bea63637963fa04">SetAddress</a> (char address)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#f912fa36119aacdefe9d456e8957e178">GetSpeed</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#1c628a28dd42f0300b39d0f0a5b1755c">GetAddress</a> ()</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#f569c454b3db618b168f68b093cab17e">SetXtrafunc</a> (int funcnr)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#7427bbe1d1c25b2a2f5d8bfca66cec98">SetBenutzer</a> (<a class="el" href="class_benutzer.html">Benutzer</a> *pLokBenutzer)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#c48c42abef70ae29a0f4bf496486b468">GetXtrafunc</a> (int funcnr)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#68eeb53a4768401f5d2da54705efa2e8">SetAddress</a> (char *address)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#2d4cef9ab6298c9c1f386e561022327d">GetAddress</a> ()</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#72008bb654079da82c94657c8dd65d51">SetDirection</a> ()</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#f60c0e2578ef8821f6650e7125fc848f">GetDirection</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_benutzer.html">Benutzer</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#e6043a5fdb5746b4edf8b91f4f60b06c">GetBenutzer</a> ()</td></tr>
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-Die Klasse f&uuml;r eine <a class="el" href="class_lok.html">Lok</a>. Sie speichert alle relevanten Informationen zu einer <a class="el" href="class_lok.html">Lok</a>. <dl compact><dt><b>Author:</b></dt><dd>Daniel Pietzsch </dd></dl>
+Die Klasse f&uuml;r eine <a class="el" href="class_lok.html">Lok</a>. Sie speichert alle relevanten Informationen zu einer <a class="el" href="class_lok.html">Lok</a>. Da f&uuml;r eine <a class="el" href="class_lok.html">Lok</a> kein Prozessabbild ben&ouml;tigt wird, wird hier nur die Adresse und der zugreifende <a class="el" href="class_benutzer.html">Benutzer</a> (sofern vorhanden) gespeichert. <dl compact><dt><b>Author:</b></dt><dd>Daniel Pietzsch </dd></dl>
 
 <p>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
@@ -74,7 +70,7 @@ Die Klasse f&uuml;r eine <a class="el" href="class_lok.html">Lok</a>. Sie speich
 Standardkonstruktor, der die Geschwindigkeit auf 0 setzt, die Richtung auf 1 (=geradeaus) und alle Extrafunktionen auf false (=aus). Au§erdem vergibt er irgendeine Adresse     </td>
   </tr>
 </table>
-<a class="anchor" name="a265760b1ea1b90dfa70e90ee8f4fc62"></a><!-- doxytag: member="Lok::Lok" ref="a265760b1ea1b90dfa70e90ee8f4fc62" args="(int speed, char *address, bool direction, bool *xtrafunc)" --><p>
+<a class="anchor" name="8b2b2067ea49534bd0d39d1e762794d9"></a><!-- doxytag: member="Lok::Lok" ref="8b2b2067ea49534bd0d39d1e762794d9" args="(char address)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -82,31 +78,10 @@ Standardkonstruktor, der die Geschwindigkeit auf 0 setzt, die Richtung auf 1 (=g
         <tr>
           <td class="md" nowrap valign="top">Lok::Lok           </td>
           <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top">int&nbsp;</td>
-          <td class="mdname" nowrap> <em>speed</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>char *&nbsp;</td>
-          <td class="mdname" nowrap> <em>address</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>bool&nbsp;</td>
-          <td class="mdname" nowrap> <em>direction</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>bool *&nbsp;</td>
-          <td class="mdname" nowrap> <em>xtrafunc</em></td>
-        </tr>
-        <tr>
-          <td class="md"></td>
-          <td class="md">)&nbsp;</td>
-          <td class="md" colspan="2"></td>
+          <td class="md" nowrap valign="top">char&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>address</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
         </tr>
       </table>
     </td>
@@ -122,23 +97,20 @@ Standardkonstruktor, der die Geschwindigkeit auf 0 setzt, die Richtung auf 1 (=g
 <p>
 Konstruktor, der s&auml;mtliche Attribute auf die &uuml;bergebenen Werte setzt <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>speed</em>&nbsp;</td><td>erwartet einen Integerwert zwischen 0 und 15, der die Geschwindigkeit setzt. </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>address</em>&nbsp;</td><td>erwartet einen String mit der Lokadresse </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>direction</em>&nbsp;</td><td>erwartet true(1) f&uuml;r vorw&auml;rts oder false(0) f&uuml;r r&uuml;ckw&auml;rts </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>xtrafunc</em>&nbsp;</td><td>erwartet einen Array von 4 Boolean Typen, welche die Extrafunktionen aktivieren (true) bzw. deaktivieren (false) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>address</em>&nbsp;</td><td>erwartet einen char und setzt die Adresse der <a class="el" href="class_lok.html">Lok</a> </td></tr>
   </table>
 </dl>
     </td>
   </tr>
 </table>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="2d4cef9ab6298c9c1f386e561022327d"></a><!-- doxytag: member="Lok::GetAddress" ref="2d4cef9ab6298c9c1f386e561022327d" args="()" --><p>
+<a class="anchor" name="1c628a28dd42f0300b39d0f0a5b1755c"></a><!-- doxytag: member="Lok::GetAddress" ref="1c628a28dd42f0300b39d0f0a5b1755c" args="()" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
       <table cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td class="md" nowrap valign="top">char * Lok::GetAddress           </td>
+          <td class="md" nowrap valign="top">char Lok::GetAddress           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="mdname1" valign="top" nowrap>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
@@ -156,17 +128,17 @@ Konstruktor, der s&auml;mtliche Attribute auf die &uuml;bergebenen Werte setzt <
     <td>
 
 <p>
-Liefert die Adresse der <a class="el" href="class_lok.html">Lok</a> zur&uuml;ck. <dl compact><dt><b>Returns:</b></dt><dd>Die Adresse der <a class="el" href="class_lok.html">Lok</a> als String </dd></dl>
+Liefert die Adresse der <a class="el" href="class_lok.html">Lok</a> zur&uuml;ck. <dl compact><dt><b>Returns:</b></dt><dd>Die Adresse der <a class="el" href="class_lok.html">Lok</a> als Zeichen </dd></dl>
     </td>
   </tr>
 </table>
-<a class="anchor" name="f60c0e2578ef8821f6650e7125fc848f"></a><!-- doxytag: member="Lok::GetDirection" ref="f60c0e2578ef8821f6650e7125fc848f" args="()" --><p>
+<a class="anchor" name="e6043a5fdb5746b4edf8b91f4f60b06c"></a><!-- doxytag: member="Lok::GetBenutzer" ref="e6043a5fdb5746b4edf8b91f4f60b06c" args="()" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
       <table cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td class="md" nowrap valign="top">bool Lok::GetDirection           </td>
+          <td class="md" nowrap valign="top"><a class="el" href="class_benutzer.html">Benutzer</a> * Lok::GetBenutzer           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="mdname1" valign="top" nowrap>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
@@ -184,72 +156,11 @@ Liefert die Adresse der <a class="el" href="class_lok.html">Lok</a> zur&uuml;ck.
     <td>
 
 <p>
-Liefert die aktuelle Richtung der <a class="el" href="class_lok.html">Lok</a> zur&uuml;ck. <dl compact><dt><b>Returns:</b></dt><dd>true (1) f&uuml;r vorw&auml;rts oder false(0) f&uuml;r r&uuml;ckw&auml;rts </dd></dl>
+Gibt die Adresse des Benutzers zur&uuml;ck, der diese <a class="el" href="class_lok.html">Lok</a> steuert <dl compact><dt><b>Returns:</b></dt><dd>Zeiger auf einen <a class="el" href="class_benutzer.html">Benutzer</a> </dd></dl>
     </td>
   </tr>
 </table>
-<a class="anchor" name="f912fa36119aacdefe9d456e8957e178"></a><!-- doxytag: member="Lok::GetSpeed" ref="f912fa36119aacdefe9d456e8957e178" args="()" --><p>
-<table class="mdTable" cellpadding="2" cellspacing="0">
-  <tr>
-    <td class="mdRow">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td class="md" nowrap valign="top">int Lok::GetSpeed           </td>
-          <td class="md" valign="top">(&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap>          </td>
-          <td class="md" valign="top">&nbsp;)&nbsp;</td>
-          <td class="md" nowrap></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<table cellspacing="5" cellpadding="0" border="0">
-  <tr>
-    <td>
-      &nbsp;
-    </td>
-    <td>
-
-<p>
-Liefert die aktuelle Geschwindigkeit der <a class="el" href="class_lok.html">Lok</a> <dl compact><dt><b>Returns:</b></dt><dd>Ein Integer-Wert, welcher die aktuelle Geschwindigkeit der <a class="el" href="class_lok.html">Lok</a> repr&auml;sentiert. </dd></dl>
-    </td>
-  </tr>
-</table>
-<a class="anchor" name="c48c42abef70ae29a0f4bf496486b468"></a><!-- doxytag: member="Lok::GetXtrafunc" ref="c48c42abef70ae29a0f4bf496486b468" args="(int funcnr)" --><p>
-<table class="mdTable" cellpadding="2" cellspacing="0">
-  <tr>
-    <td class="mdRow">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td class="md" nowrap valign="top">bool Lok::GetXtrafunc           </td>
-          <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top">int&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap> <em>funcnr</em>          </td>
-          <td class="md" valign="top">&nbsp;)&nbsp;</td>
-          <td class="md" nowrap></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<table cellspacing="5" cellpadding="0" border="0">
-  <tr>
-    <td>
-      &nbsp;
-    </td>
-    <td>
-
-<p>
-Gibt den Status der ausgew&auml;hlten Extrafunktion zur&uuml;ck <dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>funcnr</em>&nbsp;</td><td>ist die entsprechende Nummer der Extrafunktion (Wert zwischen 0 und 3) </td></tr>
-  </table>
-</dl>
-    </td>
-  </tr>
-</table>
-<a class="anchor" name="68eeb53a4768401f5d2da54705efa2e8"></a><!-- doxytag: member="Lok::SetAddress" ref="68eeb53a4768401f5d2da54705efa2e8" args="(char *address)" --><p>
+<a class="anchor" name="b0f22036e2c3a1988bea63637963fa04"></a><!-- doxytag: member="Lok::SetAddress" ref="b0f22036e2c3a1988bea63637963fa04" args="(char address)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -257,7 +168,7 @@ Gibt den Status der ausgew&auml;hlten Extrafunktion zur&uuml;ck <dl compact><dt>
         <tr>
           <td class="md" nowrap valign="top">void Lok::SetAddress           </td>
           <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="md" nowrap valign="top">char&nbsp;</td>
           <td class="mdname1" valign="top" nowrap> <em>address</em>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
           <td class="md" nowrap></td>
@@ -282,15 +193,16 @@ Setzt die entsprechende Adresse f&uuml;r die <a class="el" href="class_lok.html"
     </td>
   </tr>
 </table>
-<a class="anchor" name="72008bb654079da82c94657c8dd65d51"></a><!-- doxytag: member="Lok::SetDirection" ref="72008bb654079da82c94657c8dd65d51" args="()" --><p>
+<a class="anchor" name="7427bbe1d1c25b2a2f5d8bfca66cec98"></a><!-- doxytag: member="Lok::SetBenutzer" ref="7427bbe1d1c25b2a2f5d8bfca66cec98" args="(Benutzer *pLokBenutzer)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
       <table cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td class="md" nowrap valign="top">void Lok::SetDirection           </td>
+          <td class="md" nowrap valign="top">void Lok::SetBenutzer           </td>
           <td class="md" valign="top">(&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" nowrap valign="top"><a class="el" href="class_benutzer.html">Benutzer</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>pLokBenutzer</em>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
           <td class="md" nowrap></td>
         </tr>
@@ -306,78 +218,17 @@ Setzt die entsprechende Adresse f&uuml;r die <a class="el" href="class_lok.html"
     <td>
 
 <p>
-Switched die Richtung auf den entsprechenden Wert, d.h. war es vorher true ist es nach Aufruf der Funktion false und umgekehrt     </td>
-  </tr>
-</table>
-<a class="anchor" name="466eae8a87d9e16c8b29a2a93667a643"></a><!-- doxytag: member="Lok::SetSpeed" ref="466eae8a87d9e16c8b29a2a93667a643" args="(int speed)" --><p>
-<table class="mdTable" cellpadding="2" cellspacing="0">
-  <tr>
-    <td class="mdRow">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td class="md" nowrap valign="top">void Lok::SetSpeed           </td>
-          <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top">int&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap> <em>speed</em>          </td>
-          <td class="md" valign="top">&nbsp;)&nbsp;</td>
-          <td class="md" nowrap></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<table cellspacing="5" cellpadding="0" border="0">
-  <tr>
-    <td>
-      &nbsp;
-    </td>
-    <td>
-
-<p>
-Setzt die aktuelle Geschwindigkeit auf den Wert, der mit speed &uuml;bergeben wurde <dl compact><dt><b>Parameters:</b></dt><dd>
+Legt den <a class="el" href="class_benutzer.html">Benutzer</a> fest, der diese <a class="el" href="class_lok.html">Lok</a> steuert. Wichtig, um den exklusiven Zugriff zu realisieren. <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>speed</em>&nbsp;</td><td>ist ein Wert zwischen 0 und 15 </td></tr>
-  </table>
-</dl>
-    </td>
-  </tr>
-</table>
-<a class="anchor" name="f569c454b3db618b168f68b093cab17e"></a><!-- doxytag: member="Lok::SetXtrafunc" ref="f569c454b3db618b168f68b093cab17e" args="(int funcnr)" --><p>
-<table class="mdTable" cellpadding="2" cellspacing="0">
-  <tr>
-    <td class="mdRow">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td class="md" nowrap valign="top">void Lok::SetXtrafunc           </td>
-          <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top">int&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap> <em>funcnr</em>          </td>
-          <td class="md" valign="top">&nbsp;)&nbsp;</td>
-          <td class="md" nowrap></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<table cellspacing="5" cellpadding="0" border="0">
-  <tr>
-    <td>
-      &nbsp;
-    </td>
-    <td>
-
-<p>
-Setzt die entsprechende Extrafunktion auf den anderen Wert. Funktioniert, wie ein Schalter: war die Funktion ausgeschaltet, wird sie eingeschaltet und umgekehrt. <dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>funcnr</em>&nbsp;</td><td>ist die entsprechende Nummer der Extrafunktion (Wert zwischen 0 und 3) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>pLokBenutzer</em>&nbsp;</td><td>ist ein Zeiger auf eine Instanz vom Typ <a class="el" href="class_benutzer.html">Benutzer</a> </td></tr>
   </table>
 </dl>
     </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following files:<ul>
-<li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/Lok.h<li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/lok.cpp</ul>
-<hr size="1"><address style="align: right;"><small>Generated on Wed Jun 7 18:51:03 2006 for ESE Märklin Projekt by&nbsp;
+<li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/Lok.h<li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/Lok.cpp</ul>
+<hr size="1"><address style="align: right;"><small>Generated on Mon Jun 19 19:38:30 2006 for ESE Märklin Projekt by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

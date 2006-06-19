@@ -4,20 +4,52 @@
 #include "LokKnoten.h"
 #include "Lok.h"
 
+/**
+ * Diese Klasse ist f&uuml;r die Organisation der verketteten Liste der Loks zust&auml;ndig.
+ */
 class LokListe {
 	protected:
 	LokKnoten* start;	//der Startpunkt der Liste
 	LokKnoten* cursor;	//Zeiger zum durch die Liste gehen
-	LokKnoten* getcursor;	//Zeiger für die Ausgabe
+	LokKnoten* getcursor;	//Zeiger zum durch die Liste gehen f&uuml;r die Ausgabe
+	unsigned short int anzahl;	//Speichert die aktuelle Anzahl an Loks
+	static const unsigned short int max_anzahl = 10;	//Gibt die maximal erlaubte Anzahl an
 	
 	public:
+	/**
+	 * Der Standardkonstruktor. Er setzt alle Variablen auf 0
+	 */
 	LokListe();
 	
-	void InsertLok(Lok* lok);
+	/**
+	 * F&uuml;gt eine Lok der Liste hinzu. Es wird ein neuer Knoten definiert.
+	 * \param lok ist ein Zeiger auf eine Instanz vom Typ Lok, welche vorher erzeugt werden musste.
+	 * \return Liefert true, wenn die Lok eingef&uuml;gt wurde. Liefert false, wenn schon 10 Loks erfasst sind.
+	 */
+	bool InsertLok(Lok* lok);
 	
+	/**
+	 * L&ouml;scht eine Lok aus der Liste und somit auch den entsprechenden Knoten.
+	 * \param address ist die echte Adresse der Lok, die zu l&ouml;schen ist.
+	 */
+	void DeleteLok(char address);
+	
+	/**
+	 * Liefert die n&auml;chste Lok der Liste zur&uuml;ck. Sobald eine Lok gel&ouml;scht oder hinzugef&uuml;gt wurde, wird es wieder auf die erste Lok gesetzt.
+	 * \return Ein Zeiger auf ein Objekt vom Typ Lok.
+	 */
 	Lok* GetNextLok();
 	
+	/**
+	 * Baut ein Liste auf und f&uuml;llt diese mit entsprechenden Werte aus einer Datei. Standardm&auml;ßig ist das loks.txt
+	 * \param filename ist der Name und Pfad der Datei
+	 */
 	void FillFromFile(char* filename = "./loks.txt");
+	
+	/**
+	 * Schreibt die aktuelle Liste komplett in eine Datei und &uuml;berschreibt dabei die bestehende Datei.
+	 * \param filename ist der Name und Pfad der Datei
+	 */
 	void WriteToFile(char* filename = "./loks.txt");
 };
 
