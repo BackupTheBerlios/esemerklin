@@ -9,9 +9,9 @@
  */
 class LokListe {
 	protected:
-	LokKnoten* start;	//der Startpunkt der Liste
-	LokKnoten* cursor;	//Zeiger zum durch die Liste gehen
-	LokKnoten* getcursor;	//Zeiger zum durch die Liste gehen f&uuml;r die Ausgabe
+	LokKnoten* pStart;	//der Startpunkt der Liste
+	LokKnoten* pCursor;	//Zeiger zum durch die Liste gehen
+	LokKnoten* pGetCursor;	//Zeiger zum durch die Liste gehen f&uuml;r die Ausgabe
 	unsigned short int anzahl;	//Speichert die aktuelle Anzahl an Loks
 	static const unsigned short int max_anzahl = 10;	//Gibt die maximal erlaubte Anzahl an
 	
@@ -23,10 +23,10 @@ class LokListe {
 	
 	/**
 	 * F&uuml;gt eine Lok der Liste hinzu. Es wird ein neuer Knoten definiert.
-	 * \param lok ist ein Zeiger auf eine Instanz vom Typ Lok, welche vorher erzeugt werden musste.
+	 * \param pLok ist ein Zeiger auf eine Instanz vom Typ Lok, welche vorher erzeugt werden musste.
 	 * \return Liefert true, wenn die Lok eingef&uuml;gt wurde. Liefert false, wenn schon 10 Loks erfasst sind.
 	 */
-	bool InsertLok(Lok* lok);
+	bool InsertLok(Lok* pLok);
 	
 	/**
 	 * L&ouml;scht eine Lok aus der Liste und somit auch den entsprechenden Knoten.

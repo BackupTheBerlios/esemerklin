@@ -2,70 +2,72 @@
 #include <fstream.h>
 
 LokListe::LokListe() {
-	start = 0;
-	cursor = start;
-	getcursor = start;
+	pStart = 0;
+	pCursor = pStart;
+	pGetCursor = pStart;
 	anzahl = 0;
 }
 
-bool LokListe::InsertLok(Lok* lok) {
+bool LokListe::InsertLok(Lok* pLok) {
 	if (anzahl >= max_anzahl)		//wenn schon 10 Loks in der Liste sind, mache nix.
 		return false;
 		
-	LokKnoten* knoten = new LokKnoten(lok);	//ein neuer Knoten wird erstellt mit dem Zeiger auf die entsprechende Lok
+	LokKnoten* pKnoten = new LokKnoten(pLok);	//ein neuer Knoten wird erstellt mit dem Zeiger auf die entsprechende Lok
 	
-	if (start == 0) {	//Startknoten festlegen beim erstellen des ersten Knotens
-		start = knoten;
+	if (pStart == 0) {	//Startknoten festlegen beim erstellen des ersten Knotens
+		pStart = pKnoten;
 	}
 	else {
-		cursor = start;	//am Anfang wird der Cursor auf die Startposition gesetzt
+		pCursor = pStart;	//am Anfang wird der Cursor auf die Startposition gesetzt
 	
-		while(cursor->GetNext() != 0)	//bis zum letzten Element gehen.Setzt cursor auf das letzte Element.
-			cursor = cursor->GetNext();
+		while(pCursor->GetNext() != 0)	//bis zum letzten Element gehen.Setzt pCursor auf das letzte Element.
+			pCursor = pCursor->GetNext();
 		
-		cursor->SetNext(knoten);	//den next-Pointer der letzten Elements auf das neu hinzugefŸgte setzen
+		pCursor->SetNext(pKnoten);	//den next-Pointer der letzten Elements auf das neu hinzugefŸgte setzen
 	}	
 	anzahl++;	//die Anzahl der Loks erhšhen
-	getcursor = start;	//den getcursor reseten
+	pGetCursor = pStart;	//den pGetCursor reseten
 	return true;	//alles ok
 }
 
 void LokListe::DeleteLok(char address) {
-	cursor = start;	//am Anfang wird der Cursor auf die Startposition gesetzt
+	pCursor = pStart;	//am Anfang wird der Cursor auf die Startposition gesetzt
 	LokKnoten* temp;	//ein temporŠrer Knoten zum Zwischenspeichern einer Adresse
 	
 	//Wenn das erste Element gelšscht werden soll
-	if (cursor->GetLok()->GetAddress() == address) {
-		start = start->GetNext();	//Der Startpunkt wird ein Element weiter gesetzt
-		delete cursor;			//Der Knoten an der ersten Stelle wird gelšscht
-		getcursor = start;		//getcursor reseten
+	if (pCursor->GetLok()->GetAddress() == address) {
+		pStart = pStart->GetNext();	//Der Startpunkt wird ein Element weiter gesetzt
+		delete pCursor;			//Der Knoten an der ersten Stelle wird gelšscht
+		pGetCursor = pStart;		//pGetCursor reseten
 		anzahl--;				//anzahl der Loks in der lIste verringern
 		return;					//und zurŸck
 	}
 	
-	//Objekt vor dem zu lšschenden Objekt ermitteln und cursor auf dieses Element setzen
-	while(cursor->GetNext()->GetLok()->GetAddress() != address)	 {
-		cursor = cursor->GetNext();
-		if (cursor == 0);	//Wenn nix gefunden wurde zurŸck ohne Aktion
+	//Objekt vor dem zu lšschenden Objekt ermitteln und pCursor auf dieses Element setzen
+	while(pCursor->GetNext()->GetLok()->GetAddress() != address)	 {
+		pCursor = pCursor->GetNext();
+		if (pCursor->GetNext() == 0) {	//Wenn nix gefunden wurde zurŸck ohne Aktion
+			pGetCursor = pStart;
 			return;
+		}
 	}
 	
-	temp = cursor->GetNext()->GetNext();	//den zu lšschenden Ÿberspringen
+	temp = pCursor->GetNext()->GetNext();	//den zu lšschenden Ÿberspringen
 	
-	delete cursor->GetNext();	//den nachfolgenden Knoten lšschen
-	cursor->SetNext(temp);	//Dem Knoten den neuen Nachfolger mitteilen
-	getcursor = start;		//getcursor reseten
+	delete pCursor->GetNext();	//den nachfolgenden Knoten lšschen
+	pCursor->SetNext(temp);	//Dem Knoten den neuen Nachfolger mitteilen
+	pGetCursor = pStart;		//pGetCursor reseten
 	anzahl--;				//anzahl der Loks in der Liste verringen
 }
 
 Lok* LokListe::GetNextLok() {
 	Lok* templok;
-	if (getcursor != 0)
-		templok = getcursor->GetLok();
+	if (pGetCursor != 0)
+		templok = pGetCursor->GetLok();
 	else
 		return 0;
 		
-	getcursor = getcursor->GetNext();	//den cursor einen Knoten weiter setzen
+	pGetCursor = pGetCursor->GetNext();	//den pCursor einen Knoten weiter setzen
 	return templok;
 }
 
@@ -86,7 +88,7 @@ void LokListe::FillFromFile(char* filename) {
 
 void LokListe::WriteToFile(char* filename) {
 	ofstream file(filename);	//ein Stream-Objekt anlegen
-	getcursor = start;		//getcursor reseten, damit die komplette Liste durchgegangen wird
+	pGetCursor = pStart;		//pGetCursor reseten, damit die komplette Liste durchgegangen wird
 	
 	Lok* templok = GetNextLok();
 	

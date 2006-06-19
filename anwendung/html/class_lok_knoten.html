@@ -20,17 +20,17 @@
 <p>
 Collaboration diagram for LokKnoten:<p><center><img src="class_lok_knoten__coll__graph.png" border="0" usemap="#_lok_knoten__coll__map" alt="Collaboration graph"></center>
 <map name="_lok_knoten__coll__map">
-<area href="class_lok.html" shape="rect" coords="29,98,71,125" alt="">
-<area href="class_benutzer.html" shape="rect" coords="13,8,87,34" alt="">
+<area href="class_lok.html" shape="rect" coords="29,98,72,125" alt="">
+<area href="class_benutzer.html" shape="rect" coords="13,8,88,34" alt="">
 </map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center><a href="class_lok_knoten-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok_knoten.html#db0dff8d8edbb87a825da375c2e62f9a">LokKnoten</a> (<a class="el" href="class_lok.html">Lok</a> *lok)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok_knoten.html#cad7be5ef472c641caea5e3a8bc9b057">LokKnoten</a> (<a class="el" href="class_lok.html">Lok</a> *pLok)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok_knoten.html#7a7acd24e83267d055e3644e8bb667e6">~LokKnoten</a> ()</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok_knoten.html#63c81c5eb9452446ae222e0d9ba7138f">SetNext</a> (<a class="el" href="class_lok_knoten.html">LokKnoten</a> *next)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok_knoten.html#f7287b016f43126f4ae5691a0653eecd">SetNext</a> (<a class="el" href="class_lok_knoten.html">LokKnoten</a> *pNext)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_lok_knoten.html">LokKnoten</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok_knoten.html#b5d1f7dbae32756ebaa7dfb3e26d6e0f">GetNext</a> ()</td></tr>
 
@@ -42,7 +42,7 @@ Die Klasse <a class="el" href="class_lok_knoten.html">LokKnoten</a> ist Teile de
 
 <p>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" name="db0dff8d8edbb87a825da375c2e62f9a"></a><!-- doxytag: member="LokKnoten::LokKnoten" ref="db0dff8d8edbb87a825da375c2e62f9a" args="(Lok *lok)" --><p>
+<a class="anchor" name="cad7be5ef472c641caea5e3a8bc9b057"></a><!-- doxytag: member="LokKnoten::LokKnoten" ref="cad7be5ef472c641caea5e3a8bc9b057" args="(Lok *pLok)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -51,7 +51,7 @@ Die Klasse <a class="el" href="class_lok_knoten.html">LokKnoten</a> ist Teile de
           <td class="md" nowrap valign="top">LokKnoten::LokKnoten           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top"><a class="el" href="class_lok.html">Lok</a> *&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap> <em>lok</em>          </td>
+          <td class="mdname1" valign="top" nowrap> <em>pLok</em>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
           <td class="md" nowrap></td>
         </tr>
@@ -67,9 +67,9 @@ Die Klasse <a class="el" href="class_lok_knoten.html">LokKnoten</a> ist Teile de
     <td>
 
 <p>
-Ein Konstruktor, welcher direkt ein Zeiger auf die zu speichernde <a class="el" href="class_lok.html">Lok</a> &uuml;bernimmt. Der next-Zeiger wird zun&auml;chst auf 0 gesetzt, da neue Elemente stets hinten angef&uuml;gt werden, und der neue Knoten immer der letzte ist. <dl compact><dt><b>Parameters:</b></dt><dd>
+Ein Konstruktor, welcher direkt ein Zeiger auf die zu speichernde <a class="el" href="class_lok.html">Lok</a> &uuml;bernimmt. Der pNext-Zeiger wird zun&auml;chst auf 0 gesetzt, da neue Elemente stets hinten angef&uuml;gt werden, und der neue Knoten immer der letzte ist. <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>lok</em>&nbsp;</td><td>ist ein Zeiger auf eine Instanz vom Typ <a class="el" href="class_lok.html">Lok</a> </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>pLok</em>&nbsp;</td><td>ist ein Zeiger auf eine Instanz vom Typ <a class="el" href="class_lok.html">Lok</a> </td></tr>
   </table>
 </dl>
     </td>
@@ -159,7 +159,7 @@ Gibt die Adresse des n&auml;chsten Knotens in der Liste zur&uuml;ck. <dl compact
     </td>
   </tr>
 </table>
-<a class="anchor" name="63c81c5eb9452446ae222e0d9ba7138f"></a><!-- doxytag: member="LokKnoten::SetNext" ref="63c81c5eb9452446ae222e0d9ba7138f" args="(LokKnoten *next)" --><p>
+<a class="anchor" name="f7287b016f43126f4ae5691a0653eecd"></a><!-- doxytag: member="LokKnoten::SetNext" ref="f7287b016f43126f4ae5691a0653eecd" args="(LokKnoten *pNext)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -168,7 +168,7 @@ Gibt die Adresse des n&auml;chsten Knotens in der Liste zur&uuml;ck. <dl compact
           <td class="md" nowrap valign="top">void LokKnoten::SetNext           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top"><a class="el" href="class_lok_knoten.html">LokKnoten</a> *&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap> <em>next</em>          </td>
+          <td class="mdname1" valign="top" nowrap> <em>pNext</em>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
           <td class="md" nowrap></td>
         </tr>
@@ -186,7 +186,7 @@ Gibt die Adresse des n&auml;chsten Knotens in der Liste zur&uuml;ck. <dl compact
 <p>
 Legt die Adresse des n&auml;chsten Elementes fest. <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>next</em>&nbsp;</td><td>ist ein Zeiger auf eine Instanz vom Typ <a class="el" href="class_lok_knoten.html">LokKnoten</a>. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>pNext</em>&nbsp;</td><td>ist ein Zeiger auf eine Instanz vom Typ <a class="el" href="class_lok_knoten.html">LokKnoten</a>. </td></tr>
   </table>
 </dl>
     </td>
@@ -194,7 +194,7 @@ Legt die Adresse des n&auml;chsten Elementes fest. <dl compact><dt><b>Parameters
 </table>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/LokKnoten.h<li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/LokKnoten.cpp</ul>
-<hr size="1"><address style="align: right;"><small>Generated on Mon Jun 19 19:38:30 2006 for ESE Märklin Projekt by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Jun 19 21:54:53 2006 for ESE Märklin Projekt by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

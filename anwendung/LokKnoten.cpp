@@ -1,22 +1,22 @@
 #include "LokKnoten.h"
 
-LokKnoten::LokKnoten(Lok* lok) {
-	this->lok = lok;
-	next = 0;	
+LokKnoten::LokKnoten(Lok* pLok) {
+	this->pLok = pLok;
+	pNext = 0;	
 }
 
 LokKnoten::~LokKnoten() {
-	delete lok;
+	delete pLok;
 }
 
-void LokKnoten::SetNext(LokKnoten* next) {
-	this->next = next;
+void LokKnoten::SetNext(LokKnoten* pNext) {
+	this->pNext = pNext;
 }
 
 LokKnoten* LokKnoten::GetNext() {
-	return next;
+	return pNext;
 }
 
 Lok* LokKnoten::GetLok() {
-	return lok;
+	return pLok;
 }
