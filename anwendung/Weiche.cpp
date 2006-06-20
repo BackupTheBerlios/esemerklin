@@ -2,22 +2,20 @@
 //#include <String.h>
 
 Weiche::Weiche() {
-	status = false;	//geradeaus
+	status = geradeaus;
 	this->address = 0;
-	//strcpy(this->address, "0001");
 }
 
 Weiche::Weiche(bool status, char address) {
 	this->status = status;
 	this->address = address;
-	//strcpy(this->address, address);
 }
 
 void Weiche::SetStatus() {
-	if (status)
-		status = false;
+	if (status == kurve)
+		status = geradeaus;
 	else
-		status = true;
+		status = kurve;
 }
 
 bool Weiche::GetStatus() {
@@ -26,7 +24,6 @@ bool Weiche::GetStatus() {
 
 void Weiche::SetAddress(char address) {
 	this->address = address;
-	//strcpy(this->address, address);
 }
 
 char Weiche::GetAddress() {

@@ -2,16 +2,22 @@
 #define __WEICHE_H
 
 /**
+ * Aufz&auml;hlung f&uuml;r den Weichenstatus
+ */
+enum weichenstatus {
+	geradeaus,	//=0
+	kurve		//=1
+};
+
+/**
  * Die Klasse f&uuml;r eine Weiche. Sie speichert alle relevanten Informationen zu einer Weiche.
  * \author Daniel Pietzsch
  */
 class Weiche {
-	//die gesch&uuml;tzen Attribute
 	protected:
-	bool status;	//der status der Weiche. false(0) = geradeaus, true(1) = kurve
+	bool status;		//der aktuelle Status der Weiche.
 	char address;	//die Adresse der Weiche
 	
-	//die &ouml;ffentlichen Methoden
 	public:
 	
 	/**
