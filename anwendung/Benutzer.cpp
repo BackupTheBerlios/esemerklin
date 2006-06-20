@@ -2,20 +2,12 @@
 #include <String.h>
 
 
-Benutzer::Benutzer(int id, char* nickname, char* password, usertype type) {
-	this->id = id;
+Benutzer::Benutzer(char* nickname, char* password, usertype type) {
 	strcpy(this->nickname, nickname);
 	strcpy(this->password, password);
 	this->type = type;
 }
 
-void Benutzer::SetId(int id) {
-	this->id = id;
-}
-
-int Benutzer::GetId() {
-	return id;
-}
 
 void Benutzer::SetNickname(char* nickname) {
 	strcpy(this->nickname, nickname);

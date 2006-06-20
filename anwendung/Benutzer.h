@@ -16,12 +16,9 @@ enum usertype {
  * \author Daniel Pietzsch
  */ 
 class Benutzer {
-	
 	protected:
-	
-	int id;
-	char nickname[50];
-	char password[50];
+	char nickname[20];
+	char password[20];
 	usertype type;
 	
 	public:
@@ -29,24 +26,11 @@ class Benutzer {
 	
 	/**
 	 * Der Konstruktor. Er setzt s&auml;mtliche Attribute eines Benutzers auf die &uuml;bergebenen Werte.
-	 * \param id ist ein Integer und setzt die ID des Benutzers
 	 * \param nickname erwartet einen String und setzt den Benutzernamen
 	 * \param password erwartet einen String und legt das Passwort fest
 	 * \param type erwartet einen Integer zwischen 0 und 3 bzw. "beobachter", "weichensteller", "lokfuehrer" oder "admin".
 	 */
-	Benutzer(int id, char* nickname, char* password, usertype type);
-	
-	/**
-	 * &auml;ndert die ID des Benutzers auf den &uuml;bergebenen Wert.
-	 * \param id ist ein Integer
-	 */
-	void SetId(int id);
-	
-	/**
-	 * Liefert die ID des Benutzers zur&uuml;ck
-	 * \return id ist ein Integer
-	 */
-	int GetId();
+	Benutzer(char* nickname, char* password, usertype type);
 	
 	/**
 	 * &auml;ndert den Nickname (Benutzername).
