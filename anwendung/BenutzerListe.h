@@ -42,27 +42,30 @@ class BenutzerListe {
 	
 	/**
 	 * F&uuml;gt einen Benutzer der Benutzerdatei hinzu. Aber nicht der verketteten Liste, da das mit einem Einloggen gleichk&auml;me.
+	 * \param filename ist der Name der Datei in die gespeichert werden soll
 	 * \param nickname Der Benutzername
 	 * \param password Das Passwort
 	 * \param type ist der Benutzertyp
 	 * \return liefert true, wenn der Benutzer erfolgreich in die Datei eingef&uuml;gt wurde. Ansonsten false.
 	 */
-	bool AddBenutzerToFile(char* nickname, char* password, usertype type);
+	bool AddBenutzerToFile(char* filename, char* nickname, char* password, usertype type);
 	
 	/**
 	 * Gleicht die &uuml;bergebenen Daten beim Login mit der Benutzerdatei ab, und bei einer &Uuml;bereinstimmung wird er eingeloggt = der Liste hinzugef&uuml;gt.
+	 * \param filename ist der Name der Datei
 	 * \param nickname Der Benutzername
 	 * \param password Das Passwort
 	 * \return liefert true, wenn der Benutzer erfolgreich eingeloggt wurde. Ansonsten false.
 	 */
-	bool LoginBenutzer(char* nickname, char* password);
+	bool LoginBenutzer(char* filename, char* nickname, char* password);
 	
 	/**
 	 * L&ouml;scht einen Benutzer aus der Benutzerdatei.
+	 * \param filename ist der Name der Datei
 	 * \param nickname Der Benutzername
 	 * \return Liefert true bei erfolreichem L&ouml;schvorgang. Ansonsten false.
 	 */
-	bool DeleteBenutzerFromFile(char* nickname);
+	bool DeleteBenutzerFromFile(char* filename, char* nickname);
 };
 
 #endif /*__BENUTZERLISTE_H*/

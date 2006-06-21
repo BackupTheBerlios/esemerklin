@@ -6,6 +6,7 @@
 #include "Benutzer.h"
 #include "LokListe.h"
 #include "WeichenListe.h"
+#include "BenutzerListe.h"
 
 
 int main(int argc, char *argv[]) {
@@ -37,7 +38,8 @@ int main(int argc, char *argv[]) {
 	//daten in die Datei schreiben
 	loks.WriteToFile("./loksout.txt");
 	*/
-	
+	/*
+	 * Zum Testen der WeichenListe
 	WeichenListe weichen;
 	
 	weichen.FillFromFile();
@@ -63,5 +65,23 @@ int main(int argc, char *argv[]) {
 	
 	//daten in die Datei schreiben
 	weichen.WriteToFile("./weichenout.txt");
+	*/
+	BenutzerListe benutzer;
+	
+	//benutzer.AddBenutzerToFile("./user.txt", "NewUser", "NewPW", admin);
+	benutzer.LoginBenutzer("./user.txt", "daniel", "danielpw");
+	benutzer.LoginBenutzer("./user.txt", "tam", "tampw");
+	benutzer.LoginBenutzer("./user.txt", "mohamed", "mohamedpw");
+	
+	//benutzer.DeleteBenutzerFromFile("./user.txt", "mohamed");
+
+	Benutzer* benutzertest = benutzer.GetNextBenutzer();
+	while (benutzertest != 0) {
+		cout << "Nickname: " << benutzertest->GetNickname() << endl;
+		cout << "PW: " << benutzertest->GetPassword() << endl;
+		cout << "Type: " << benutzertest->GetType() << endl;
+		benutzertest = benutzer.GetNextBenutzer();
+	}
+	
     	return 1;
 }

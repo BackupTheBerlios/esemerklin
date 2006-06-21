@@ -1,4 +1,5 @@
 #include "BenutzerListe.h"
+#include <iostream.h>
 #include <fstream.h>
 
 BenutzerListe::BenutzerListe() {
@@ -71,35 +72,97 @@ Benutzer* BenutzerListe::GetNextBenutzer() {
 	return tempbenutzer;
 }
 
-/*
- * Ab hier müssen die Funktionen noch neu geschrieben werden
- * 
-void BenutzerListe::FillFromFile(char* filename) {
-	char ch;
-	ifstream file(filename);	//ein Stream-Objekt anlegen
-	Benutzer* tempbenutzer;
+//sollte noch verbessert werden: Prüfung, ob benutzer schon vorhanden z.b.
+bool BenutzerListe::AddBenutzerToFile(char* filename, char* nickname, char* password, usertype type) {
+	ofstream file(filename, std::ios::app);	//Die Daten werden angehängt
+	if (!file) return false;	//Wenn ein Fehler auftritt, nix machen und zurück
 	
-	while(file.get(ch)) {		//solange was in der Datei steht
-		if (ch != '\n') {	//wenns kein Zeilenumbruch ist
-			tempbenutzer = new Benutzer(ch);	//eine neue Benutzer erzeugen
-			InsertBenutzer(tempbenutzer);		//die Benutzer einfügen in die Liste
-		}	//of if
-	}	//of while
-	
-	file.close();	//Stream schließen
+	file << "\n" << nickname << "," << password << "," << type;
+	file.close();
+	return true;
 }
 
-void BenutzerListe::WriteToFile(char* filename) {
-	ofstream file(filename);	//ein Stream-Objekt anlegen
-	pGetCursor = pStart;		//pGetCursor reseten, damit die komplette Liste durchgegangen wird
+bool BenutzerListe::LoginBenutzer(char* filename, char* nickname, char* password) {
+	ifstream file(filename);	//Datei zum lesen öffnen
+	char zeile[80];			//speichert die eingelesene Zeile der Datei
+	char* wort = NULL;		//Speichert das einzelne Wort, welches von Kommas getrennt ist
+	int nResult;				//Speichert, ob der nickname gefunden wurde und übereinstimmt
+	int pResult;				//Speichert, ob das Passwort gefunden wurde und übereinstimmt
+	usertype type;			//Speichert den konvertierten Usertype, der aus der Datei eingelesen wurde
 	
-	Benutzer* tempbenutzer = GetNextBenutzer();
+	if (!file) return false;	//Wenn ein Fehler auftritt, nix machen und zurück
+
+	while(!file.eof()) {			//Solange nicht Ende der Datei erreicht
+		file.getline(zeile, 80);	//nächste Zeile einlesen
+		
+		wort = strtok(zeile, ",");						//den nickname rausfiltern
+		if (wort != NULL)								//wenn strtok was findet
+			nResult = strcmp(wort, nickname);				//ist der nickname vorhanden und hat er die selbe Länge?
+		
+		wort = strtok(NULL, ",");							//das PW rausfiltern
+		if (wort != NULL)								//wenn strtok was findet
+			pResult = strcmp(wort, password);//ist es vorhanden und hat es die selbe Länge?
+		
+		if (!nResult && !pResult) {		//nickname und passwort stimmen überein mit denen in der Datei
+			wort = strtok(NULL, ",");	//den Benutzerstatus aus der Datei lesen
+			type = (usertype) atoi(wort);	//Konvertierung des Status'
+			Benutzer* pBenutzer = new Benutzer(nickname, password, type);	//neuen Benutzer erzeugen
+			file.close();	//Datei schließen
+			if (!InsertBenutzer(pBenutzer)) return false;	//Benutzer der verketteten Liste hinzufügen
+			return true;
+		}
+	}	
+	file.close();
+	return false;
+}
+/* Funktioniert noch nicht
+bool BenutzerListe::DeleteBenutzerFromFile(char* filename, char* nickname) {
+	ifstream file(filename);
+	char* newlines[20];
+	char zeile[80];
+	int stringNotEqual = true;
+	char* wort;
+	int count = 0;
+	bool deleted = false;
 	
-	//solange, bis das Ende der Liste erreicht ist.
-	while (tempbenutzer) {
-		file << tempbenutzer->GetAddress() << "\n";		//Adresse in die Datei schreiben
-		tempbenutzer = GetNextBenutzer();					//nächste Benutzer holen
-	}	//of while
-	file.close();		//Stream schließen
+	if (!file) return false;
+	
+	while(!file.eof()) {
+		file.getline(zeile, 80);
+		cout << zeile << " Ende\n";
+		//wort = strtok(zeile, ",");						//den nickname rausfiltern
+		//if (wort != NULL)								//wenn strtok was findet
+		//	stringNotEqual = strcmp(wort, nickname);				//ist der nickname vorhanden und hat er die selbe Länge?
+		if (stringNotEqual)	{	//wenn nix gefunden wurde
+			//strcpy(newlines[count], zeile);
+			newlines[count] = new char[80];
+			newlines[count] = zeile;
+			cout << *(newlines) << " NewEnde\n";
+			//if (count > 0 )
+			//	cout << newlines[count-1] << " voherriges ende\n";
+			count++;
+		}
+		else {
+			deleted = true;
+		}
+	}
+	file.close();
+	cout << newlines[1] << " NewEnde2\n";
+	
+	for (int i=0; i < count; i++) {
+			cout << newlines[i] << " Newline einf. ende\n";
+		}
+	
+	if (deleted) {
+		ofstream fileout(filename);
+		if (!fileout) return false;
+	
+		for (int i=0; i < count; i++) {
+			cout << newlines[i] << i << " Newline einf. ende\n";
+			fileout << newlines[i];
+		}
+		fileout.close();
+	}
+	return deleted;	
 }
 */
