@@ -7,6 +7,8 @@
 package protoyp.gui;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.net.URL;
+import java.net.URLEncoder;
 
 
 /**
@@ -21,10 +23,11 @@ public class NewJApplet extends javax.swing.JApplet {
     
     /** Initializes the applet NewJApplet */
     public void init() {
-       
-    socketCon = new SocketConnect();
-    stream = new Stream(socketCon.getSocket());
     
+    
+    socketCon = new SocketConnect("169.254.9.81"); 
+    stream = new Stream(socketCon.getSocket());
+
         try {
             java.awt.EventQueue.invokeAndWait(new Runnable(){
                     public void run(){
@@ -38,16 +41,13 @@ public class NewJApplet extends javax.swing.JApplet {
         }
     }
     
-    public void start(){
-        
-    }
+    public void start(){}
     
  public void destroy(){
      
      stream.getPrinStream().close();
-     
      try {
-            socketCon.getSocket().close();
+           socketCon.getSocket().close();
         } catch (IOException ex) {
             ex.printStackTrace();
         }   
@@ -60,11 +60,51 @@ public class NewJApplet extends javax.swing.JApplet {
      */
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents() {
-        benutzer = new javax.swing.JFormattedTextField();
-        ausgabe = new javax.swing.JFormattedTextField();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jInternalFrame2 = new javax.swing.JInternalFrame();
         jLabel1 = new javax.swing.JLabel();
+        benutzer = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        ausgabe = new javax.swing.JFormattedTextField();
+        jInternalFrame3 = new javax.swing.JInternalFrame();
+        jInternalFrame4 = new javax.swing.JInternalFrame();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextPane2 = new javax.swing.JTextPane();
+        jInternalFrame5 = new javax.swing.JInternalFrame();
+
+        jInternalFrame1.setVisible(true);
+        jButton2.setText("Konfiguration");
+
+        jButton3.setText("Abmelden");
+
+        org.jdesktop.layout.GroupLayout jInternalFrame1Layout = new org.jdesktop.layout.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(jInternalFrame1Layout.createSequentialGroup()
+                .addContainerGap()
+                .add(jInternalFrame1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jButton2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(jButton3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(jInternalFrame1Layout.createSequentialGroup()
+                .addContainerGap()
+                .add(jButton2)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jButton3)
+                .addContainerGap(222, Short.MAX_VALUE))
+        );
+
+        jInternalFrame2.setVisible(true);
+        jLabel1.setText("Benutzer");
 
         benutzer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,54 +117,139 @@ public class NewJApplet extends javax.swing.JApplet {
             }
         });
 
-        ausgabe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ausgabeActionPerformed(evt);
-            }
-        });
+        jLabel2.setText("Passwort");
 
-        jLabel1.setText("eingabe");
-
-        jLabel2.setText("ausgabe");
-
-        jButton1.setText("send");
+        jButton1.setText("login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        ausgabe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ausgabeActionPerformed(evt);
+            }
+        });
+
+        org.jdesktop.layout.GroupLayout jInternalFrame2Layout = new org.jdesktop.layout.GroupLayout(jInternalFrame2.getContentPane());
+        jInternalFrame2.getContentPane().setLayout(jInternalFrame2Layout);
+        jInternalFrame2Layout.setHorizontalGroup(
+            jInternalFrame2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(jInternalFrame2Layout.createSequentialGroup()
+                .addContainerGap()
+                .add(jInternalFrame2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jLabel1)
+                    .add(benutzer, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 127, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(jInternalFrame2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(jInternalFrame2Layout.createSequentialGroup()
+                        .add(16, 16, 16)
+                        .add(jLabel2))
+                    .add(jInternalFrame2Layout.createSequentialGroup()
+                        .add(7, 7, 7)
+                        .add(ausgabe)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jButton1)))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jInternalFrame2Layout.linkSize(new java.awt.Component[] {ausgabe, benutzer}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
+
+        jInternalFrame2Layout.setVerticalGroup(
+            jInternalFrame2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(jInternalFrame2Layout.createSequentialGroup()
+                .addContainerGap()
+                .add(jInternalFrame2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jInternalFrame2Layout.createSequentialGroup()
+                        .add(jLabel1)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jInternalFrame2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(benutzer, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(jButton1)
+                            .add(ausgabe, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                    .add(jLabel2))
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+
+        jInternalFrame3.setVisible(true);
+        org.jdesktop.layout.GroupLayout jInternalFrame3Layout = new org.jdesktop.layout.GroupLayout(jInternalFrame3.getContentPane());
+        jInternalFrame3.getContentPane().setLayout(jInternalFrame3Layout);
+        jInternalFrame3Layout.setHorizontalGroup(
+            jInternalFrame3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 503, Short.MAX_VALUE)
+        );
+        jInternalFrame3Layout.setVerticalGroup(
+            jInternalFrame3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 285, Short.MAX_VALUE)
+        );
+
+        jInternalFrame4.setVisible(true);
+        jScrollPane1.setViewportView(jTextPane1);
+
+        jScrollPane2.setViewportView(jTextPane2);
+
+        org.jdesktop.layout.GroupLayout jInternalFrame4Layout = new org.jdesktop.layout.GroupLayout(jInternalFrame4.getContentPane());
+        jInternalFrame4.getContentPane().setLayout(jInternalFrame4Layout);
+        jInternalFrame4Layout.setHorizontalGroup(
+            jInternalFrame4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(jInternalFrame4Layout.createSequentialGroup()
+                .addContainerGap()
+                .add(jInternalFrame4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 99, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 99, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jInternalFrame4Layout.linkSize(new java.awt.Component[] {jScrollPane1, jScrollPane2}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
+
+        jInternalFrame4Layout.setVerticalGroup(
+            jInternalFrame4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, jInternalFrame4Layout.createSequentialGroup()
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 53, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 42, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jInternalFrame4Layout.linkSize(new java.awt.Component[] {jScrollPane1, jScrollPane2}, org.jdesktop.layout.GroupLayout.VERTICAL);
+
+        jInternalFrame5.getContentPane().setLayout(new javax.swing.BoxLayout(jInternalFrame5.getContentPane(), javax.swing.BoxLayout.X_AXIS));
+
+        jInternalFrame5.setVisible(true);
+
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                .add(52, 52, 52)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(jLabel2)
-                    .add(ausgabe, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
-                    .add(jLabel1)
-                    .add(benutzer))
-                .addContainerGap(88, Short.MAX_VALUE))
             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(187, Short.MAX_VALUE)
-                .add(jButton1)
-                .add(72, 72, 72))
+                .addContainerGap()
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(jInternalFrame2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+                    .add(layout.createSequentialGroup()
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, jInternalFrame4)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, jInternalFrame1))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jInternalFrame5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
+                            .add(jInternalFrame3))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .add(53, 53, 53)
-                .add(jLabel1)
+                .addContainerGap()
+                .add(jInternalFrame2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(benutzer, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(jInternalFrame3)
+                    .add(jInternalFrame1))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jButton1)
-                .add(21, 21, 21)
-                .add(jLabel2)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(ausgabe, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jInternalFrame4)
+                    .add(jInternalFrame5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -155,8 +280,19 @@ public class NewJApplet extends javax.swing.JApplet {
     private javax.swing.JFormattedTextField ausgabe;
     private javax.swing.JFormattedTextField benutzer;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JInternalFrame jInternalFrame2;
+    private javax.swing.JInternalFrame jInternalFrame3;
+    private javax.swing.JInternalFrame jInternalFrame4;
+    private javax.swing.JInternalFrame jInternalFrame5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JTextPane jTextPane2;
     // End of variables declaration//GEN-END:variables
     
 }

@@ -12,6 +12,8 @@ package protoyp.gui;
 import java.awt.TextField;
 import java.net.*;
 import java.io.*;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -19,7 +21,8 @@ import java.io.*;
  */
 public class SocketConnect {
     
-    private static String inet = "127.0.0.1";
+    
+    private static String inet;  
     private static int port = 7;
     private Socket socket = null;
     
@@ -27,13 +30,16 @@ public class SocketConnect {
     
         
     /** Creates a new instance of socketConnect */
-    public SocketConnect(){
+    public SocketConnect(String inet){
+        this.inet = inet;
         try {
-            socket = new Socket(inet,port);
+            socket = new Socket(inet ,port); 
         } catch (UnknownHostException ex) {
+            JOptionPane.showMessageDialog(null,"Verbindung zum Socket Server konnte nicht hergestellt werden");
             ex.printStackTrace();
             System.out.println("Keine Host gefunden");
         } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null,"Verbindung zum Socket Server konnte nicht hergestellt werden");
             ex.printStackTrace();
         }
     }
@@ -44,13 +50,15 @@ public class SocketConnect {
     public void sendStream(){}
     
     
-    public String getInet(){
+    public String setInet(){
         return inet;
     }
     
     public int getPort(){
         return port;
     }
+
+    
     
     
 }
