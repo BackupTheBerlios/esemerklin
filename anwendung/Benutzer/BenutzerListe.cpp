@@ -72,14 +72,41 @@ Benutzer* BenutzerListe::GetNextBenutzer() {
 	return tempbenutzer;
 }
 
-//sollte noch verbessert werden: Prüfung, ob benutzer schon vorhanden z.b.
+bool BenutzerListe::BenutzerExistsInFile(char* filename, char* nickname) {
+	ifstream file(filename);
+	char zeile[80];
+	char* wort = NULL;
+	int nResult;
+	
+	if (!file) return false;	//Wenn ein Fehler auftritt, nix machen und zurück
+	
+	while(!file.eof()) {			//Solange nicht Ende der Datei erreicht
+		file.getline(zeile, 80);	//nächste Zeile einlesen
+		
+		wort = strtok(zeile, ",");						//den nickname rausfiltern
+		if (wort != NULL)								//wenn strtok was findet
+			nResult = strcmp(wort, nickname);				//ist der nickname vorhanden und hat er die selbe Länge?
+		
+		if (!nResult) {
+			file.close();
+			return true;
+		}
+	}
+	file.close();
+	return false;
+}
+
 bool BenutzerListe::AddBenutzerToFile(char* filename, char* nickname, char* password, usertype type) {
 	ofstream file(filename, std::ios::app);	//Die Daten werden angehängt
 	if (!file) return false;	//Wenn ein Fehler auftritt, nix machen und zurück
 	
-	file << "\n" << nickname << "," << password << "," << type;
+	if (!BenutzerExistsInFile(filename, nickname)) {
+		file << "\n" << nickname << "," << password << "," << type;
+		file.close();
+		return true;
+	}
 	file.close();
-	return true;
+	return false;
 }
 
 bool BenutzerListe::LoginBenutzer(char* filename, char* nickname, char* password) {

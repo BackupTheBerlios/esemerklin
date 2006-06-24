@@ -4,8 +4,7 @@
 #include "Benutzer.h"
 
 /**
- * Die Klasse BenutzerKnoten ist Teile der verketteten Liste BenutzerListe.
- * Diese Klasse ist ein Knoten in der Liste.
+ * \brief Die Klasse BenutzerKnoten ist ein Knoten, welcher Daten eines Benutzers enth&auml;lt, der verketteten Liste BenutzerListe.
  * \author Daniel Pietzsch
  */
 class BenutzerKnoten {

@@ -5,7 +5,7 @@
 #include "Weiche.h"
 
 /**
- * Diese Klasse ist f&uuml;r die Organisation der verketteten Liste der Weichen zust&auml;ndig.
+ * \brief Diese Klasse ist f&uuml;r die Organisation der verketteten Liste der Weichen zust&auml;ndig.
  */
 class WeichenListe {
 	protected:

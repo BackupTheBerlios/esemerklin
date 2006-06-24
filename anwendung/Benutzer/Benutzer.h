@@ -12,7 +12,7 @@ enum usertype {
 };
 
 /**
- * Die Klasse f&uuml;r einen Benutzer. Sie speichert alle relevanten Informationen zu einem Benutzer.
+ * \brief Die Klasse f&uuml;r einen Benutzer. Sie speichert alle relevanten Informationen zu einem Benutzer.
  * \author Daniel Pietzsch
  */ 
 class Benutzer {

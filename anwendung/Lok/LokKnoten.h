@@ -4,8 +4,7 @@
 #include "Lok.h"
 
 /**
- * Die Klasse LokKnoten ist Teile der verketteten Liste LokListe.
- * Diese Klasse ist ein Knoten in der Liste.
+ * \brief Die Klasse LokKnoten ist ein Knotenpunkt, welcher Daten zu einer Lok enth&auml;lt, der verketteten Liste LokListe.
  * \author Daniel Pietzsch
  */
 class LokKnoten {

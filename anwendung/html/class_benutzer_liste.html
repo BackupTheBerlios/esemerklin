@@ -16,7 +16,10 @@
     <li><a href="hierarchy.html"><span>Class&nbsp;Hierarchy</span></a></li>
     <li><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
   </ul></div>
-<h1>BenutzerListe Class Reference</h1><!-- doxytag: class="BenutzerListe" --><code>#include &lt;BenutzerListe.h&gt;</code>
+<h1>BenutzerListe Class Reference</h1><!-- doxytag: class="BenutzerListe" -->Diese Klasse ist f&uuml;r die Organisation der verketteten Liste der <a class="el" href="class_benutzer.html">Benutzer</a> zust&auml;ndig.  
+<a href="#_details">More...</a>
+<p>
+<code>#include &lt;BenutzerListe.h&gt;</code>
 <p>
 Collaboration diagram for BenutzerListe:<p><center><img src="class_benutzer_liste__coll__graph.png" border="0" usemap="#_benutzer_liste__coll__map" alt="Collaboration graph"></center>
 <map name="_benutzer_liste__coll__map">
@@ -34,11 +37,13 @@ Collaboration diagram for BenutzerListe:<p><center><img src="class_benutzer_list
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_benutzer.html">Benutzer</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_benutzer_liste.html#2598fd87fe01a8a540a0cea95a1f3f77">GetNextBenutzer</a> ()</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_benutzer_liste.html#daff80e44dfd6b19cbbe05df9101152b">AddBenutzerToFile</a> (char *nickname, char *password, usertype type)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_benutzer_liste.html#0196642a4258c9374d166c0c2fabb903">BenutzerExistsInFile</a> (char *filename, char *nickname)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_benutzer_liste.html#b1b8b75bcb2a18eec7607422f82bc342">LoginBenutzer</a> (char *nickname, char *password)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_benutzer_liste.html#8f9be0ad86fa2b622240d838a518c193">AddBenutzerToFile</a> (char *filename, char *nickname, char *password, usertype type)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_benutzer_liste.html#d521a58a81dfc176398d1c16e9e491ea">DeleteBenutzerFromFile</a> (char *nickname)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_benutzer_liste.html#61da8d6a42823e3e87ab4b456849fc09">LoginBenutzer</a> (char *filename, char *nickname, char *password)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_benutzer_liste.html#6332c622f3644715ebea423e93e85cde">DeleteBenutzerFromFile</a> (char *filename, char *nickname)</td></tr>
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
@@ -73,7 +78,7 @@ Der Standardkonstruktor. Er setzt alle Variablen auf 0     </td>
   </tr>
 </table>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="daff80e44dfd6b19cbbe05df9101152b"></a><!-- doxytag: member="BenutzerListe::AddBenutzerToFile" ref="daff80e44dfd6b19cbbe05df9101152b" args="(char *nickname, char *password, usertype type)" --><p>
+<a class="anchor" name="8f9be0ad86fa2b622240d838a518c193"></a><!-- doxytag: member="BenutzerListe::AddBenutzerToFile" ref="8f9be0ad86fa2b622240d838a518c193" args="(char *filename, char *nickname, char *password, usertype type)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -82,6 +87,12 @@ Der Standardkonstruktor. Er setzt alle Variablen auf 0     </td>
           <td class="md" nowrap valign="top">bool BenutzerListe::AddBenutzerToFile           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
           <td class="mdname" nowrap> <em>nickname</em>, </td>
         </tr>
         <tr>
@@ -113,14 +124,59 @@ Der Standardkonstruktor. Er setzt alle Variablen auf 0     </td>
     <td>
 
 <p>
-F&uuml;gt einen <a class="el" href="class_benutzer.html">Benutzer</a> der Benutzerdatei hinzu. Aber nicht der verketteten Liste, da das mit einem Einloggen gleichk&auml;me. <dl compact><dt><b>Parameters:</b></dt><dd>
+F&uuml;gt einen <a class="el" href="class_benutzer.html">Benutzer</a> der Benutzerdatei hinzu. Allerdings nur, wenn der <a class="el" href="class_benutzer.html">Benutzer</a> noch nicht in der Datei existiert. Die Methode f&uuml;gt den <a class="el" href="class_benutzer.html">Benutzer</a> aber nicht der verketteten Liste hinzu, da das mit einem Einloggen gleichk&auml;me. <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>filename</em>&nbsp;</td><td>ist der Name der Datei in die gespeichert werden soll </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>nickname</em>&nbsp;</td><td>Der Benutzername </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>password</em>&nbsp;</td><td>Das Passwort </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>type</em>&nbsp;</td><td>ist der Benutzertyp </td></tr>
   </table>
 </dl>
 <dl compact><dt><b>Returns:</b></dt><dd>liefert true, wenn der <a class="el" href="class_benutzer.html">Benutzer</a> erfolgreich in die Datei eingef&uuml;gt wurde. Ansonsten false. </dd></dl>
+    </td>
+  </tr>
+</table>
+<a class="anchor" name="0196642a4258c9374d166c0c2fabb903"></a><!-- doxytag: member="BenutzerListe::BenutzerExistsInFile" ref="0196642a4258c9374d166c0c2fabb903" args="(char *filename, char *nickname)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">bool BenutzerListe::BenutzerExistsInFile           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>nickname</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Pr&uuml;ft, ob der <a class="el" href="class_benutzer.html">Benutzer</a> bereits existiert in der Datei. <dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>filename</em>&nbsp;</td><td>ist der Name der Datei </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>nickname</em>&nbsp;</td><td>ist der eindeutige Benutzername </td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>true, wenn der <a class="el" href="class_benutzer.html">Benutzer</a> existiert. false, wenn nicht. </dd></dl>
     </td>
   </tr>
 </table>
@@ -157,7 +213,7 @@ L&ouml;scht eineb <a class="el" href="class_benutzer.html">Benutzer</a> aus der 
     </td>
   </tr>
 </table>
-<a class="anchor" name="d521a58a81dfc176398d1c16e9e491ea"></a><!-- doxytag: member="BenutzerListe::DeleteBenutzerFromFile" ref="d521a58a81dfc176398d1c16e9e491ea" args="(char *nickname)" --><p>
+<a class="anchor" name="6332c622f3644715ebea423e93e85cde"></a><!-- doxytag: member="BenutzerListe::DeleteBenutzerFromFile" ref="6332c622f3644715ebea423e93e85cde" args="(char *filename, char *nickname)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -166,9 +222,18 @@ L&ouml;scht eineb <a class="el" href="class_benutzer.html">Benutzer</a> aus der 
           <td class="md" nowrap valign="top">bool BenutzerListe::DeleteBenutzerFromFile           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top">char *&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap> <em>nickname</em>          </td>
-          <td class="md" valign="top">&nbsp;)&nbsp;</td>
-          <td class="md" nowrap></td>
+          <td class="mdname" nowrap> <em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>nickname</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
         </tr>
       </table>
     </td>
@@ -184,6 +249,7 @@ L&ouml;scht eineb <a class="el" href="class_benutzer.html">Benutzer</a> aus der 
 <p>
 L&ouml;scht einen <a class="el" href="class_benutzer.html">Benutzer</a> aus der Benutzerdatei. <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>filename</em>&nbsp;</td><td>ist der Name der Datei </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>nickname</em>&nbsp;</td><td>Der Benutzername </td></tr>
   </table>
 </dl>
@@ -253,7 +319,7 @@ F&uuml;gt einen <a class="el" href="class_benutzer.html">Benutzer</a> der Liste 
     </td>
   </tr>
 </table>
-<a class="anchor" name="b1b8b75bcb2a18eec7607422f82bc342"></a><!-- doxytag: member="BenutzerListe::LoginBenutzer" ref="b1b8b75bcb2a18eec7607422f82bc342" args="(char *nickname, char *password)" --><p>
+<a class="anchor" name="61da8d6a42823e3e87ab4b456849fc09"></a><!-- doxytag: member="BenutzerListe::LoginBenutzer" ref="61da8d6a42823e3e87ab4b456849fc09" args="(char *filename, char *nickname, char *password)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -262,6 +328,12 @@ F&uuml;gt einen <a class="el" href="class_benutzer.html">Benutzer</a> der Liste 
           <td class="md" nowrap valign="top">bool BenutzerListe::LoginBenutzer           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top">char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
           <td class="mdname" nowrap> <em>nickname</em>, </td>
         </tr>
         <tr>
@@ -289,6 +361,7 @@ F&uuml;gt einen <a class="el" href="class_benutzer.html">Benutzer</a> der Liste 
 <p>
 Gleicht die &uuml;bergebenen Daten beim Login mit der Benutzerdatei ab, und bei einer &Uuml;bereinstimmung wird er eingeloggt = der Liste hinzugef&uuml;gt. <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>filename</em>&nbsp;</td><td>ist der Name der Datei </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>nickname</em>&nbsp;</td><td>Der Benutzername </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>password</em>&nbsp;</td><td>Das Passwort </td></tr>
   </table>
@@ -298,8 +371,8 @@ Gleicht die &uuml;bergebenen Daten beim Login mit der Benutzerdatei ab, und bei 
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following files:<ul>
-<li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/BenutzerListe.h<li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/BenutzerListe.cpp</ul>
-<hr size="1"><address style="align: right;"><small>Generated on Tue Jun 20 15:36:26 2006 for ESE Märklin Projekt by&nbsp;
+<li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/Benutzer/BenutzerListe.h<li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/Benutzer/BenutzerListe.cpp</ul>
+<hr size="1"><address style="align: right;"><small>Generated on Sat Jun 24 13:56:16 2006 for ESE Märklin Projekt by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

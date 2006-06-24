@@ -1,4 +1,0 @@
-tam,tampw,0
-daniel,danielpw,1
-mohamed,mohamedpw,2
-fadi,fadipw,3

@@ -4,8 +4,7 @@
 #include "Weiche.h"
 
 /**
- * Die Klasse WeichenKnoten ist Teil der verketteten Liste WeichenListe.
- * Diese Klasse ist ein Knoten in der Liste.
+ * \brief Die Klasse WeichenKnoten ist ein Knoten, welcher Daten einer Weiche enth&auml;lt, der verketteten Liste WeichenListe.
  * \author Daniel Pietzsch
  */
 class WeichenKnoten {

@@ -10,7 +10,7 @@ enum weichenstatus {
 };
 
 /**
- * Die Klasse f&uuml;r eine Weiche. Sie speichert alle relevanten Informationen zu einer Weiche.
+ * \brief Die Klasse f&uuml;r eine Weiche. Sie speichert alle relevanten Informationen zu einer Weiche.
  * \author Daniel Pietzsch
  */
 class Weiche {

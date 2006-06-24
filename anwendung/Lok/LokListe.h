@@ -5,7 +5,7 @@
 #include "Lok.h"
 
 /**
- * Diese Klasse ist f&uuml;r die Organisation der verketteten Liste der Loks zust&auml;ndig.
+ * \brief Diese Klasse ist f&uuml;r die Organisation der verketteten Liste der Loks zust&auml;ndig.
  */
 class LokListe {
 	protected:

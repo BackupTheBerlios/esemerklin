@@ -1,9 +1,9 @@
 #ifndef __LOK_H
 #define __LOK_H
-#include "Benutzer.h"
+#include "../Benutzer/Benutzer.h"
 
 /**
- * Die Klasse f&uuml;r eine Lok. Sie speichert alle relevanten Informationen zu einer Lok.
+ * \brief Die Klasse f&uuml;r eine Lok. Sie speichert alle relevanten Informationen zu einer Lok.
  * Da f&uuml;r eine Lok kein Prozessabbild ben&ouml;tigt wird, wird hier nur die Adresse und der zugreifende Benutzer (sofern vorhanden) gespeichert.
  * \author Daniel Pietzsch
  */

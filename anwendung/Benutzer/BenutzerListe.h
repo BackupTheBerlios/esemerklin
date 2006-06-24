@@ -5,7 +5,7 @@
 #include "Benutzer.h"
 
 /**
- * Diese Klasse ist f&uuml;r die Organisation der verketteten Liste der Benutzer zust&auml;ndig.
+ * \brief Diese Klasse ist f&uuml;r die Organisation der verketteten Liste der Benutzer zust&auml;ndig.
  */
 class BenutzerListe {
 	protected:
@@ -41,7 +41,16 @@ class BenutzerListe {
 	Benutzer* GetNextBenutzer();
 	
 	/**
-	 * F&uuml;gt einen Benutzer der Benutzerdatei hinzu. Aber nicht der verketteten Liste, da das mit einem Einloggen gleichk&auml;me.
+	 * Pr&uuml;ft, ob der Benutzer bereits existiert in der Datei.
+	 * \param filename ist der Name der Datei
+	 * \param nickname ist der eindeutige Benutzername
+	 * \return true, wenn der Benutzer existiert. false, wenn nicht.
+	 */
+	bool BenutzerExistsInFile(char* filename, char* nickname);
+	
+	/**
+	 * F&uuml;gt einen Benutzer der Benutzerdatei hinzu. Allerdings nur, wenn der Benutzer noch nicht in der Datei existiert.
+	 * Die Methode f&uuml;gt den Benutzer aber nicht der verketteten Liste hinzu, da das mit einem Einloggen gleichk&auml;me.
 	 * \param filename ist der Name der Datei in die gespeichert werden soll
 	 * \param nickname Der Benutzername
 	 * \param password Das Passwort
