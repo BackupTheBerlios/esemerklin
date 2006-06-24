@@ -142,54 +142,37 @@ bool BenutzerListe::LoginBenutzer(char* filename, char* nickname, char* password
 	file.close();
 	return false;
 }
-/* Funktioniert noch nicht
+
 bool BenutzerListe::DeleteBenutzerFromFile(char* filename, char* nickname) {
-	ifstream file(filename);
-	char* newlines[20];
-	char zeile[80];
-	int stringNotEqual = true;
-	char* wort;
-	int count = 0;
-	bool deleted = false;
+	if (!BenutzerExistsInFile(filename, nickname)) return false;	//Wenns den Benutzer nicht gibt, mache auch nix und zurück
+	ifstream file(filename);		//Datei zum Lesen öffnen
+	ofstream tempfile("./Benutzer/temp.txt");	//Temoräre Datei, zum zwischenspeichern der Benutzerdaten
 	
-	if (!file) return false;
+	if (!file || !tempfile) return false;	//Wenn irgendwas schiefgeht beim Öffnen, zurück.
+	char zeile[80];						//Die Zeile, die gelesen wird
+	char* tempzeile = new char[80];		//Zeile, welche getrennt wird zur Erkennung des Benutzernamens
+	int stringNotEqual;					//Speichert, ob der String gleich ist oder nicht
+	char* wort = NULL;					//Speichert in diesem Fall den Nickname alleine					
+	bool deleted = false;					//Speichert, ob der Benutzer gelöscht wurde
 	
 	while(!file.eof()) {
 		file.getline(zeile, 80);
-		cout << zeile << " Ende\n";
-		//wort = strtok(zeile, ",");						//den nickname rausfiltern
-		//if (wort != NULL)								//wenn strtok was findet
-		//	stringNotEqual = strcmp(wort, nickname);				//ist der nickname vorhanden und hat er die selbe Länge?
+		strcpy(tempzeile, zeile);
+		wort = strtok(tempzeile, ",");						//den nickname rausfiltern
+		if (wort != NULL)								//wenn strtok was findet
+			stringNotEqual = strcmp(wort, nickname);				//ist der nickname vorhanden und hat er die selbe Länge?
 		if (stringNotEqual)	{	//wenn nix gefunden wurde
-			//strcpy(newlines[count], zeile);
-			newlines[count] = new char[80];
-			newlines[count] = zeile;
-			cout << *(newlines) << " NewEnde\n";
-			//if (count > 0 )
-			//	cout << newlines[count-1] << " voherriges ende\n";
-			count++;
+			tempfile << zeile << "\n";
 		}
 		else {
-			deleted = true;
+			deleted = true;		//Der Benutzer wurde gelöscht
 		}
 	}
-	file.close();
-	cout << newlines[1] << " NewEnde2\n";
 	
-	for (int i=0; i < count; i++) {
-			cout << newlines[i] << " Newline einf. ende\n";
-		}
-	
-	if (deleted) {
-		ofstream fileout(filename);
-		if (!fileout) return false;
-	
-		for (int i=0; i < count; i++) {
-			cout << newlines[i] << i << " Newline einf. ende\n";
-			fileout << newlines[i];
-		}
-		fileout.close();
-	}
+	file.close();		//Datei schließen
+	tempfile.close();
+	delete tempzeile;	//Speicher freigeben
+	rename("./Benutzer/temp.txt", filename);	//Temporäre Datei in die ursprüngliche umbenennen
+
 	return deleted;	
 }
-*/

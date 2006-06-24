@@ -1,7 +1,6 @@
-tam,tampw,0
 daniel,danielpw,1
 mohamed,mohamedpw,2
-fadi,fadipw,3
-NewUser,NewPW,3
 NewUser2,NewPW2,3
-NewUser3,NewPW3,3
+
+
+

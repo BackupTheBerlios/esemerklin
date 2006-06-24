@@ -68,12 +68,12 @@ int main(int argc, char *argv[]) {
 	*/
 	BenutzerListe benutzer;
 	
-	benutzer.AddBenutzerToFile("./Benutzer/user.txt", "NewUser3", "NewPW3", admin);
+	//benutzer.AddBenutzerToFile("./Benutzer/user.txt", "NewUser3", "NewPW3", admin);
 	benutzer.LoginBenutzer("./Benutzer/user.txt", "daniel", "danielpw");
 	benutzer.LoginBenutzer("./Benutzer/user.txt", "tam", "tampw");
 	benutzer.LoginBenutzer("./Benutzer/user.txt", "mohamed", "mohamedpw");
 	
-	//benutzer.DeleteBenutzerFromFile("./user.txt", "mohamed");
+	benutzer.DeleteBenutzerFromFile("./Benutzer/user.txt", "NewUser");
 
 	Benutzer* benutzertest = benutzer.GetNextBenutzer();
 	while (benutzertest != 0) {
