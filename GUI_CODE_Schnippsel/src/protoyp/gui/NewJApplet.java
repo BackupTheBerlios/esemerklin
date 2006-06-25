@@ -31,6 +31,7 @@ public class NewJApplet extends javax.swing.JApplet {
         
     socketCon = new SocketConnect("192.168.0.1"); 
     stream = new Stream(socketCon.getSocket());
+    
 
         try {
             java.awt.EventQueue.invokeAndWait(new Runnable(){
@@ -69,13 +70,13 @@ public class NewJApplet extends javax.swing.JApplet {
         jFrame1 = new javax.swing.JFrame();
         jPanel3 = new javax.swing.JPanel();
         jInternalFrame1 = new javax.swing.JInternalFrame();
+        benutzer = new javax.swing.JFormattedTextField();
+        password = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        benutzer = new javax.swing.JFormattedTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        ausgabe = new javax.swing.JPasswordField();
         Nachrichtenbox = new javax.swing.JInternalFrame();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -116,10 +117,6 @@ public class NewJApplet extends javax.swing.JApplet {
         );
 
         jInternalFrame1.setVisible(true);
-        jButton2.setText("Konfiguration");
-
-        jButton3.setText("Abmelden");
-
         benutzer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 benutzerActionPerformed(evt);
@@ -130,6 +127,16 @@ public class NewJApplet extends javax.swing.JApplet {
                 benutzerKeyPressed(evt);
             }
         });
+
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Konfiguration");
+
+        jButton3.setText("Abmelden");
 
         jButton1.setText("login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -149,7 +156,7 @@ public class NewJApplet extends javax.swing.JApplet {
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jInternalFrame1Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jInternalFrame1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(ausgabe, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                    .add(password, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jLabel2)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jButton1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                     .add(jButton3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
@@ -170,7 +177,7 @@ public class NewJApplet extends javax.swing.JApplet {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jLabel2)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(ausgabe, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(password, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(16, 16, 16)
                 .add(jButton1)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -338,11 +345,15 @@ public class NewJApplet extends javax.swing.JApplet {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+// TODO add your handling code here:
+    }//GEN-LAST:event_passwordActionPerformed
+
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 // TODO add your handling code here:
     stream.sendStream(benutzer.getText());
-    ausgabe.setText(stream.getOutStreams());  
+    password.setText(stream.getOutStreams());  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void benutzerKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_benutzerKeyPressed
@@ -352,14 +363,14 @@ public class NewJApplet extends javax.swing.JApplet {
 
     private void benutzerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_benutzerActionPerformed
     // TODO add your handling code here:
-    stream.sendStream(benutzer.getText());
-    ausgabe.setText(stream.getOutStreams());
+    //stream.sendStream(benutzer.getText());
+    //password.setText(stream.getOutStreams());
+    
     }//GEN-LAST:event_benutzerActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JInternalFrame Nachrichtenbox;
-    private javax.swing.JPasswordField ausgabe;
     private javax.swing.JFormattedTextField benutzer;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -385,6 +396,7 @@ public class NewJApplet extends javax.swing.JApplet {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
+    private javax.swing.JPasswordField password;
     // End of variables declaration//GEN-END:variables
     
 }
