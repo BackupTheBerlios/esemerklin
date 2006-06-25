@@ -363,8 +363,8 @@ public class NewJApplet extends javax.swing.JApplet {
 
     private void benutzerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_benutzerActionPerformed
     // TODO add your handling code here:
-    //stream.sendStream(benutzer.getText());
-    //password.setText(stream.getOutStreams());
+    stream.sendStream(benutzer.getText());
+    password.setText(stream.getOutStreams());
     
     }//GEN-LAST:event_benutzerActionPerformed
     

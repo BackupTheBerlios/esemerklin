@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 
 /**
- *
+ * Diese Klasse ist f&uuml;r die Socketverbindung zust&auml;ndig
  * @author mohamed
  */
 public class SocketConnect {
@@ -29,7 +29,12 @@ public class SocketConnect {
 
     
         
-    /** Creates a new instance of socketConnect */
+    /**
+     * Konstruktor der Klasse SocketConnection.
+     * Erstellt eine neuen Instanz der Klasse
+     * SocketConnection.
+     * @param inet Die IP Adresse des SocketServers
+     */
     public SocketConnect(String inet){
         this.inet = inet;
         try {
@@ -44,16 +49,29 @@ public class SocketConnect {
         }
     }
     
+    /**
+     *Gibt den Socketdeskriptor als R&Uuml;ckgabewert zur&Uuml;ck
+     *@author mohamed
+     *@return Socketdeskriptor vom Typ {@link Socket}
+     */
     public Socket getSocket(){
         return socket;
     }
-    public void sendStream(){}
     
-    
+    /**
+     *Gibt die IP Adresse des Socketservers zur&Uuml;ck
+     *@author mohamed
+     *@return IP als {@link String} 
+     */
     public String setInet(){
         return inet;
     }
     
+    /**
+     *Gibt den Port des Socketserver z&Uuml;ruck
+     *@author mohamed
+     *@return Port als int Wert
+     */
     public int getPort(){
         return port;
     }

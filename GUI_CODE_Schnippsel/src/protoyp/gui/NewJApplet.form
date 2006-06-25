@@ -84,7 +84,7 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="ausgabe" alignment="1" pref="143" max="32767" attributes="0"/>
+                      <Component id="password" alignment="1" pref="143" max="32767" attributes="0"/>
                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton1" alignment="0" pref="143" max="32767" attributes="0"/>
                       <Component id="jButton3" alignment="1" pref="143" max="32767" attributes="1"/>
@@ -108,7 +108,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="ausgabe" min="-2" max="-2" attributes="0"/>
+                  <Component id="password" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -119,6 +119,17 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
+        <Component class="javax.swing.JFormattedTextField" name="benutzer">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="benutzerActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="benutzerKeyPressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="password">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passwordActionPerformed"/>
+          </Events>
+        </Component>
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Konfiguration"/>
@@ -128,12 +139,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Abmelden"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JFormattedTextField" name="benutzer">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="benutzerActionPerformed"/>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="benutzerKeyPressed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
@@ -152,8 +157,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Passwort"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JPasswordField" name="ausgabe">
         </Component>
       </SubComponents>
     </Container>
