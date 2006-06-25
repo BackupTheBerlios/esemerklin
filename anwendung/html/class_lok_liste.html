@@ -42,9 +42,35 @@ Collaboration diagram for LokListe:<p><center><img src="class_lok_liste__coll__g
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok_liste.html#9b1bd84fd62cd52c9f43883d95297907">WriteToFile</a> (char *filename=&quot;./loks.txt&quot;)</td></tr>
 
+<tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="a2e22141b870c8b2a9f87655476c68a4"></a><!-- doxytag: member="LokListe::pStart" ref="a2e22141b870c8b2a9f87655476c68a4" args="" -->
+<a class="el" href="class_lok_knoten.html">LokKnoten</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok_liste.html#a2e22141b870c8b2a9f87655476c68a4">pStart</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">der Startpunkt der Liste <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="495b2ca01c2012e53199e6f1be080473"></a><!-- doxytag: member="LokListe::pCursor" ref="495b2ca01c2012e53199e6f1be080473" args="" -->
+<a class="el" href="class_lok_knoten.html">LokKnoten</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok_liste.html#495b2ca01c2012e53199e6f1be080473">pCursor</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zeiger zum durch die Liste gehen. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="15ed16724834def2779b80be56a11ecf"></a><!-- doxytag: member="LokListe::pGetCursor" ref="15ed16724834def2779b80be56a11ecf" args="" -->
+<a class="el" href="class_lok_knoten.html">LokKnoten</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok_liste.html#15ed16724834def2779b80be56a11ecf">pGetCursor</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zeiger zum durch die Liste gehen f&uuml;r die Ausgabe. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="ffb5cfcf9d8866c55461bbce69483647"></a><!-- doxytag: member="LokListe::anzahl" ref="ffb5cfcf9d8866c55461bbce69483647" args="" -->
+unsigned short int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok_liste.html#ffb5cfcf9d8866c55461bbce69483647">anzahl</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Speichert die aktuelle Anzahl an Loks. <br></td></tr>
+<tr><td colspan="2"><br><h2>Static Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="e189a38750c9315ee544b4cf551f03e8"></a><!-- doxytag: member="LokListe::max_anzahl" ref="e189a38750c9315ee544b4cf551f03e8" args="" -->
+static const unsigned short <br>
+int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok_liste.html#e189a38750c9315ee544b4cf551f03e8">max_anzahl</a> = 10</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gibt die maximal erlaubte Anzahl an. <br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Diese Klasse ist f&uuml;r die Organisation der verketteten Liste der Loks zust&auml;ndig. 
+<p>
+<dl compact><dt><b>Author:</b></dt><dd>Daniel Pietzsch </dd></dl>
+
 <p>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" name="288bd351ab35277aaa0131741bac1025"></a><!-- doxytag: member="LokListe::LokListe" ref="288bd351ab35277aaa0131741bac1025" args="()" --><p>
@@ -238,7 +264,7 @@ Schreibt die aktuelle Liste komplett in eine Datei und &uuml;berschreibt dabei d
 </table>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/Lok/LokListe.h<li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/Lok/LokListe.cpp</ul>
-<hr size="1"><address style="align: right;"><small>Generated on Sat Jun 24 13:56:16 2006 for ESE Märklin Projekt by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Sun Jun 25 17:24:44 2006 for ESE Märklin Projekt by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

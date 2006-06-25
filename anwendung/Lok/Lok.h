@@ -4,14 +4,15 @@
 
 /**
  * \brief Die Klasse f&uuml;r eine Lok. Sie speichert alle relevanten Informationen zu einer Lok.
+ * 
  * Da f&uuml;r eine Lok kein Prozessabbild ben&ouml;tigt wird, wird hier nur die Adresse und der zugreifende Benutzer (sofern vorhanden) gespeichert.
  * \author Daniel Pietzsch
  */
 class Lok {
 	protected:
 	
-	char address;	//Speichert die Adresse der Lok
-	Benutzer* pLokBenutzer;	//ein Zeiger auf den Benutzer, der diese Lok steuert
+	char address;	/**< \brief Speichert die Adresse der Lok */
+	Benutzer* pLokBenutzer;	/**< \brief Ein Zeiger auf den Benutzer, der diese Lok steuert */
 	
 	public:
 	

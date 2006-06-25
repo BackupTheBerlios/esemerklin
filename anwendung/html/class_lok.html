@@ -16,7 +16,7 @@
     <li><a href="hierarchy.html"><span>Class&nbsp;Hierarchy</span></a></li>
     <li><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
   </ul></div>
-<h1>Lok Class Reference</h1><!-- doxytag: class="Lok" -->Die Klasse f&uuml;r eine <a class="el" href="class_lok.html">Lok</a>. Sie speichert alle relevanten Informationen zu einer <a class="el" href="class_lok.html">Lok</a>. Da f&uuml;r eine <a class="el" href="class_lok.html">Lok</a> kein Prozessabbild ben&ouml;tigt wird, wird hier nur die Adresse und der zugreifende <a class="el" href="class_benutzer.html">Benutzer</a> (sofern vorhanden) gespeichert.  
+<h1>Lok Class Reference</h1><!-- doxytag: class="Lok" -->Die Klasse f&uuml;r eine <a class="el" href="class_lok.html">Lok</a>. Sie speichert alle relevanten Informationen zu einer <a class="el" href="class_lok.html">Lok</a>.  
 <a href="#_details">More...</a>
 <p>
 <code>#include &lt;Lok.h&gt;</code>
@@ -30,21 +30,30 @@ Collaboration diagram for Lok:<p><center><img src="class_lok__coll__graph.png" b
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#e010dcc9b390247ef64f680131547245">Lok</a> ()</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#8b2b2067ea49534bd0d39d1e762794d9">Lok</a> (char address)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#8b2b2067ea49534bd0d39d1e762794d9">Lok</a> (char <a class="el" href="class_lok.html#b325eb6db2b732124d1914e4acf3c8bc">address</a>)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#b0f22036e2c3a1988bea63637963fa04">SetAddress</a> (char address)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#b0f22036e2c3a1988bea63637963fa04">SetAddress</a> (char <a class="el" href="class_lok.html#b325eb6db2b732124d1914e4acf3c8bc">address</a>)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#1c628a28dd42f0300b39d0f0a5b1755c">GetAddress</a> ()</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#7427bbe1d1c25b2a2f5d8bfca66cec98">SetBenutzer</a> (<a class="el" href="class_benutzer.html">Benutzer</a> *pLokBenutzer)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#7427bbe1d1c25b2a2f5d8bfca66cec98">SetBenutzer</a> (<a class="el" href="class_benutzer.html">Benutzer</a> *<a class="el" href="class_lok.html#bdb18cd5c70befc3fca6b94756c74f9f">pLokBenutzer</a>)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_benutzer.html">Benutzer</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#e6043a5fdb5746b4edf8b91f4f60b06c">GetBenutzer</a> ()</td></tr>
 
+<tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="b325eb6db2b732124d1914e4acf3c8bc"></a><!-- doxytag: member="Lok::address" ref="b325eb6db2b732124d1914e4acf3c8bc" args="" -->
+char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#b325eb6db2b732124d1914e4acf3c8bc">address</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Speichert die Adresse der <a class="el" href="class_lok.html">Lok</a>. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="bdb18cd5c70befc3fca6b94756c74f9f"></a><!-- doxytag: member="Lok::pLokBenutzer" ref="bdb18cd5c70befc3fca6b94756c74f9f" args="" -->
+<a class="el" href="class_benutzer.html">Benutzer</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok.html#bdb18cd5c70befc3fca6b94756c74f9f">pLokBenutzer</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Ein Zeiger auf den <a class="el" href="class_benutzer.html">Benutzer</a>, der diese <a class="el" href="class_lok.html">Lok</a> steuert. <br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-Die Klasse f&uuml;r eine <a class="el" href="class_lok.html">Lok</a>. Sie speichert alle relevanten Informationen zu einer <a class="el" href="class_lok.html">Lok</a>. Da f&uuml;r eine <a class="el" href="class_lok.html">Lok</a> kein Prozessabbild ben&ouml;tigt wird, wird hier nur die Adresse und der zugreifende <a class="el" href="class_benutzer.html">Benutzer</a> (sofern vorhanden) gespeichert. 
+Die Klasse f&uuml;r eine <a class="el" href="class_lok.html">Lok</a>. Sie speichert alle relevanten Informationen zu einer <a class="el" href="class_lok.html">Lok</a>. 
 <p>
-<dl compact><dt><b>Author:</b></dt><dd>Daniel Pietzsch </dd></dl>
+Da f&uuml;r eine <a class="el" href="class_lok.html">Lok</a> kein Prozessabbild ben&ouml;tigt wird, wird hier nur die Adresse und der zugreifende <a class="el" href="class_benutzer.html">Benutzer</a> (sofern vorhanden) gespeichert. <dl compact><dt><b>Author:</b></dt><dd>Daniel Pietzsch </dd></dl>
 
 <p>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
@@ -233,7 +242,7 @@ Legt den <a class="el" href="class_benutzer.html">Benutzer</a> fest, der diese <
 </table>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/Lok/Lok.h<li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/Lok/Lok.cpp</ul>
-<hr size="1"><address style="align: right;"><small>Generated on Sat Jun 24 13:56:16 2006 for ESE Märklin Projekt by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Sun Jun 25 17:24:44 2006 for ESE Märklin Projekt by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

@@ -9,8 +9,8 @@
  */
 class WeichenKnoten {
 	protected:
-	Weiche* pWeiche;	//Ein Zeiger auf die Weiche, die in diesem Knoten gespeichert ist.
-	WeichenKnoten* pNext;	//Ein Zeiger auf das n&auml;chste Objekt in der Liste
+	Weiche* pWeiche;	/**< \brief Ein Zeiger auf die Weiche, die in diesem Knoten gespeichert ist. */
+	WeichenKnoten* pNext;	/**< \brief Ein Zeiger auf das n&auml;chste Objekt in der Liste */
 	
 	public:
 	/**

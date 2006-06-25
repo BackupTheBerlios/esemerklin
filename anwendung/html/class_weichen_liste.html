@@ -41,9 +41,35 @@ Collaboration diagram for WeichenListe:<p><center><img src="class_weichen_liste_
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weichen_liste.html#1ec6f6d1e916c97740d0d65eaa1a7776">WriteToFile</a> (char *filename=&quot;./weichen.txt&quot;)</td></tr>
 
+<tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="e9d6a100937e59311acc4bd55a2a1e54"></a><!-- doxytag: member="WeichenListe::pStart" ref="e9d6a100937e59311acc4bd55a2a1e54" args="" -->
+<a class="el" href="class_weichen_knoten.html">WeichenKnoten</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weichen_liste.html#e9d6a100937e59311acc4bd55a2a1e54">pStart</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">der Startpunkt der Liste <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="f2c981b5fec39acb00d88e1fa86d61d1"></a><!-- doxytag: member="WeichenListe::pCursor" ref="f2c981b5fec39acb00d88e1fa86d61d1" args="" -->
+<a class="el" href="class_weichen_knoten.html">WeichenKnoten</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weichen_liste.html#f2c981b5fec39acb00d88e1fa86d61d1">pCursor</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zeiger zum durch die Liste gehen. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="8e85e2c903b293d5d8e87b8daa6c8e0b"></a><!-- doxytag: member="WeichenListe::pGetCursor" ref="8e85e2c903b293d5d8e87b8daa6c8e0b" args="" -->
+<a class="el" href="class_weichen_knoten.html">WeichenKnoten</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weichen_liste.html#8e85e2c903b293d5d8e87b8daa6c8e0b">pGetCursor</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zeiger zum durch die Liste gehen f&uuml;r die Ausgabe. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="6ab5b58d606de4acc6a3ce9b5d521f5c"></a><!-- doxytag: member="WeichenListe::anzahl" ref="6ab5b58d606de4acc6a3ce9b5d521f5c" args="" -->
+unsigned short int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weichen_liste.html#6ab5b58d606de4acc6a3ce9b5d521f5c">anzahl</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Speichert die aktuelle Anzahl an Weichen. <br></td></tr>
+<tr><td colspan="2"><br><h2>Static Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="0672e6831845ad78843e659f358b77c5"></a><!-- doxytag: member="WeichenListe::max_anzahl" ref="0672e6831845ad78843e659f358b77c5" args="" -->
+static const unsigned short <br>
+int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weichen_liste.html#0672e6831845ad78843e659f358b77c5">max_anzahl</a> = 20</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gibt die maximal erlaubte Anzahl an. <br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Diese Klasse ist f&uuml;r die Organisation der verketteten Liste der Weichen zust&auml;ndig. 
+<p>
+<dl compact><dt><b>Author:</b></dt><dd>Daniel Pietzsch </dd></dl>
+
 <p>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" name="e6f986f6309684a12f5effea14c83322"></a><!-- doxytag: member="WeichenListe::WeichenListe" ref="e6f986f6309684a12f5effea14c83322" args="()" --><p>
@@ -237,7 +263,7 @@ Schreibt die aktuelle Liste komplett in eine Datei und &uuml;berschreibt dabei d
 </table>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/Weiche/WeichenListe.h<li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/Weiche/WeichenListe.cpp</ul>
-<hr size="1"><address style="align: right;"><small>Generated on Sat Jun 24 13:56:16 2006 for ESE Märklin Projekt by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Sun Jun 25 17:24:44 2006 for ESE Märklin Projekt by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

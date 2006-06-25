@@ -6,14 +6,15 @@
 
 /**
  * \brief Diese Klasse ist f&uuml;r die Organisation der verketteten Liste der Weichen zust&auml;ndig.
+ * \author Daniel Pietzsch
  */
 class WeichenListe {
 	protected:
-	WeichenKnoten* pStart;	//der Startpunkt der Liste
-	WeichenKnoten* pCursor;	//Zeiger zum durch die Liste gehen
-	WeichenKnoten* pGetCursor;	//Zeiger zum durch die Liste gehen f&uuml;r die Ausgabe
-	unsigned short int anzahl;	//Speichert die aktuelle Anzahl an Weichen
-	static const unsigned short int max_anzahl = 20;	//Gibt die maximal erlaubte Anzahl an
+	WeichenKnoten* pStart;	/**< \brief der Startpunkt der Liste */
+	WeichenKnoten* pCursor;	/**< \brief Zeiger zum durch die Liste gehen */
+	WeichenKnoten* pGetCursor;	/**< \brief Zeiger zum durch die Liste gehen f&uuml;r die Ausgabe */
+	unsigned short int anzahl;	/**< \brief Speichert die aktuelle Anzahl an Weichen */
+	static const unsigned short int max_anzahl = 20;	/**< \brief Gibt die maximal erlaubte Anzahl an */
 	
 	public:
 	/**

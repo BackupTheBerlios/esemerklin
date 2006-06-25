@@ -9,8 +9,8 @@
  */
 class BenutzerKnoten {
 	protected:
-	Benutzer* pBenutzer;	//Ein Zeiger auf den Benutzer, die in diesem Knoten gespeichert ist.
-	BenutzerKnoten* pNext;	//Ein Zeiger auf das n&auml;chste Objekt in der Liste
+	Benutzer* pBenutzer;	/**< \brief Ein Zeiger auf den Benutzer, die in diesem Knoten gespeichert ist. */
+	BenutzerKnoten* pNext;	/**< \brief Ein Zeiger auf das n&auml;chste Objekt in der Liste */
 	
 	public:
 	/**

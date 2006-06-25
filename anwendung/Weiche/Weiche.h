@@ -2,11 +2,11 @@
 #define __WEICHE_H
 
 /**
- * Aufz&auml;hlung f&uuml;r den Weichenstatus
+ * \enum Aufz&auml;hlung f&uuml;r den Weichenstatus
  */
 enum weichenstatus {
-	geradeaus,	//=0
-	kurve		//=1
+	geradeaus,	/**< \brief =0 */
+	kurve		/**< \brief =1 */
 };
 
 /**
@@ -15,8 +15,8 @@ enum weichenstatus {
  */
 class Weiche {
 	protected:
-	bool status;		//der aktuelle Status der Weiche.
-	char address;	//die Adresse der Weiche
+	bool status;		/**< \brief der aktuelle Status der Weiche. */
+	char address;	/**< \brief die Adresse der Weiche */
 	
 	public:
 	

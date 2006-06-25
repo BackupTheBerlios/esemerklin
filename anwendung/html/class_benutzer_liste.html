@@ -45,9 +45,35 @@ Collaboration diagram for BenutzerListe:<p><center><img src="class_benutzer_list
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_benutzer_liste.html#6332c622f3644715ebea423e93e85cde">DeleteBenutzerFromFile</a> (char *filename, char *nickname)</td></tr>
 
+<tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="12d5f69e6b9f47257c0938ea2f365619"></a><!-- doxytag: member="BenutzerListe::pStart" ref="12d5f69e6b9f47257c0938ea2f365619" args="" -->
+<a class="el" href="class_benutzer_knoten.html">BenutzerKnoten</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_benutzer_liste.html#12d5f69e6b9f47257c0938ea2f365619">pStart</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">der Startpunkt der Liste <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="7d571d295c98f7891bb21d4a17a23f62"></a><!-- doxytag: member="BenutzerListe::pCursor" ref="7d571d295c98f7891bb21d4a17a23f62" args="" -->
+<a class="el" href="class_benutzer_knoten.html">BenutzerKnoten</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_benutzer_liste.html#7d571d295c98f7891bb21d4a17a23f62">pCursor</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zeiger zum durch die Liste gehen. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="e20785509d8f993fcfe83fd9a6fc452a"></a><!-- doxytag: member="BenutzerListe::pGetCursor" ref="e20785509d8f993fcfe83fd9a6fc452a" args="" -->
+<a class="el" href="class_benutzer_knoten.html">BenutzerKnoten</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_benutzer_liste.html#e20785509d8f993fcfe83fd9a6fc452a">pGetCursor</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zeiger zum durch die Liste gehen f&uuml;r die Ausgabe. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="0b4cb7f81dc36abea2e14bd7c090371d"></a><!-- doxytag: member="BenutzerListe::anzahl" ref="0b4cb7f81dc36abea2e14bd7c090371d" args="" -->
+unsigned short int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_benutzer_liste.html#0b4cb7f81dc36abea2e14bd7c090371d">anzahl</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Speichert die aktuelle Anzahl an <a class="el" href="class_benutzer.html">Benutzer</a>. <br></td></tr>
+<tr><td colspan="2"><br><h2>Static Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="9205460311a8e1de7955321d172bb052"></a><!-- doxytag: member="BenutzerListe::max_anzahl" ref="9205460311a8e1de7955321d172bb052" args="" -->
+static const unsigned short <br>
+int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_benutzer_liste.html#9205460311a8e1de7955321d172bb052">max_anzahl</a> = 10</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gibt die maximal erlaubte Anzahl an. <br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Diese Klasse ist f&uuml;r die Organisation der verketteten Liste der <a class="el" href="class_benutzer.html">Benutzer</a> zust&auml;ndig. 
+<p>
+<dl compact><dt><b>Author:</b></dt><dd>Daniel Pietzsch </dd></dl>
+
 <p>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" name="001fae21dd0886b34745be75c15e6866"></a><!-- doxytag: member="BenutzerListe::BenutzerListe" ref="001fae21dd0886b34745be75c15e6866" args="()" --><p>
@@ -372,7 +398,7 @@ Gleicht die &uuml;bergebenen Daten beim Login mit der Benutzerdatei ab, und bei 
 </table>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/Benutzer/BenutzerListe.h<li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/Benutzer/BenutzerListe.cpp</ul>
-<hr size="1"><address style="align: right;"><small>Generated on Sat Jun 24 13:56:16 2006 for ESE Märklin Projekt by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Sun Jun 25 17:24:43 2006 for ESE Märklin Projekt by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

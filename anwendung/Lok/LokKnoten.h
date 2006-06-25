@@ -9,8 +9,8 @@
  */
 class LokKnoten {
 	protected:
-	Lok* pLok;	//Ein Zeiger auf die Lok, die in diesem Knoten gespeichert ist.
-	LokKnoten* pNext;	//Ein Zeiger auf das n&auml;chste Objekt in der Liste
+	Lok* pLok;	/**< \brief Ein Zeiger auf die Lok, die in diesem Knoten gespeichert ist. */
+	LokKnoten* pNext;	/**< \brief Ein Zeiger auf das n&auml;chste Objekt in der Liste. */
 	
 	public:
 	/**

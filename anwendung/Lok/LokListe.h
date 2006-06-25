@@ -6,14 +6,15 @@
 
 /**
  * \brief Diese Klasse ist f&uuml;r die Organisation der verketteten Liste der Loks zust&auml;ndig.
+ * \author Daniel Pietzsch
  */
 class LokListe {
 	protected:
-	LokKnoten* pStart;	//der Startpunkt der Liste
-	LokKnoten* pCursor;	//Zeiger zum durch die Liste gehen
-	LokKnoten* pGetCursor;	//Zeiger zum durch die Liste gehen f&uuml;r die Ausgabe
-	unsigned short int anzahl;	//Speichert die aktuelle Anzahl an Loks
-	static const unsigned short int max_anzahl = 10;	//Gibt die maximal erlaubte Anzahl an
+	LokKnoten* pStart;	/**< \brief der Startpunkt der Liste */
+	LokKnoten* pCursor;	/**< \brief Zeiger zum durch die Liste gehen */
+	LokKnoten* pGetCursor;	/**< \brief Zeiger zum durch die Liste gehen f&uuml;r die Ausgabe */
+	unsigned short int anzahl;	/**< \brief Speichert die aktuelle Anzahl an Loks */
+	static const unsigned short int max_anzahl = 10;	/**< \brief Gibt die maximal erlaubte Anzahl an */
 	
 	public:
 	/**

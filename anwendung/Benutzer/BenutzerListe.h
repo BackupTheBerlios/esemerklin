@@ -6,14 +6,15 @@
 
 /**
  * \brief Diese Klasse ist f&uuml;r die Organisation der verketteten Liste der Benutzer zust&auml;ndig.
+ * \author Daniel Pietzsch
  */
 class BenutzerListe {
 	protected:
-	BenutzerKnoten* pStart;	//der Startpunkt der Liste
-	BenutzerKnoten* pCursor;	//Zeiger zum durch die Liste gehen
-	BenutzerKnoten* pGetCursor;	//Zeiger zum durch die Liste gehen f&uuml;r die Ausgabe
-	unsigned short int anzahl;	//Speichert die aktuelle Anzahl an Benutzer
-	static const unsigned short int max_anzahl = 10;	//Gibt die maximal erlaubte Anzahl an
+	BenutzerKnoten* pStart;	/**< \brief der Startpunkt der Liste */
+	BenutzerKnoten* pCursor;	/**< \brief Zeiger zum durch die Liste gehen */
+	BenutzerKnoten* pGetCursor;	/**< \brief Zeiger zum durch die Liste gehen f&uuml;r die Ausgabe */
+	unsigned short int anzahl;	/**< \brief Speichert die aktuelle Anzahl an Benutzer */
+	static const unsigned short int max_anzahl = 10;	/**< \brief Gibt die maximal erlaubte Anzahl an */
 	
 	public:
 	/**

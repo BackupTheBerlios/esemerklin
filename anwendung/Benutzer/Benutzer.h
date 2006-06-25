@@ -2,13 +2,13 @@
 #define __BENUTZER_H
 
 /**
- * Aufz&auml;hlung f&uuml;r den Benutzertyp. 0=beobachter bis 3=Admin
+ * \enum Aufz&auml;hlung f&uuml;r den Benutzertyp. 0=beobachter bis 3=Admin
  */
 enum usertype {
-	beobachter,		//=0, niedrigste Berechtigung, sieht nur das Prozessabbild
-	weichensteller,	//=1, darf Weichen stellen
-	lokfuehrer,		//=2, darf zusätzlich noch Loks steuern
-	admin			//=3, höchste Berechtigung, darf zusätzlich noch Weichen, Loks und Benutzer verwalten
+	beobachter,		/**< \brief =0, niedrigste Berechtigung, sieht nur das Prozessabbild */
+	weichensteller,	/**< \brief =1, darf Weichen stellen */
+	lokfuehrer,		/**< \brief =2, darf zusätzlich noch Loks steuern */
+	admin			/**< \brief =3, höchste Berechtigung, darf zusätzlich noch Weichen, Loks und Benutzer verwalten */
 };
 
 /**
@@ -17,9 +17,9 @@ enum usertype {
  */ 
 class Benutzer {
 	protected:
-	char nickname[20];
-	char password[20];
-	usertype type;
+	char nickname[20];	/**< \brief Der eindeutige Benutzername. Max. 20 Zeichen */
+	char password[20];	/**< \brief Das Passwort des Benutzers. Max. 20 Zeichen */
+	usertype type;		/**< \brief Der Benutzertyp. */
 	
 	public:
 	//Benutzer();
