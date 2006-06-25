@@ -29,7 +29,7 @@ public class NewJApplet extends javax.swing.JApplet {
     /** Initializes the applet NewJApplet */
     public void init() {
         
-    socketCon = new SocketConnect("localhost"); 
+    socketCon = new SocketConnect("192.168.0.1"); 
     stream = new Stream(socketCon.getSocket());
 
         try {
@@ -175,7 +175,7 @@ public class NewJApplet extends javax.swing.JApplet {
                 .add(jButton1)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jButton3)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Nachrichtenbox.setVisible(true);
@@ -194,7 +194,7 @@ public class NewJApplet extends javax.swing.JApplet {
         NachrichtenboxLayout.setHorizontalGroup(
             NachrichtenboxLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(NachrichtenboxLayout.createSequentialGroup()
-                .add(29, 29, 29)
+                .add(37, 37, 37)
                 .add(NachrichtenboxLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(NachrichtenboxLayout.createSequentialGroup()
                         .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 121, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -203,7 +203,7 @@ public class NewJApplet extends javax.swing.JApplet {
                         .add(NachrichtenboxLayout.createSequentialGroup()
                             .add(jLabel6, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
                             .addContainerGap())
-                        .add(jLabel7, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                        .add(jLabel7, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
                         .add(NachrichtenboxLayout.createSequentialGroup()
                             .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 118, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .addContainerGap()))))
@@ -219,7 +219,7 @@ public class NewJApplet extends javax.swing.JApplet {
                 .add(jLabel7)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 98, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         jInternalFrame2.setVisible(true);
@@ -240,7 +240,7 @@ public class NewJApplet extends javax.swing.JApplet {
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jCheckBox4)
                     .add(jCheckBox5))
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addContainerGap(493, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -249,7 +249,7 @@ public class NewJApplet extends javax.swing.JApplet {
                 .add(jCheckBox4)
                 .add(24, 24, 24)
                 .add(jCheckBox5)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
         jTabbedPane1.addTab("tab1", jPanel2);
 
@@ -257,11 +257,11 @@ public class NewJApplet extends javax.swing.JApplet {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 266, Short.MAX_VALUE)
+            .add(0, 606, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 188, Short.MAX_VALUE)
+            .add(0, 233, Short.MAX_VALUE)
         );
         jTabbedPane1.addTab("tab2", jPanel1);
 
@@ -269,11 +269,11 @@ public class NewJApplet extends javax.swing.JApplet {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 266, Short.MAX_VALUE)
+            .add(0, 606, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 188, Short.MAX_VALUE)
+            .add(0, 233, Short.MAX_VALUE)
         );
         jTabbedPane1.addTab("tab3", jPanel4);
 
@@ -281,11 +281,11 @@ public class NewJApplet extends javax.swing.JApplet {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 266, Short.MAX_VALUE)
+            .add(0, 606, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 188, Short.MAX_VALUE)
+            .add(0, 233, Short.MAX_VALUE)
         );
         jTabbedPane1.addTab("tab4", jPanel5);
 
@@ -293,17 +293,11 @@ public class NewJApplet extends javax.swing.JApplet {
         jInternalFrame2.getContentPane().setLayout(jInternalFrame2Layout);
         jInternalFrame2Layout.setHorizontalGroup(
             jInternalFrame2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jInternalFrame2Layout.createSequentialGroup()
-                .add(71, 71, 71)
-                .add(jTabbedPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 271, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(171, Short.MAX_VALUE))
+            .add(jTabbedPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE)
         );
         jInternalFrame2Layout.setVerticalGroup(
             jInternalFrame2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jInternalFrame2Layout.createSequentialGroup()
-                .add(64, 64, 64)
-                .add(jTabbedPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 215, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .add(jTabbedPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
         );
 
         jInternalFrame3.setVisible(true);
@@ -311,11 +305,11 @@ public class NewJApplet extends javax.swing.JApplet {
         jInternalFrame3.getContentPane().setLayout(jInternalFrame3Layout);
         jInternalFrame3Layout.setHorizontalGroup(
             jInternalFrame3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 513, Short.MAX_VALUE)
+            .add(0, 627, Short.MAX_VALUE)
         );
         jInternalFrame3Layout.setVerticalGroup(
             jInternalFrame3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 294, Short.MAX_VALUE)
+            .add(0, 311, Short.MAX_VALUE)
         );
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
@@ -324,21 +318,20 @@ public class NewJApplet extends javax.swing.JApplet {
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jInternalFrame1)
-                    .add(Nachrichtenbox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(Nachrichtenbox)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jInternalFrame1))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(jInternalFrame3)
-                    .add(jInternalFrame2))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .add(jInternalFrame2)
+                    .add(jInternalFrame3)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jInternalFrame1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jInternalFrame3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .add(layout.createSequentialGroup()
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                    .add(jInternalFrame1)
+                    .add(jInternalFrame3))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                     .add(Nachrichtenbox)
                     .add(jInternalFrame2)))
