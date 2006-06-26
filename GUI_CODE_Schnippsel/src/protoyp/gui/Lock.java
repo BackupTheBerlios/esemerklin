@@ -15,11 +15,31 @@ package protoyp.gui;
  */
 public class Lock {
     
+    private String LockID;
+    private String Sonderfunktion = "";
+    
     /** Creates a new instance of Lock */
     public Lock() {
     }
     
-    public void getLockID(){}
+    public String getLockID(){
+        return LockID;
+    }
+    
+    public void setLockID(String LockID){
+         this.LockID = LockID;   
+    }
+    
+    public void setSonderFunktion(String Funktion){
+        Sonderfunktion = Funktion;
+    }
+    
+    public String getSonderFunktion(){
+        /*if(Sonderfunktion != null){
+            return "";
+        }*/
+        return Sonderfunktion;
+    }
     
     public void getSpeed(){}
     

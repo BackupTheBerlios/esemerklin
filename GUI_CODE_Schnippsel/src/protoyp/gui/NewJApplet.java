@@ -5,14 +5,7 @@
  */
 
 package protoyp.gui;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.io.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.io.File;
 import javax.swing.*;
 
 
@@ -25,13 +18,15 @@ public class NewJApplet extends javax.swing.JApplet {
 
     SocketConnect socketCon;
     Stream stream;
+    Lock lock;
     
     /** Initializes the applet NewJApplet */
     public void init() {
         
    
-    socketCon = new SocketConnect("192.168.0.1"); 
+    socketCon = new SocketConnect("134.147.59.3"); 
     stream = new Stream(socketCon.getSocket());
+    lock = new Lock();
     
   
 
@@ -93,8 +88,8 @@ public class NewJApplet extends javax.swing.JApplet {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPane2 = new javax.swing.JTextPane();
         jInternalFrame2 = new javax.swing.JInternalFrame();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
+        SteuerFenster = new javax.swing.JTabbedPane();
+        lok1 = new javax.swing.JPanel();
         Lock1 = new javax.swing.JTextField();
         Weiche1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -103,9 +98,13 @@ public class NewJApplet extends javax.swing.JApplet {
         GesendetWeiche = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
+        Sonderfunktion1 = new javax.swing.JRadioButton();
+        Sonderfunktion2 = new javax.swing.JRadioButton();
+        jButton4 = new javax.swing.JButton();
+        jSlider1 = new javax.swing.JSlider();
+        lok2 = new javax.swing.JPanel();
+        lok3 = new javax.swing.JPanel();
+        lok4 = new javax.swing.JPanel();
         jInternalFrame3 = new javax.swing.JInternalFrame();
 
         org.jdesktop.layout.GroupLayout jFrame1Layout = new org.jdesktop.layout.GroupLayout(jFrame1.getContentPane());
@@ -207,16 +206,6 @@ public class NewJApplet extends javax.swing.JApplet {
 
         jScrollPane4.setViewportView(jScrollPane1);
 
-        jTextPane2.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jTextPane2AncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-
         jScrollPane2.setViewportView(jTextPane2);
 
         org.jdesktop.layout.GroupLayout NachrichtenboxLayout = new org.jdesktop.layout.GroupLayout(Nachrichtenbox.getContentPane());
@@ -249,10 +238,16 @@ public class NewJApplet extends javax.swing.JApplet {
                 .add(jLabel7)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 98, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jInternalFrame2.setVisible(true);
+        SteuerFenster.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                TabAuswahl(evt);
+            }
+        });
+
         Lock1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Lock1ActionPerformed(evt);
@@ -279,95 +274,134 @@ public class NewJApplet extends javax.swing.JApplet {
 
         jLabel8.setText("Gesendet");
 
-        org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                        .add(org.jdesktop.layout.GroupLayout.LEADING, Weiche1)
-                        .add(org.jdesktop.layout.GroupLayout.LEADING, Lock1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE))
-                    .add(jLabel3)
-                    .add(jLabel4))
-                .add(78, 78, 78)
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jLabel8)
-                    .add(jLabel5)
-                    .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                        .add(GesendetWeiche)
-                        .add(GesendetLok, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))
-                .addContainerGap(150, Short.MAX_VALUE))
+        Sonderfunktion1.setText("SonderFunktion1");
+        Sonderfunktion1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        Sonderfunktion1.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        Sonderfunktion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Sonderfunktion1ActionPerformed(evt);
+            }
+        });
+
+        Sonderfunktion2.setText("Sonderfunktion2");
+        Sonderfunktion2.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        Sonderfunktion2.setMargin(new java.awt.Insets(0, 0, 0, 0));
+
+        jButton4.setText("jButton4");
+
+        org.jdesktop.layout.GroupLayout lok1Layout = new org.jdesktop.layout.GroupLayout(lok1);
+        lok1.setLayout(lok1Layout);
+        lok1Layout.setHorizontalGroup(
+            lok1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(lok1Layout.createSequentialGroup()
+                .add(lok1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(lok1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .add(lok1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(lok1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                                .add(org.jdesktop.layout.GroupLayout.LEADING, Weiche1)
+                                .add(org.jdesktop.layout.GroupLayout.LEADING, Lock1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE))
+                            .add(jLabel3)
+                            .add(jLabel4)))
+                    .add(lok1Layout.createSequentialGroup()
+                        .add(93, 93, 93)
+                        .add(lok1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jSlider1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(Sonderfunktion1))))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(lok1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(lok1Layout.createSequentialGroup()
+                        .add(jLabel8)
+                        .addContainerGap())
+                    .add(lok1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                        .add(lok1Layout.createSequentialGroup()
+                            .add(lok1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                .add(jLabel5)
+                                .add(lok1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                                    .add(GesendetWeiche)
+                                    .add(GesendetLok, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))
+                            .addContainerGap(131, Short.MAX_VALUE))
+                        .add(org.jdesktop.layout.GroupLayout.TRAILING, lok1Layout.createSequentialGroup()
+                            .add(Sonderfunktion2)
+                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 47, Short.MAX_VALUE)
+                            .add(jButton4)
+                            .add(62, 62, 62)))))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel2Layout.createSequentialGroup()
+        lok1Layout.setVerticalGroup(
+            lok1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(lok1Layout.createSequentialGroup()
                 .add(23, 23, 23)
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                .add(lok1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel3)
                     .add(jLabel5))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                .add(lok1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(Lock1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(GesendetLok, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(39, 39, 39)
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                .add(lok1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel4)
                     .add(jLabel8))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                .add(lok1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(Weiche1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(GesendetWeiche, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 12, Short.MAX_VALUE)
+                .add(jSlider1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(lok1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(Sonderfunktion1)
+                    .add(Sonderfunktion2)
+                    .add(jButton4))
+                .addContainerGap())
         );
-        jTabbedPane1.addTab("tab1", jPanel2);
+        SteuerFenster.addTab("tab1", lok1);
 
-        org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+        org.jdesktop.layout.GroupLayout lok2Layout = new org.jdesktop.layout.GroupLayout(lok2);
+        lok2.setLayout(lok2Layout);
+        lok2Layout.setHorizontalGroup(
+            lok2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(0, 606, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 233, Short.MAX_VALUE)
+        lok2Layout.setVerticalGroup(
+            lok2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 236, Short.MAX_VALUE)
         );
-        jTabbedPane1.addTab("tab2", jPanel1);
+        SteuerFenster.addTab("tab2", lok2);
 
-        org.jdesktop.layout.GroupLayout jPanel4Layout = new org.jdesktop.layout.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+        org.jdesktop.layout.GroupLayout lok3Layout = new org.jdesktop.layout.GroupLayout(lok3);
+        lok3.setLayout(lok3Layout);
+        lok3Layout.setHorizontalGroup(
+            lok3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(0, 606, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 233, Short.MAX_VALUE)
+        lok3Layout.setVerticalGroup(
+            lok3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 236, Short.MAX_VALUE)
         );
-        jTabbedPane1.addTab("tab3", jPanel4);
+        SteuerFenster.addTab("tab3", lok3);
 
-        org.jdesktop.layout.GroupLayout jPanel5Layout = new org.jdesktop.layout.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+        org.jdesktop.layout.GroupLayout lok4Layout = new org.jdesktop.layout.GroupLayout(lok4);
+        lok4.setLayout(lok4Layout);
+        lok4Layout.setHorizontalGroup(
+            lok4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(0, 606, Short.MAX_VALUE)
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 233, Short.MAX_VALUE)
+        lok4Layout.setVerticalGroup(
+            lok4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 236, Short.MAX_VALUE)
         );
-        jTabbedPane1.addTab("tab4", jPanel5);
+        SteuerFenster.addTab("tab4", lok4);
 
         org.jdesktop.layout.GroupLayout jInternalFrame2Layout = new org.jdesktop.layout.GroupLayout(jInternalFrame2.getContentPane());
         jInternalFrame2.getContentPane().setLayout(jInternalFrame2Layout);
         jInternalFrame2Layout.setHorizontalGroup(
             jInternalFrame2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jTabbedPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE)
+            .add(SteuerFenster, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE)
         );
         jInternalFrame2Layout.setVerticalGroup(
             jInternalFrame2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jTabbedPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+            .add(SteuerFenster, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
         );
 
         jInternalFrame3.setVisible(true);
@@ -408,6 +442,16 @@ public class NewJApplet extends javax.swing.JApplet {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void Sonderfunktion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sonderfunktion1ActionPerformed
+// TODO add your handling code here:
+        lock.setSonderFunktion(" 0x41");
+    }//GEN-LAST:event_Sonderfunktion1ActionPerformed
+
+    private void TabAuswahl(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_TabAuswahl
+// TODO add your handling code here:
+        lock.setLockID("0x14");
+    }//GEN-LAST:event_TabAuswahl
+
     private void Weiche1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Weiche1ActionPerformed
 // TODO add your handling code here:
         String senden = "w " + Weiche1.getText();
@@ -422,14 +466,10 @@ public class NewJApplet extends javax.swing.JApplet {
 
     private void Lock1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lock1ActionPerformed
 // TODO add your handling code here:
-        String senden = "l " + Lock1.getText();
+        String senden = "l " + lock.getLockID() + lock.getSonderFunktion() + " " + Lock1.getText();
         stream.sendStream(senden);
         GesendetLok.setText(stream.getOutStreams());
     }//GEN-LAST:event_Lock1ActionPerformed
-
-    private void jTextPane2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTextPane2AncestorAdded
-// TODO add your handling code here:          
-    }//GEN-LAST:event_jTextPane2AncestorAdded
 
     
 
@@ -464,11 +504,15 @@ public class NewJApplet extends javax.swing.JApplet {
     private javax.swing.JTextField GesendetWeiche;
     private javax.swing.JTextField Lock1;
     private javax.swing.JInternalFrame Nachrichtenbox;
+    private javax.swing.JRadioButton Sonderfunktion1;
+    private javax.swing.JRadioButton Sonderfunktion2;
+    private javax.swing.JTabbedPane SteuerFenster;
     private javax.swing.JTextField Weiche1;
     private javax.swing.JFormattedTextField benutzer;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;
@@ -481,17 +525,17 @@ public class NewJApplet extends javax.swing.JApplet {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JSlider jSlider1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
+    private javax.swing.JPanel lok1;
+    private javax.swing.JPanel lok2;
+    private javax.swing.JPanel lok3;
+    private javax.swing.JPanel lok4;
     private javax.swing.JPasswordField password;
     // End of variables declaration//GEN-END:variables
     
