@@ -1,6 +1,9 @@
 #include "BenutzerListe.h"
-#include <iostream.h>
+//#include <iostream.h>
 #include <fstream.h>
+//Für den Borland-Compiler müssen noch folgende Dateien eingeschlossen werden:
+//#include <stdio.h>
+//#include <stdlib.h>
 
 BenutzerListe::BenutzerListe() {
 	pStart = 0;
@@ -97,7 +100,7 @@ bool BenutzerListe::BenutzerExistsInFile(char* filename, char* nickname) {
 }
 
 bool BenutzerListe::AddBenutzerToFile(char* filename, char* nickname, char* password, usertype type) {
-	ofstream file(filename, std::ios::app);	//Die Daten werden angehängt
+	ofstream file(filename, std::ios::app);	//Die Daten werden angehängt. WICHTIG: Für Borland muss "std::" entfernt werden
 	if (!file) return false;	//Wenn ein Fehler auftritt, nix machen und zurück
 	
 	if (!BenutzerExistsInFile(filename, nickname)) {

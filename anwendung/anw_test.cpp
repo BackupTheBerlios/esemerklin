@@ -1,6 +1,7 @@
 #include <iostream.h>
 //#include <fstream.h>
 
+//Für den Borland-Compiler müssen alle (!) Pfade angepasst werden. Auch in allen anderen Dateien (.h, .cpp): z.B. / durch \ ersetzen
 #include "./Lok/Lok.h"
 #include "./Weiche/Weiche.h"
 #include "./Benutzer/Benutzer.h"
