@@ -29,9 +29,11 @@ public class NewJApplet extends javax.swing.JApplet {
     /** Initializes the applet NewJApplet */
     public void init() {
         
+   
     socketCon = new SocketConnect("192.168.0.1"); 
     stream = new Stream(socketCon.getSocket());
     
+  
 
         try {
             java.awt.EventQueue.invokeAndWait(new Runnable(){
@@ -44,9 +46,14 @@ public class NewJApplet extends javax.swing.JApplet {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    
+    
+    
     }
     
-    public void start(){}
+    public void start(){
+   
+    }
     
  public void destroy(){
      
@@ -88,8 +95,14 @@ public class NewJApplet extends javax.swing.JApplet {
         jInternalFrame2 = new javax.swing.JInternalFrame();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
+        Lock1 = new javax.swing.JTextField();
+        Weiche1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        GesendetLok = new javax.swing.JTextField();
+        GesendetWeiche = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -194,6 +207,16 @@ public class NewJApplet extends javax.swing.JApplet {
 
         jScrollPane4.setViewportView(jScrollPane1);
 
+        jTextPane2.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jTextPane2AncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
         jScrollPane2.setViewportView(jTextPane2);
 
         org.jdesktop.layout.GroupLayout NachrichtenboxLayout = new org.jdesktop.layout.GroupLayout(Nachrichtenbox.getContentPane());
@@ -230,13 +253,31 @@ public class NewJApplet extends javax.swing.JApplet {
         );
 
         jInternalFrame2.setVisible(true);
-        jCheckBox4.setText("jCheckBox4");
-        jCheckBox4.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jCheckBox4.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        Lock1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Lock1ActionPerformed(evt);
+            }
+        });
 
-        jCheckBox5.setText("jCheckBox5");
-        jCheckBox5.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jCheckBox5.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        Weiche1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Weiche1ActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Lock");
+
+        jLabel4.setText("Weiche");
+
+        GesendetLok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GesendetLokActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Gesendet");
+
+        jLabel8.setText("Gesendet");
 
         org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -245,18 +286,40 @@ public class NewJApplet extends javax.swing.JApplet {
             .add(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jCheckBox4)
-                    .add(jCheckBox5))
-                .addContainerGap(493, Short.MAX_VALUE))
+                    .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                        .add(org.jdesktop.layout.GroupLayout.LEADING, Weiche1)
+                        .add(org.jdesktop.layout.GroupLayout.LEADING, Lock1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE))
+                    .add(jLabel3)
+                    .add(jLabel4))
+                .add(78, 78, 78)
+                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jLabel8)
+                    .add(jLabel5)
+                    .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                        .add(GesendetWeiche)
+                        .add(GesendetLok, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel2Layout.createSequentialGroup()
-                .add(31, 31, 31)
-                .add(jCheckBox4)
-                .add(24, 24, 24)
-                .add(jCheckBox5)
-                .addContainerGap(142, Short.MAX_VALUE))
+                .add(23, 23, 23)
+                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jLabel3)
+                    .add(jLabel5))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(Lock1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(GesendetLok, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(39, 39, 39)
+                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jLabel4)
+                    .add(jLabel8))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(Weiche1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(GesendetWeiche, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         jTabbedPane1.addTab("tab1", jPanel2);
 
@@ -328,16 +391,16 @@ public class NewJApplet extends javax.swing.JApplet {
                     .add(Nachrichtenbox)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jInternalFrame1))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(jInternalFrame2)
-                    .add(jInternalFrame3)))
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jInternalFrame3)
+                    .add(jInternalFrame2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                    .add(jInternalFrame1)
-                    .add(jInternalFrame3))
+                    .add(jInternalFrame3)
+                    .add(jInternalFrame1))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                     .add(Nachrichtenbox)
@@ -345,8 +408,35 @@ public class NewJApplet extends javax.swing.JApplet {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void Weiche1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Weiche1ActionPerformed
+// TODO add your handling code here:
+        String senden = "w " + Weiche1.getText();
+        stream.sendStream(senden);
+        GesendetWeiche.setText(stream.getOutStreams());
+    }//GEN-LAST:event_Weiche1ActionPerformed
+
+    private void GesendetLokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GesendetLokActionPerformed
+// TODO add your handling code here:
+        
+    }//GEN-LAST:event_GesendetLokActionPerformed
+
+    private void Lock1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lock1ActionPerformed
+// TODO add your handling code here:
+        String senden = "l " + Lock1.getText();
+        stream.sendStream(senden);
+        GesendetLok.setText(stream.getOutStreams());
+    }//GEN-LAST:event_Lock1ActionPerformed
+
+    private void jTextPane2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTextPane2AncestorAdded
+// TODO add your handling code here:          
+    }//GEN-LAST:event_jTextPane2AncestorAdded
+
+    
+
+    
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
 // TODO add your handling code here:
+        
     }//GEN-LAST:event_passwordActionPerformed
 
     
@@ -365,26 +455,32 @@ public class NewJApplet extends javax.swing.JApplet {
     // TODO add your handling code here:
     stream.sendStream(benutzer.getText());
     password.setText(stream.getOutStreams());
-    
     }//GEN-LAST:event_benutzerActionPerformed
     
     
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField GesendetLok;
+    private javax.swing.JTextField GesendetWeiche;
+    private javax.swing.JTextField Lock1;
     private javax.swing.JInternalFrame Nachrichtenbox;
+    private javax.swing.JTextField Weiche1;
     private javax.swing.JFormattedTextField benutzer;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JInternalFrame jInternalFrame3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
