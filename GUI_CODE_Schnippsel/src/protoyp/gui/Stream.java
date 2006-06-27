@@ -83,6 +83,7 @@ public class Stream {
      */
     public void sendStream(String s){
         outStream.println(s);
+        outStream.flush();
     }
     
     

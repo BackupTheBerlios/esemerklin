@@ -17,6 +17,8 @@ public class Lock {
     
     private String LockID;
     private String Sonderfunktion = "";
+    private char befehl;
+    private char Typ = 108;
     
     /** Creates a new instance of Lock */
     public Lock() {
@@ -35,9 +37,6 @@ public class Lock {
     }
     
     public String getSonderFunktion(){
-        /*if(Sonderfunktion != null){
-            return "";
-        }*/
         return Sonderfunktion;
     }
     
@@ -49,5 +48,15 @@ public class Lock {
     
     public void setFunction(){}
     
+    public char getBefehl(){
+        return befehl;
+    }
     
+    public void setBefehl(char befehl){
+        this.befehl = befehl;
+    }
+    
+    public char getTyp(){
+        return Typ;
+    }
 }

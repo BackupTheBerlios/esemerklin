@@ -22,9 +22,12 @@ import javax.swing.JOptionPane;
 public class SocketConnect {
     
     
-    private static String inet;  
+    private static String inet = "192.168.0.10";  
     private static int port = 7;
-    private Socket socket = null;
+    private Socket socket;
+    
+    private PrintStream outStream;
+    private BufferedReader inputStream;
     
 
     
@@ -35,18 +38,9 @@ public class SocketConnect {
      * SocketConnection.
      * @param inet Die IP Adresse des SocketServers
      */
-    public SocketConnect(String inet){
-        this.inet = inet;
-        try {
-            socket = new Socket(inet ,port); 
-        } catch (UnknownHostException ex) {
-            JOptionPane.showMessageDialog(null,"Verbindung zum Socket Server konnte nicht hergestellt werden");
-            ex.printStackTrace();
-            System.out.println("Keine Host gefunden");
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null,"Verbindung zum Socket Server konnte nicht hergestellt werden");
-            ex.printStackTrace();
-        }
+    public SocketConnect(){
+        
+        
     }
     
     /**
@@ -75,6 +69,53 @@ public class SocketConnect {
     public int getPort(){
         return port;
     }
+    
+    public void connect(){
+        
+    try {
+            socket = new Socket(inet ,port); 
+        } catch (UnknownHostException ex) {
+            JOptionPane.showMessageDialog(null,"Verbindung zum Socket Server konnte nicht hergestellt werden");
+            ex.printStackTrace();
+            System.out.println("Keine Host gefunden");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null,"Verbindung zum Socket Server konnte nicht hergestellt werden");
+            ex.printStackTrace();
+        }
+    
+    
+    }
+    
+    public void disconnect(){
+    try {
+           socket.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    public void sendStream(String daten){
+        try {
+            outStream = new PrintStream(socket.getOutputStream());
+            outStream.println(daten);
+            outStream.flush();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    public String readStream(){
+    try {
+            inputStream = new BufferedReader(new InputStreamReader( socket.getInputStream()));
+            return(inputStream.readLine());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        return "Keine Daten empfangen";
+    }
+    
+            
+           
 
     
     
