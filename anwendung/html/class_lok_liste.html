@@ -38,9 +38,9 @@ Collaboration diagram for LokListe:<p><center><img src="class_lok_liste__coll__g
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_lok.html">Lok</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok_liste.html#6845dfcc51916400237210c554a13ab1">GetNextLok</a> ()</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok_liste.html#e8549a6d591159b46ee9783a0ba3a534">FillFromFile</a> (char *filename=&quot;./loks.txt&quot;)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok_liste.html#93115bdfdcb72aa24ce98feb09c99034">FillFromFile</a> (char *filename)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok_liste.html#9b1bd84fd62cd52c9f43883d95297907">WriteToFile</a> (char *filename=&quot;./loks.txt&quot;)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok_liste.html#bab9e156975a07844b90bf2d7072de2a">WriteToFile</a> (char *filename)</td></tr>
 
 <tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="a2e22141b870c8b2a9f87655476c68a4"></a><!-- doxytag: member="LokListe::pStart" ref="a2e22141b870c8b2a9f87655476c68a4" args="" -->
@@ -59,17 +59,15 @@ Collaboration diagram for LokListe:<p><center><img src="class_lok_liste__coll__g
 unsigned short int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok_liste.html#ffb5cfcf9d8866c55461bbce69483647">anzahl</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Speichert die aktuelle Anzahl an Loks. <br></td></tr>
-<tr><td colspan="2"><br><h2>Static Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="e189a38750c9315ee544b4cf551f03e8"></a><!-- doxytag: member="LokListe::max_anzahl" ref="e189a38750c9315ee544b4cf551f03e8" args="" -->
-static const unsigned short <br>
-int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok_liste.html#e189a38750c9315ee544b4cf551f03e8">max_anzahl</a> = 10</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="d7a897003c5d25ca969c22933908ce03"></a><!-- doxytag: member="LokListe::max_anzahl" ref="d7a897003c5d25ca969c22933908ce03" args="" -->
+unsigned short int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lok_liste.html#d7a897003c5d25ca969c22933908ce03">max_anzahl</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gibt die maximal erlaubte Anzahl an. <br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Diese Klasse ist f&uuml;r die Organisation der verketteten Liste der Loks zust&auml;ndig. 
 <p>
-<dl compact><dt><b>Author:</b></dt><dd>Daniel Pietzsch </dd></dl>
+Diese Klasse sollte eingebunden werden und eine Instanz davon erzeugt werden. Dar&uuml;ber kann man s&auml;mtliche Loks verwalten. Am Anfang, sollte immer die Funktion FillFromFile ausgef&uuml;hrt werden. Am Ende muss/sollte immer die Funktion WriteToFile ausgef&uuml;hrt werden <dl compact><dt><b>Author:</b></dt><dd>Daniel Pietzsch </dd></dl>
 
 <p>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
@@ -134,7 +132,7 @@ L&ouml;scht eine <a class="el" href="class_lok.html">Lok</a> aus der Liste und s
     </td>
   </tr>
 </table>
-<a class="anchor" name="e8549a6d591159b46ee9783a0ba3a534"></a><!-- doxytag: member="LokListe::FillFromFile" ref="e8549a6d591159b46ee9783a0ba3a534" args="(char *filename=&quot;./loks.txt&quot;)" --><p>
+<a class="anchor" name="93115bdfdcb72aa24ce98feb09c99034"></a><!-- doxytag: member="LokListe::FillFromFile" ref="93115bdfdcb72aa24ce98feb09c99034" args="(char *filename)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -143,7 +141,7 @@ L&ouml;scht eine <a class="el" href="class_lok.html">Lok</a> aus der Liste und s
           <td class="md" nowrap valign="top">void LokListe::FillFromFile           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top">char *&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap> <em>filename</em> = <code>&quot;./loks.txt&quot;</code>          </td>
+          <td class="mdname1" valign="top" nowrap> <em>filename</em>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
           <td class="md" nowrap></td>
         </tr>
@@ -159,7 +157,7 @@ L&ouml;scht eine <a class="el" href="class_lok.html">Lok</a> aus der Liste und s
     <td>
 
 <p>
-Baut ein Liste auf und f&uuml;llt diese mit entsprechenden Werte aus einer Datei. Standardm&auml;§ig ist das loks.txt <dl compact><dt><b>Parameters:</b></dt><dd>
+Baut ein Liste auf und f&uuml;llt diese mit entsprechenden Werte aus einer Datei. <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>filename</em>&nbsp;</td><td>ist der Name und Pfad der Datei </td></tr>
   </table>
@@ -229,7 +227,7 @@ F&uuml;gt eine <a class="el" href="class_lok.html">Lok</a> der Liste hinzu. Es w
     </td>
   </tr>
 </table>
-<a class="anchor" name="9b1bd84fd62cd52c9f43883d95297907"></a><!-- doxytag: member="LokListe::WriteToFile" ref="9b1bd84fd62cd52c9f43883d95297907" args="(char *filename=&quot;./loks.txt&quot;)" --><p>
+<a class="anchor" name="bab9e156975a07844b90bf2d7072de2a"></a><!-- doxytag: member="LokListe::WriteToFile" ref="bab9e156975a07844b90bf2d7072de2a" args="(char *filename)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -238,7 +236,7 @@ F&uuml;gt eine <a class="el" href="class_lok.html">Lok</a> der Liste hinzu. Es w
           <td class="md" nowrap valign="top">void LokListe::WriteToFile           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top">char *&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap> <em>filename</em> = <code>&quot;./loks.txt&quot;</code>          </td>
+          <td class="mdname1" valign="top" nowrap> <em>filename</em>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
           <td class="md" nowrap></td>
         </tr>
@@ -254,7 +252,7 @@ F&uuml;gt eine <a class="el" href="class_lok.html">Lok</a> der Liste hinzu. Es w
     <td>
 
 <p>
-Schreibt die aktuelle Liste komplett in eine Datei und &uuml;berschreibt dabei die bestehende Datei. <dl compact><dt><b>Parameters:</b></dt><dd>
+Schreibt die aktuelle Liste komplett in eine Datei und &uuml;berschreibt dabei die bestehende Datei. Wurden w&auml;hrend der Laufzeit eine <a class="el" href="class_lok.html">Lok</a> entfernt oder hinzugef&uuml;gt, wird dies hier ber&uuml;cksichtigt. <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>filename</em>&nbsp;</td><td>ist der Name und Pfad der Datei </td></tr>
   </table>
@@ -264,7 +262,7 @@ Schreibt die aktuelle Liste komplett in eine Datei und &uuml;berschreibt dabei d
 </table>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/Lok/LokListe.h<li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/Lok/LokListe.cpp</ul>
-<hr size="1"><address style="align: right;"><small>Generated on Sun Jun 25 17:24:44 2006 for ESE Märklin Projekt by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Tue Jun 27 19:26:19 2006 for ESE Märklin Projekt by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

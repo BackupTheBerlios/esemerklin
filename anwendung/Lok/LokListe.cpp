@@ -6,6 +6,7 @@ LokListe::LokListe() {
 	pCursor = pStart;
 	pGetCursor = pStart;
 	anzahl = 0;
+	max_anzahl = 10;
 }
 
 bool LokListe::InsertLok(Lok* pLok) {

@@ -11,6 +11,9 @@ enum weichenstatus {
 
 /**
  * \brief Die Klasse f&uuml;r eine Weiche. Sie speichert alle relevanten Informationen zu einer Weiche.
+ * 
+ * Die Klasse kann eingebunden werden, wenn man direkt in der Anwendung z.B. einen Zeiger auf eine bestimmte Weiche haben m&ouml;chte.
+ * Ansonsten kann eigentlich jede Weiche Ÿber die Klasse WeichenListe ermittelt werden.
  * \author Daniel Pietzsch
  */
 class Weiche {

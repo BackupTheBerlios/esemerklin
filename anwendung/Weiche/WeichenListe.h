@@ -6,6 +6,10 @@
 
 /**
  * \brief Diese Klasse ist f&uuml;r die Organisation der verketteten Liste der Weichen zust&auml;ndig.
+ * 
+ * Diese Klasse sollte eingebunden werden und eine Instanz davon erzeugt werden. Dar&uuml;ber kann man s&auml;mtliche Weichen verwalten.
+ * Am Anfang, sollte immer die Funktion FillFromFile ausgef&uuml;hrt werden.
+ * Am Ende muss/sollte immer die Funktion WriteToFile ausgef&uuml;hrt werden
  * \author Daniel Pietzsch
  */
 class WeichenListe {
@@ -14,7 +18,7 @@ class WeichenListe {
 	WeichenKnoten* pCursor;	/**< \brief Zeiger zum durch die Liste gehen */
 	WeichenKnoten* pGetCursor;	/**< \brief Zeiger zum durch die Liste gehen f&uuml;r die Ausgabe */
 	unsigned short int anzahl;	/**< \brief Speichert die aktuelle Anzahl an Weichen */
-	static const unsigned short int max_anzahl = 20;	/**< \brief Gibt die maximal erlaubte Anzahl an */
+	unsigned short int max_anzahl;	/**< \brief Gibt die maximal erlaubte Anzahl an */
 	
 	public:
 	/**
@@ -42,16 +46,17 @@ class WeichenListe {
 	Weiche* GetNextWeiche();
 	
 	/**
-	 * Baut ein Liste auf und f&uuml;llt diese mit entsprechenden Werte aus einer Datei. Standardm&auml;§ig ist das weichen.txt
+	 * Baut ein Liste auf und f&uuml;llt diese mit entsprechenden Werte aus einer Datei.
 	 * \param filename ist der Name und Pfad der Datei
 	 */
-	void FillFromFile(char* filename = "./weichen.txt");
+	void FillFromFile(char* filename);
 	
 	/**
 	 * Schreibt die aktuelle Liste komplett in eine Datei und &uuml;berschreibt dabei die bestehende Datei.
+	 * Wurden w&auml;hrend der Laufzeit eine Weiche entfernt oder hinzugef&uuml;gt, wird dies hier ber&uuml;cksichtigt.
 	 * \param filename ist der Name und Pfad der Datei
 	 */
-	void WriteToFile(char* filename = "./weichen.txt");
+	void WriteToFile(char* filename);
 };
 
 #endif /*__WEICHENLISTE_H*/

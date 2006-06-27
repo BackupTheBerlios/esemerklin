@@ -5,6 +5,8 @@
 
 /**
  * \brief Die Klasse WeichenKnoten ist ein Knoten, welcher Daten einer Weiche enth&auml;lt, der verketteten Liste WeichenListe.
+ * 
+ * Diese Klasse muss/sollte nicht direkt benutzt werden. Diese Knoten werden komplett von der Klasse WeichenListe verwaltet und benutzt.
  * \author Daniel Pietzsch
  */
 class WeichenKnoten {

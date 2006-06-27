@@ -6,6 +6,10 @@
 
 /**
  * \brief Diese Klasse ist f&uuml;r die Organisation der verketteten Liste der Loks zust&auml;ndig.
+ * 
+ * Diese Klasse sollte eingebunden werden und eine Instanz davon erzeugt werden. Dar&uuml;ber kann man s&auml;mtliche Loks verwalten.
+ * Am Anfang, sollte immer die Funktion FillFromFile ausgef&uuml;hrt werden.
+ * Am Ende muss/sollte immer die Funktion WriteToFile ausgef&uuml;hrt werden
  * \author Daniel Pietzsch
  */
 class LokListe {
@@ -14,7 +18,7 @@ class LokListe {
 	LokKnoten* pCursor;	/**< \brief Zeiger zum durch die Liste gehen */
 	LokKnoten* pGetCursor;	/**< \brief Zeiger zum durch die Liste gehen f&uuml;r die Ausgabe */
 	unsigned short int anzahl;	/**< \brief Speichert die aktuelle Anzahl an Loks */
-	static const unsigned short int max_anzahl = 10;	/**< \brief Gibt die maximal erlaubte Anzahl an */
+	unsigned short int max_anzahl;	/**< \brief Gibt die maximal erlaubte Anzahl an */
 	
 	public:
 	/**
@@ -42,16 +46,17 @@ class LokListe {
 	Lok* GetNextLok();
 	
 	/**
-	 * Baut ein Liste auf und f&uuml;llt diese mit entsprechenden Werte aus einer Datei. Standardm&auml;§ig ist das loks.txt
+	 * Baut ein Liste auf und f&uuml;llt diese mit entsprechenden Werte aus einer Datei.
 	 * \param filename ist der Name und Pfad der Datei
 	 */
-	void FillFromFile(char* filename = "./loks.txt");
+	void FillFromFile(char* filename);
 	
 	/**
 	 * Schreibt die aktuelle Liste komplett in eine Datei und &uuml;berschreibt dabei die bestehende Datei.
+	 * Wurden w&auml;hrend der Laufzeit eine Lok entfernt oder hinzugef&uuml;gt, wird dies hier ber&uuml;cksichtigt.
 	 * \param filename ist der Name und Pfad der Datei
 	 */
-	void WriteToFile(char* filename = "./loks.txt");
+	void WriteToFile(char* filename);
 };
 
 #endif /*__LOKLISTE_H*/

@@ -43,7 +43,7 @@ Collaboration diagram for BenutzerListe:<p><center><img src="class_benutzer_list
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_benutzer_liste.html#61da8d6a42823e3e87ab4b456849fc09">LoginBenutzer</a> (char *filename, char *nickname, char *password)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_benutzer_liste.html#6332c622f3644715ebea423e93e85cde">DeleteBenutzerFromFile</a> (char *filename, char *nickname)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_benutzer_liste.html#f2a418c6ebc329202e2c8475806e3046">DeleteBenutzerFromFile</a> (char *filename, char *tempfilename, char *nickname)</td></tr>
 
 <tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="12d5f69e6b9f47257c0938ea2f365619"></a><!-- doxytag: member="BenutzerListe::pStart" ref="12d5f69e6b9f47257c0938ea2f365619" args="" -->
@@ -62,17 +62,15 @@ Collaboration diagram for BenutzerListe:<p><center><img src="class_benutzer_list
 unsigned short int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_benutzer_liste.html#0b4cb7f81dc36abea2e14bd7c090371d">anzahl</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Speichert die aktuelle Anzahl an <a class="el" href="class_benutzer.html">Benutzer</a>. <br></td></tr>
-<tr><td colspan="2"><br><h2>Static Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="9205460311a8e1de7955321d172bb052"></a><!-- doxytag: member="BenutzerListe::max_anzahl" ref="9205460311a8e1de7955321d172bb052" args="" -->
-static const unsigned short <br>
-int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_benutzer_liste.html#9205460311a8e1de7955321d172bb052">max_anzahl</a> = 10</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="b9ed947116687fb1138459216baf2e05"></a><!-- doxytag: member="BenutzerListe::max_anzahl" ref="b9ed947116687fb1138459216baf2e05" args="" -->
+unsigned short int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_benutzer_liste.html#b9ed947116687fb1138459216baf2e05">max_anzahl</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gibt die maximal erlaubte Anzahl an. <br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Diese Klasse ist f&uuml;r die Organisation der verketteten Liste der <a class="el" href="class_benutzer.html">Benutzer</a> zust&auml;ndig. 
 <p>
-<dl compact><dt><b>Author:</b></dt><dd>Daniel Pietzsch </dd></dl>
+Diese Klasse sollte eingebunden werden und eine Instanz davon erzeugt werden. Dar&uuml;ber kann man s&auml;mtliche <a class="el" href="class_benutzer.html">Benutzer</a> verwalten. <dl compact><dt><b>Author:</b></dt><dd>Daniel Pietzsch </dd></dl>
 
 <p>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
@@ -231,7 +229,7 @@ Pr&uuml;ft, ob der <a class="el" href="class_benutzer.html">Benutzer</a> bereits
     <td>
 
 <p>
-L&ouml;scht eineb <a class="el" href="class_benutzer.html">Benutzer</a> aus der Liste und somit auch den entsprechenden Knoten. <dl compact><dt><b>Parameters:</b></dt><dd>
+L&ouml;scht eineb <a class="el" href="class_benutzer.html">Benutzer</a> aus der Liste und somit auch den entsprechenden Knoten. Der <a class="el" href="class_benutzer.html">Benutzer</a> ist somit ausgeloggt. <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>nickname</em>&nbsp;</td><td>ist Benutzername, des Benutzers, der zu l&ouml;schen ist. </td></tr>
   </table>
@@ -239,7 +237,7 @@ L&ouml;scht eineb <a class="el" href="class_benutzer.html">Benutzer</a> aus der 
     </td>
   </tr>
 </table>
-<a class="anchor" name="6332c622f3644715ebea423e93e85cde"></a><!-- doxytag: member="BenutzerListe::DeleteBenutzerFromFile" ref="6332c622f3644715ebea423e93e85cde" args="(char *filename, char *nickname)" --><p>
+<a class="anchor" name="f2a418c6ebc329202e2c8475806e3046"></a><!-- doxytag: member="BenutzerListe::DeleteBenutzerFromFile" ref="f2a418c6ebc329202e2c8475806e3046" args="(char *filename, char *tempfilename, char *nickname)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -249,6 +247,12 @@ L&ouml;scht eineb <a class="el" href="class_benutzer.html">Benutzer</a> aus der 
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top">char *&nbsp;</td>
           <td class="mdname" nowrap> <em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap> <em>tempfilename</em>, </td>
         </tr>
         <tr>
           <td class="md" nowrap align="right"></td>
@@ -276,6 +280,7 @@ L&ouml;scht eineb <a class="el" href="class_benutzer.html">Benutzer</a> aus der 
 L&ouml;scht einen <a class="el" href="class_benutzer.html">Benutzer</a> aus der Benutzerdatei. <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>filename</em>&nbsp;</td><td>ist der Name der Datei </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>tempfilename</em>&nbsp;</td><td>ist die Datei, in der die Daten zwischengespeichert werden. </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>nickname</em>&nbsp;</td><td>Der Benutzername </td></tr>
   </table>
 </dl>
@@ -336,7 +341,7 @@ Liefert den n&auml;chsten <a class="el" href="class_benutzer.html">Benutzer</a> 
     <td>
 
 <p>
-F&uuml;gt einen <a class="el" href="class_benutzer.html">Benutzer</a> der Liste hinzu. Es wird ein neuer Knoten definiert. <dl compact><dt><b>Parameters:</b></dt><dd>
+F&uuml;gt einen <a class="el" href="class_benutzer.html">Benutzer</a> der Liste hinzu, d.h. er ist somit eingeloggt. Es wird ein neuer Knoten definiert. <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>pBenutzer</em>&nbsp;</td><td>ist ein Zeiger auf eine Instanz vom Typ <a class="el" href="class_benutzer.html">Benutzer</a>, welche vorher erzeugt werden musste. </td></tr>
   </table>
@@ -385,7 +390,7 @@ F&uuml;gt einen <a class="el" href="class_benutzer.html">Benutzer</a> der Liste 
     <td>
 
 <p>
-Gleicht die &uuml;bergebenen Daten beim Login mit der Benutzerdatei ab, und bei einer &Uuml;bereinstimmung wird er eingeloggt = der Liste hinzugef&uuml;gt. <dl compact><dt><b>Parameters:</b></dt><dd>
+Gleicht die &uuml;bergebenen Daten beim Login mit der Benutzerdatei ab, und bei einer &Uuml;bereinstimmung wird er eingeloggt = der verketteten Liste hinzugef&uuml;gt. <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>filename</em>&nbsp;</td><td>ist der Name der Datei </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>nickname</em>&nbsp;</td><td>Der Benutzername </td></tr>
@@ -398,7 +403,7 @@ Gleicht die &uuml;bergebenen Daten beim Login mit der Benutzerdatei ab, und bei 
 </table>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/Benutzer/BenutzerListe.h<li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/Benutzer/BenutzerListe.cpp</ul>
-<hr size="1"><address style="align: right;"><small>Generated on Sun Jun 25 17:24:43 2006 for ESE Märklin Projekt by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Tue Jun 27 19:26:18 2006 for ESE Märklin Projekt by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

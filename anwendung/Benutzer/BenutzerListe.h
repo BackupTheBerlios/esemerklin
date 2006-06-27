@@ -6,6 +6,8 @@
 
 /**
  * \brief Diese Klasse ist f&uuml;r die Organisation der verketteten Liste der Benutzer zust&auml;ndig.
+ * 
+ * Diese Klasse sollte eingebunden werden und eine Instanz davon erzeugt werden. Dar&uuml;ber kann man s&auml;mtliche Benutzer verwalten.
  * \author Daniel Pietzsch
  */
 class BenutzerListe {
@@ -14,7 +16,7 @@ class BenutzerListe {
 	BenutzerKnoten* pCursor;	/**< \brief Zeiger zum durch die Liste gehen */
 	BenutzerKnoten* pGetCursor;	/**< \brief Zeiger zum durch die Liste gehen f&uuml;r die Ausgabe */
 	unsigned short int anzahl;	/**< \brief Speichert die aktuelle Anzahl an Benutzer */
-	static const unsigned short int max_anzahl = 10;	/**< \brief Gibt die maximal erlaubte Anzahl an */
+	unsigned short int max_anzahl;	/**< \brief Gibt die maximal erlaubte Anzahl an */
 	
 	public:
 	/**
@@ -23,14 +25,14 @@ class BenutzerListe {
 	BenutzerListe();
 	
 	/**
-	 * F&uuml;gt einen Benutzer der Liste hinzu. Es wird ein neuer Knoten definiert.
+	 * F&uuml;gt einen Benutzer der Liste hinzu, d.h. er ist somit eingeloggt. Es wird ein neuer Knoten definiert.
 	 * \param pBenutzer ist ein Zeiger auf eine Instanz vom Typ Benutzer, welche vorher erzeugt werden musste.
 	 * \return Liefert true, wenn der Benutzer eingef&uuml;gt wurde. Liefert false, wenn schon 10 Benutzer erfasst sind.
 	 */
 	bool InsertBenutzer(Benutzer* pBenutzer);
 	
 	/**
-	 * L&ouml;scht eineb Benutzer aus der Liste und somit auch den entsprechenden Knoten.
+	 * L&ouml;scht eineb Benutzer aus der Liste und somit auch den entsprechenden Knoten. Der Benutzer ist somit ausgeloggt.
 	 * \param nickname ist Benutzername, des Benutzers, der zu l&ouml;schen ist.
 	 */
 	void DeleteBenutzer(char* nickname);
@@ -61,7 +63,7 @@ class BenutzerListe {
 	bool AddBenutzerToFile(char* filename, char* nickname, char* password, usertype type);
 	
 	/**
-	 * Gleicht die &uuml;bergebenen Daten beim Login mit der Benutzerdatei ab, und bei einer &Uuml;bereinstimmung wird er eingeloggt = der Liste hinzugef&uuml;gt.
+	 * Gleicht die &uuml;bergebenen Daten beim Login mit der Benutzerdatei ab, und bei einer &Uuml;bereinstimmung wird er eingeloggt = der verketteten Liste hinzugef&uuml;gt.
 	 * \param filename ist der Name der Datei
 	 * \param nickname Der Benutzername
 	 * \param password Das Passwort
@@ -72,10 +74,11 @@ class BenutzerListe {
 	/**
 	 * L&ouml;scht einen Benutzer aus der Benutzerdatei.
 	 * \param filename ist der Name der Datei
+	 * \param tempfilename ist die Datei, in der die Daten zwischengespeichert werden. 
 	 * \param nickname Der Benutzername
 	 * \return Liefert true bei erfolreichem L&ouml;schvorgang. Ansonsten false.
 	 */
-	bool DeleteBenutzerFromFile(char* filename, char* nickname);
+	bool DeleteBenutzerFromFile(char* filename, char* tempfilename, char* nickname);
 };
 
 #endif /*__BENUTZERLISTE_H*/

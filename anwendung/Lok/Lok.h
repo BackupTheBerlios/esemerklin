@@ -6,6 +6,8 @@
  * \brief Die Klasse f&uuml;r eine Lok. Sie speichert alle relevanten Informationen zu einer Lok.
  * 
  * Da f&uuml;r eine Lok kein Prozessabbild ben&ouml;tigt wird, wird hier nur die Adresse und der zugreifende Benutzer (sofern vorhanden) gespeichert.
+ * Die Klasse kann eingebunden werden, wenn man direkt in der Anwendung z.B. einen Zeiger auf eine bestimmte Lok haben m&ouml;chte.
+ * Ansonsten kann eigentlich jede Lok Ÿber die Klasse LokListe ermittelt werden.
  * \author Daniel Pietzsch
  */
 class Lok {

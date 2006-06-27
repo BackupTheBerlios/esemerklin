@@ -37,9 +37,9 @@ Collaboration diagram for WeichenListe:<p><center><img src="class_weichen_liste_
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_weiche.html">Weiche</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weichen_liste.html#5cb887caf09eaf3ff0307f4724944142">GetNextWeiche</a> ()</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weichen_liste.html#d438a6c549d067ac1bff4abfd18b3b32">FillFromFile</a> (char *filename=&quot;./weichen.txt&quot;)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weichen_liste.html#42bd78406ad6d0b19d32658c4602543d">FillFromFile</a> (char *filename)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weichen_liste.html#1ec6f6d1e916c97740d0d65eaa1a7776">WriteToFile</a> (char *filename=&quot;./weichen.txt&quot;)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weichen_liste.html#7ea2b5ea03c55034df19ee71a061349c">WriteToFile</a> (char *filename)</td></tr>
 
 <tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="e9d6a100937e59311acc4bd55a2a1e54"></a><!-- doxytag: member="WeichenListe::pStart" ref="e9d6a100937e59311acc4bd55a2a1e54" args="" -->
@@ -58,17 +58,15 @@ Collaboration diagram for WeichenListe:<p><center><img src="class_weichen_liste_
 unsigned short int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weichen_liste.html#6ab5b58d606de4acc6a3ce9b5d521f5c">anzahl</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Speichert die aktuelle Anzahl an Weichen. <br></td></tr>
-<tr><td colspan="2"><br><h2>Static Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="0672e6831845ad78843e659f358b77c5"></a><!-- doxytag: member="WeichenListe::max_anzahl" ref="0672e6831845ad78843e659f358b77c5" args="" -->
-static const unsigned short <br>
-int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weichen_liste.html#0672e6831845ad78843e659f358b77c5">max_anzahl</a> = 20</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="5fa324121a7ec65aed35bb36a4c264c1"></a><!-- doxytag: member="WeichenListe::max_anzahl" ref="5fa324121a7ec65aed35bb36a4c264c1" args="" -->
+unsigned short int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weichen_liste.html#5fa324121a7ec65aed35bb36a4c264c1">max_anzahl</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gibt die maximal erlaubte Anzahl an. <br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Diese Klasse ist f&uuml;r die Organisation der verketteten Liste der Weichen zust&auml;ndig. 
 <p>
-<dl compact><dt><b>Author:</b></dt><dd>Daniel Pietzsch </dd></dl>
+Diese Klasse sollte eingebunden werden und eine Instanz davon erzeugt werden. Dar&uuml;ber kann man s&auml;mtliche Weichen verwalten. Am Anfang, sollte immer die Funktion FillFromFile ausgef&uuml;hrt werden. Am Ende muss/sollte immer die Funktion WriteToFile ausgef&uuml;hrt werden <dl compact><dt><b>Author:</b></dt><dd>Daniel Pietzsch </dd></dl>
 
 <p>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
@@ -133,7 +131,7 @@ L&ouml;scht eine <a class="el" href="class_weiche.html">Weiche</a> aus der Liste
     </td>
   </tr>
 </table>
-<a class="anchor" name="d438a6c549d067ac1bff4abfd18b3b32"></a><!-- doxytag: member="WeichenListe::FillFromFile" ref="d438a6c549d067ac1bff4abfd18b3b32" args="(char *filename=&quot;./weichen.txt&quot;)" --><p>
+<a class="anchor" name="42bd78406ad6d0b19d32658c4602543d"></a><!-- doxytag: member="WeichenListe::FillFromFile" ref="42bd78406ad6d0b19d32658c4602543d" args="(char *filename)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -142,7 +140,7 @@ L&ouml;scht eine <a class="el" href="class_weiche.html">Weiche</a> aus der Liste
           <td class="md" nowrap valign="top">void WeichenListe::FillFromFile           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top">char *&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap> <em>filename</em> = <code>&quot;./weichen.txt&quot;</code>          </td>
+          <td class="mdname1" valign="top" nowrap> <em>filename</em>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
           <td class="md" nowrap></td>
         </tr>
@@ -158,7 +156,7 @@ L&ouml;scht eine <a class="el" href="class_weiche.html">Weiche</a> aus der Liste
     <td>
 
 <p>
-Baut ein Liste auf und f&uuml;llt diese mit entsprechenden Werte aus einer Datei. Standardm&auml;§ig ist das weichen.txt <dl compact><dt><b>Parameters:</b></dt><dd>
+Baut ein Liste auf und f&uuml;llt diese mit entsprechenden Werte aus einer Datei. <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>filename</em>&nbsp;</td><td>ist der Name und Pfad der Datei </td></tr>
   </table>
@@ -228,7 +226,7 @@ F&uuml;gt eine <a class="el" href="class_weiche.html">Weiche</a> der Liste hinzu
     </td>
   </tr>
 </table>
-<a class="anchor" name="1ec6f6d1e916c97740d0d65eaa1a7776"></a><!-- doxytag: member="WeichenListe::WriteToFile" ref="1ec6f6d1e916c97740d0d65eaa1a7776" args="(char *filename=&quot;./weichen.txt&quot;)" --><p>
+<a class="anchor" name="7ea2b5ea03c55034df19ee71a061349c"></a><!-- doxytag: member="WeichenListe::WriteToFile" ref="7ea2b5ea03c55034df19ee71a061349c" args="(char *filename)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -237,7 +235,7 @@ F&uuml;gt eine <a class="el" href="class_weiche.html">Weiche</a> der Liste hinzu
           <td class="md" nowrap valign="top">void WeichenListe::WriteToFile           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top">char *&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap> <em>filename</em> = <code>&quot;./weichen.txt&quot;</code>          </td>
+          <td class="mdname1" valign="top" nowrap> <em>filename</em>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
           <td class="md" nowrap></td>
         </tr>
@@ -253,7 +251,7 @@ F&uuml;gt eine <a class="el" href="class_weiche.html">Weiche</a> der Liste hinzu
     <td>
 
 <p>
-Schreibt die aktuelle Liste komplett in eine Datei und &uuml;berschreibt dabei die bestehende Datei. <dl compact><dt><b>Parameters:</b></dt><dd>
+Schreibt die aktuelle Liste komplett in eine Datei und &uuml;berschreibt dabei die bestehende Datei. Wurden w&auml;hrend der Laufzeit eine <a class="el" href="class_weiche.html">Weiche</a> entfernt oder hinzugef&uuml;gt, wird dies hier ber&uuml;cksichtigt. <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>filename</em>&nbsp;</td><td>ist der Name und Pfad der Datei </td></tr>
   </table>
@@ -263,7 +261,7 @@ Schreibt die aktuelle Liste komplett in eine Datei und &uuml;berschreibt dabei d
 </table>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/Weiche/WeichenListe.h<li>/Users/pd666/Documents/eclipse_workspace/ESE Maerklin Projekt/Weiche/WeichenListe.cpp</ul>
-<hr size="1"><address style="align: right;"><small>Generated on Sun Jun 25 17:24:44 2006 for ESE Märklin Projekt by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Tue Jun 27 19:26:19 2006 for ESE Märklin Projekt by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6 </small></address>
 </body>

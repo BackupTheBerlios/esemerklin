@@ -5,6 +5,8 @@
 
 /**
  * \brief Die Klasse BenutzerKnoten ist ein Knoten, welcher Daten eines Benutzers enth&auml;lt, der verketteten Liste BenutzerListe.
+ * 
+ * Diese Klasse muss/sollte nicht direkt benutzt werden. Diese Knoten werden komplett von der Klasse BenutzerListe verwaltet und benutzt.
  * \author Daniel Pietzsch
  */
 class BenutzerKnoten {

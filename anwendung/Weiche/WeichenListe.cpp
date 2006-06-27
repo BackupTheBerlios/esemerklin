@@ -6,6 +6,7 @@ WeichenListe::WeichenListe() {
 	pCursor = pStart;
 	pGetCursor = pStart;
 	anzahl = 0;
+	max_anzahl = 20;
 }
 
 bool WeichenListe::InsertWeiche(Weiche* pWeiche) {

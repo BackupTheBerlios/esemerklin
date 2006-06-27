@@ -13,6 +13,9 @@ enum usertype {
 
 /**
  * \brief Die Klasse f&uuml;r einen Benutzer. Sie speichert alle relevanten Informationen zu einem Benutzer.
+ * 
+ * Die Klasse kann eingebunden werden, wenn man direkt in der Anwendung z.B. einen Zeiger auf einen bestimmten Benutzer haben m&ouml;chte.
+ * Ansonsten kann eigentlich jeden Benutzer Ÿber die Klasse BenutzerListe ermittelt werden.
  * \author Daniel Pietzsch
  */ 
 class Benutzer {

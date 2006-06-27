@@ -10,7 +10,7 @@
 #include "./Benutzer/BenutzerListe.h"
 
 
-int main(int argc, char *argv[]) {
+int main() {
 	/*Zum Testen der LokListe
 	
 	LokListe loks;	//erzeugt eine neue Liste
@@ -74,7 +74,7 @@ int main(int argc, char *argv[]) {
 	benutzer.LoginBenutzer("./Benutzer/user.txt", "tam", "tampw");
 	benutzer.LoginBenutzer("./Benutzer/user.txt", "mohamed", "mohamedpw");
 	
-	benutzer.DeleteBenutzerFromFile("./Benutzer/user.txt", "NewUser");
+	benutzer.DeleteBenutzerFromFile("./Benutzer/user.txt", "temp.txt", "NewUser");
 
 	Benutzer* benutzertest = benutzer.GetNextBenutzer();
 	while (benutzertest != 0) {

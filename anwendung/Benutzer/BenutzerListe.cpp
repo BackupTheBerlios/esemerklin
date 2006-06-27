@@ -10,6 +10,7 @@ BenutzerListe::BenutzerListe() {
 	pCursor = pStart;
 	pGetCursor = pStart;
 	anzahl = 0;
+	max_anzahl = 10;
 }
 
 bool BenutzerListe::InsertBenutzer(Benutzer* pBenutzer) {
@@ -146,10 +147,10 @@ bool BenutzerListe::LoginBenutzer(char* filename, char* nickname, char* password
 	return false;
 }
 
-bool BenutzerListe::DeleteBenutzerFromFile(char* filename, char* nickname) {
+bool BenutzerListe::DeleteBenutzerFromFile(char* filename, char* tempfilename, char* nickname) {
 	if (!BenutzerExistsInFile(filename, nickname)) return false;	//Wenns den Benutzer nicht gibt, mache auch nix und zurück
 	ifstream file(filename);		//Datei zum Lesen öffnen
-	ofstream tempfile("./Benutzer/temp.txt");	//Temoräre Datei, zum zwischenspeichern der Benutzerdaten
+	ofstream tempfile(tempfilename);	//Temoräre Datei, zum zwischenspeichern der Benutzerdaten
 	
 	if (!file || !tempfile) return false;	//Wenn irgendwas schiefgeht beim Öffnen, zurück.
 	char zeile[80];						//Die Zeile, die gelesen wird
@@ -175,7 +176,7 @@ bool BenutzerListe::DeleteBenutzerFromFile(char* filename, char* nickname) {
 	file.close();		//Datei schließen
 	tempfile.close();
 	delete tempzeile;	//Speicher freigeben
-	rename("./Benutzer/temp.txt", filename);	//Temporäre Datei in die ursprüngliche umbenennen
+	rename(tempfilename, filename);	//Temporäre Datei in die ursprüngliche umbenennen
 
 	return deleted;	
 }

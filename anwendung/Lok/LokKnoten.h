@@ -5,6 +5,8 @@
 
 /**
  * \brief Die Klasse LokKnoten ist ein Knotenpunkt, welcher Daten zu einer Lok enth&auml;lt, der verketteten Liste LokListe.
+ * 
+ * Diese Klasse muss/sollte nicht direkt benutzt werden. Diese Knoten werden komplett von der Klasse LokListe verwaltet und benutzt.
  * \author Daniel Pietzsch
  */
 class LokKnoten {
