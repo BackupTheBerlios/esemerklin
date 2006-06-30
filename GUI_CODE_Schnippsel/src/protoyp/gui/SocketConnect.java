@@ -22,12 +22,12 @@ import javax.swing.JOptionPane;
 public class SocketConnect {
     
     
-    private static String inet = "192.168.0.10";  
+    private static String inet;  
     private static int port = 7;
     private Socket socket;
     
-    private PrintStream outStream;
-    private BufferedReader inputStream;
+    //private PrintStream outStream;
+    //private BufferedReader inputStream = null;
     
 
     
@@ -38,8 +38,8 @@ public class SocketConnect {
      * SocketConnection.
      * @param inet Die IP Adresse des SocketServers
      */
-    public SocketConnect(){
-        
+    public SocketConnect(String inet){
+       this.inet = inet;
         
     }
     
@@ -95,6 +95,8 @@ public class SocketConnect {
     }
     
     public void sendStream(String daten){
+        PrintStream outStream;
+        
         try {
             outStream = new PrintStream(socket.getOutputStream());
             outStream.println(daten);
@@ -105,13 +107,16 @@ public class SocketConnect {
     }
     
     public String readStream(){
+        BufferedReader inputStream = null;
+        
     try {
             inputStream = new BufferedReader(new InputStreamReader( socket.getInputStream()));
             return(inputStream.readLine());
         } catch (IOException ex) {
             ex.printStackTrace();
+            return "Keine Daten empfangen";
         }
-        return "Keine Daten empfangen";
+        
     }
     
             

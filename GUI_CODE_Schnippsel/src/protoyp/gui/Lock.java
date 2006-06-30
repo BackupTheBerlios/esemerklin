@@ -16,9 +16,9 @@ package protoyp.gui;
 public class Lock {
     
     private String LockID;
-    private String Sonderfunktion = "";
+    private String Sonderfunktion = "Hallo";
     private char befehl;
-    private char Typ = 108;
+    private char lokTyp = 108;
     
     /** Creates a new instance of Lock */
     public Lock() {
@@ -56,7 +56,7 @@ public class Lock {
         this.befehl = befehl;
     }
     
-    public char getTyp(){
-        return Typ;
+    public char getLokTyp(){
+        return lokTyp;
     }
 }
