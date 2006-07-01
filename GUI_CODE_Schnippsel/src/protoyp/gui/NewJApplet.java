@@ -1909,22 +1909,7 @@ public class NewJApplet extends javax.swing.JApplet {
     private void TabAuswahl(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_TabAuswahl
 // TODO add your handling code here:
         String lokname = lok1.getName();
-        /*switch(lokname){
-            case "lok1": lokomotive = 1; break;
-            case 'lok2': lokomotive = 2; break;
-            case 'lok3': lokomotive = 3; break;
-            case 'lok3': lokomotive = 3; break;
-            case 'lok3': lokomotive = 3; break;
-            case 'lok3': lokomotive = 3; break;
-            case 'lok3': lokomotive = 3; break;
-            case 'lok3': lokomotive = 3; break;
-            case 'lok3': lokomotive = 3; break;
-            case 'lok3': lokomotive = 3; break;
-            case 'lok3': lokomotive = 3; break;*/
-                            
-        }
         
-       
     }//GEN-LAST:event_TabAuswahl
 
 
